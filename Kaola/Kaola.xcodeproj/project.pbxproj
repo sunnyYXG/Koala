@@ -12,9 +12,6 @@
 		0D0FB1EB1E89EDEC00D00581 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0D0FB1EA1E89EDEC00D00581 /* Assets.xcassets */; };
 		0D0FB1F91E89EDEC00D00581 /* KaolaTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D0FB1F81E89EDEC00D00581 /* KaolaTests.m */; };
 		0D0FB2041E89EDEC00D00581 /* KaolaUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D0FB2031E89EDEC00D00581 /* KaolaUITests.m */; };
-		0D0FB2601E89EE7D00D00581 /* BaseNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D0FB2181E89EE7D00D00581 /* BaseNavigationViewController.m */; };
-		0D0FB2611E89EE7D00D00581 /* BaseTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D0FB21A1E89EE7D00D00581 /* BaseTableViewController.m */; };
-		0D0FB2621E89EE7D00D00581 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D0FB21C1E89EE7D00D00581 /* BaseViewController.m */; };
 		0D0FB2631E89EE7D00D00581 /* YXGClassifyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D0FB2201E89EE7D00D00581 /* YXGClassifyViewController.m */; };
 		0D0FB2641E89EE7D00D00581 /* YXGFindViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D0FB2241E89EE7D00D00581 /* YXGFindViewController.m */; };
 		0D0FB2651E89EE7D00D00581 /* YXGHomeOtherController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D0FB2281E89EE7D00D00581 /* YXGHomeOtherController.m */; };
@@ -38,6 +35,11 @@
 		0D0FB2771E89EE7D00D00581 /* SGQRCodeScanningView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D0FB2581E89EE7D00D00581 /* SGQRCodeScanningView.m */; };
 		0D0FB2781E89EE7D00D00581 /* YXGShoppingCartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D0FB25C1E89EE7D00D00581 /* YXGShoppingCartViewController.m */; };
 		0D0FB2791E89EE7D00D00581 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0D0FB25D1E89EE7D00D00581 /* InfoPlist.strings */; };
+		0D0FB28A1E8A285A00D00581 /* BaseNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D0FB2821E8A285A00D00581 /* BaseNavigationViewController.m */; };
+		0D0FB28B1E8A285A00D00581 /* BaseTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D0FB2841E8A285A00D00581 /* BaseTableViewController.m */; };
+		0D0FB28C1E8A285A00D00581 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D0FB2861E8A285A00D00581 /* BaseViewController.m */; };
+		0D0FB28D1E8A285A00D00581 /* BaseTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D0FB2891E8A285A00D00581 /* BaseTableViewCell.m */; };
+		0D0FB2901E8A288E00D00581 /* BaseTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D0FB28F1E8A288E00D00581 /* BaseTableView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,13 +72,6 @@
 		0D0FB1FF1E89EDEC00D00581 /* KaolaUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KaolaUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0D0FB2031E89EDEC00D00581 /* KaolaUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KaolaUITests.m; sourceTree = "<group>"; };
 		0D0FB2051E89EDEC00D00581 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		0D0FB2161E89EE7D00D00581 /* BaseDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseDefine.h; sourceTree = "<group>"; };
-		0D0FB2171E89EE7D00D00581 /* BaseNavigationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseNavigationViewController.h; sourceTree = "<group>"; };
-		0D0FB2181E89EE7D00D00581 /* BaseNavigationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseNavigationViewController.m; sourceTree = "<group>"; };
-		0D0FB2191E89EE7D00D00581 /* BaseTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseTableViewController.h; sourceTree = "<group>"; };
-		0D0FB21A1E89EE7D00D00581 /* BaseTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseTableViewController.m; sourceTree = "<group>"; };
-		0D0FB21B1E89EE7D00D00581 /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
-		0D0FB21C1E89EE7D00D00581 /* BaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
 		0D0FB21F1E89EE7D00D00581 /* YXGClassifyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YXGClassifyViewController.h; sourceTree = "<group>"; };
 		0D0FB2201E89EE7D00D00581 /* YXGClassifyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YXGClassifyViewController.m; sourceTree = "<group>"; };
 		0D0FB2231E89EE7D00D00581 /* YXGFindViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YXGFindViewController.h; sourceTree = "<group>"; };
@@ -123,6 +118,17 @@
 		0D0FB25C1E89EE7D00D00581 /* YXGShoppingCartViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YXGShoppingCartViewController.m; sourceTree = "<group>"; };
 		0D0FB25D1E89EE7D00D00581 /* InfoPlist.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = InfoPlist.strings; sourceTree = "<group>"; };
 		0D0FB25E1E89EE7D00D00581 /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		0D0FB2801E8A285A00D00581 /* BaseDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseDefine.h; sourceTree = "<group>"; };
+		0D0FB2811E8A285A00D00581 /* BaseNavigationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseNavigationViewController.h; sourceTree = "<group>"; };
+		0D0FB2821E8A285A00D00581 /* BaseNavigationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseNavigationViewController.m; sourceTree = "<group>"; };
+		0D0FB2831E8A285A00D00581 /* BaseTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseTableViewController.h; sourceTree = "<group>"; };
+		0D0FB2841E8A285A00D00581 /* BaseTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseTableViewController.m; sourceTree = "<group>"; };
+		0D0FB2851E8A285A00D00581 /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
+		0D0FB2861E8A285A00D00581 /* BaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
+		0D0FB2881E8A285A00D00581 /* BaseTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseTableViewCell.h; sourceTree = "<group>"; };
+		0D0FB2891E8A285A00D00581 /* BaseTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseTableViewCell.m; sourceTree = "<group>"; };
+		0D0FB28E1E8A288E00D00581 /* BaseTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseTableView.h; sourceTree = "<group>"; };
+		0D0FB28F1E8A288E00D00581 /* BaseTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseTableView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -229,13 +235,8 @@
 		0D0FB2151E89EE7D00D00581 /* Base */ = {
 			isa = PBXGroup;
 			children = (
-				0D0FB2161E89EE7D00D00581 /* BaseDefine.h */,
-				0D0FB2171E89EE7D00D00581 /* BaseNavigationViewController.h */,
-				0D0FB2181E89EE7D00D00581 /* BaseNavigationViewController.m */,
-				0D0FB2191E89EE7D00D00581 /* BaseTableViewController.h */,
-				0D0FB21A1E89EE7D00D00581 /* BaseTableViewController.m */,
-				0D0FB21B1E89EE7D00D00581 /* BaseViewController.h */,
-				0D0FB21C1E89EE7D00D00581 /* BaseViewController.m */,
+				0D0FB27F1E8A285A00D00581 /* Control */,
+				0D0FB2871E8A285A00D00581 /* View */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -437,6 +438,31 @@
 			path = Control;
 			sourceTree = "<group>";
 		};
+		0D0FB27F1E8A285A00D00581 /* Control */ = {
+			isa = PBXGroup;
+			children = (
+				0D0FB2801E8A285A00D00581 /* BaseDefine.h */,
+				0D0FB2811E8A285A00D00581 /* BaseNavigationViewController.h */,
+				0D0FB2821E8A285A00D00581 /* BaseNavigationViewController.m */,
+				0D0FB2831E8A285A00D00581 /* BaseTableViewController.h */,
+				0D0FB2841E8A285A00D00581 /* BaseTableViewController.m */,
+				0D0FB2851E8A285A00D00581 /* BaseViewController.h */,
+				0D0FB2861E8A285A00D00581 /* BaseViewController.m */,
+			);
+			path = Control;
+			sourceTree = "<group>";
+		};
+		0D0FB2871E8A285A00D00581 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				0D0FB2881E8A285A00D00581 /* BaseTableViewCell.h */,
+				0D0FB2891E8A285A00D00581 /* BaseTableViewCell.m */,
+				0D0FB28E1E8A288E00D00581 /* BaseTableView.h */,
+				0D0FB28F1E8A288E00D00581 /* BaseTableView.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -571,27 +597,29 @@
 			buildActionMask = 2147483647;
 			files = (
 				0D0FB26C1E89EE7D00D00581 /* UIView+Addition.m in Sources */,
-				0D0FB2601E89EE7D00D00581 /* BaseNavigationViewController.m in Sources */,
 				0D0FB2661E89EE7D00D00581 /* YXGHomeTabbarController.m in Sources */,
 				0D0FB2731E89EE7D00D00581 /* SGQRCodeTool.m in Sources */,
 				0D0FB1E31E89EDEC00D00581 /* YXGAppDelegate.m in Sources */,
+				0D0FB28B1E8A285A00D00581 /* BaseTableViewController.m in Sources */,
 				0D0FB2631E89EE7D00D00581 /* YXGClassifyViewController.m in Sources */,
 				0D0FB2681E89EE7D00D00581 /* HomeNavTabBar.m in Sources */,
 				0D0FB2721E89EE7D00D00581 /* SGQRCodeConst.m in Sources */,
 				0D0FB26F1E89EE7D00D00581 /* ThemeManager.m in Sources */,
+				0D0FB28D1E8A285A00D00581 /* BaseTableViewCell.m in Sources */,
+				0D0FB28C1E8A285A00D00581 /* BaseViewController.m in Sources */,
 				0D0FB26E1E89EE7D00D00581 /* HelperTools.m in Sources */,
 				0D0FB2781E89EE7D00D00581 /* YXGShoppingCartViewController.m in Sources */,
 				0D0FB2761E89EE7D00D00581 /* ScanSuccessJumpVC.m in Sources */,
 				0D0FB1E01E89EDEC00D00581 /* main.m in Sources */,
-				0D0FB2611E89EE7D00D00581 /* BaseTableViewController.m in Sources */,
 				0D0FB2691E89EE7D00D00581 /* MainTabBarController.m in Sources */,
 				0D0FB26D1E89EE7D00D00581 /* Factory.m in Sources */,
 				0D0FB2651E89EE7D00D00581 /* YXGHomeOtherController.m in Sources */,
 				0D0FB2641E89EE7D00D00581 /* YXGFindViewController.m in Sources */,
-				0D0FB2621E89EE7D00D00581 /* BaseViewController.m in Sources */,
 				0D0FB2671E89EE7D00D00581 /* YXGHomeViewController.m in Sources */,
+				0D0FB2901E8A288E00D00581 /* BaseTableView.m in Sources */,
 				0D0FB26A1E89EE7D00D00581 /* YXGMineViewController.m in Sources */,
 				0D0FB2771E89EE7D00D00581 /* SGQRCodeScanningView.m in Sources */,
+				0D0FB28A1E8A285A00D00581 /* BaseNavigationViewController.m in Sources */,
 				0D0FB26B1E89EE7D00D00581 /* NSString+Extension.m in Sources */,
 				0D0FB2751E89EE7D00D00581 /* QRCodeScanningVC.m in Sources */,
 				0D0FB2701E89EE7D00D00581 /* SGQRCodeScanningVC.m in Sources */,
@@ -720,6 +748,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PREFIX_HEADER = "$(SRCROOT)/Kaola/PrefixHeader.pch";
 				INFOPLIST_FILE = Kaola/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -733,6 +762,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PREFIX_HEADER = "$(SRCROOT)/Kaola/PrefixHeader.pch";
 				INFOPLIST_FILE = Kaola/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

@@ -7,7 +7,9 @@
 //
 
 #import "BaseViewController.h"
-
+@class BaseTableView;
 @interface BaseTableViewController : BaseViewController<UITableViewDelegate,UITableViewDataSource>
+
+@property (nonatomic) BaseTableView *tableView;
 
 @end
