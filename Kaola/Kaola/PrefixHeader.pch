@@ -1,0 +1,23 @@
+//
+//  PrefixHeader.pch
+//  YXGDemo
+//
+//  Created by sunny_FX on 2017/3/25.
+//  Copyright © 2017年 YXG. All rights reserved.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+#import "YXGHomeTabbarController.h"
+#import "YXGHomeOtherController.h"
+#import "YXGHomeViewController.h"//首页
+#import "YXGFindViewController.h"//发现
+#import "YXGClassifyViewController.h"//分类
+#import "YXGShoppingCartViewController.h"//购物车
+#import "YXGMineViewController.h"//我的
+
+#import "BaseDefine.h"
+
+
+#endif /* PrefixHeader_pch */
