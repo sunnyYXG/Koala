@@ -12,12 +12,15 @@
 
 @interface YXGHomeViewController ()
 
+@property (nonatomic)BaseClass *baseModel;
+
 @end
 
 @implementation YXGHomeViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self reqData];
     [self loadData];
 }
 
@@ -50,6 +53,27 @@
     return 100;
 }
 
+- (void)reqData{
+    NSString *path = @"http://sp.kaola.com/api/home?_httimestamp=1490856927&lastActivityPos=0&lastBrandPos=0&lastGoodsPos=0&pageNo=1";
+    AFHTTPSessionManager *mgr = [AFHTTPSessionManager manager];
+
+    
+    [mgr GET:path parameters:nil progress:^(NSProgress * _Nonnull downloadProgress) {
+        //
+    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        DLog(@"responseObject:%@",responseObject);
+        _baseModel = [[BaseClass alloc]init];
+        _baseModel = (BaseClass *)[BaseClass yy_modelWithJSON:responseObject];
+        DDLog(@"yymodel:%@",_baseModel.body);
+        
+
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        //
+    }];
+    
+    
+
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

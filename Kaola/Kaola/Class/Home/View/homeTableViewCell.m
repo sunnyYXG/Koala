@@ -17,7 +17,6 @@
         }
     }
     UILabel *label = [Factory createLabelWithTitle:[NSString stringWithFormat:@"这是第%ld行",row] frame:CGRectMake(10, 10, SCREEN_WIDTH - 20, 80)];
-//    label.backgroundColor = [UIColor orangeColor];
     [self addSubview:label];
 }
 @end
