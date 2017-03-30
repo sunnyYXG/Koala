@@ -7,7 +7,9 @@
 //
 
 #import "BaseTableViewController.h"
-
+#import "BaseRequest.h"
 @interface YXGHomeViewController : BaseTableViewController
+
+@property (nonatomic, strong) BaseRequest *request;
 
 @end

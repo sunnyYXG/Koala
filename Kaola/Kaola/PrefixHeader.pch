@@ -18,6 +18,7 @@
 #import "YXGMineViewController.h"//我的
 
 #import "BaseDefine.h"
+#import "BaseUrl.h"
 #import "Factory.h"
 #import "HelperTools.h"
 #import "UIView+Addition.h"
@@ -25,10 +26,9 @@
 
 
 #import "AFNetworking.h"
+#import "YYModel.h"
+
 #import "DataModels.h"
 
-#import "NSObject+YYModel.h"
-
-#import "YYModel.h"
 
 #endif /* PrefixHeader_pch */

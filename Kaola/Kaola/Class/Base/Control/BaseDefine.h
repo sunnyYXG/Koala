@@ -53,4 +53,5 @@
 #define DDLog(...)
 #endif
 
+
 #endif /* BaseDefine_h */
