@@ -8,9 +8,29 @@
 
 #import <Foundation/Foundation.h>
 
+@protocol BaseRequestReponseDelegate <NSObject>
+@required
+/** 如果不用block返回数据的话，这个方法必须实现*/
+- (void)requestSuccessReponse:(BOOL)success response:(id)response message:(NSString *)message;
+@end
+
 typedef void(^NHAPIDicCompletion)(id response, BOOL success, NSString *message);
 
 @interface BaseRequest : NSObject
+
+@property (nonatomic, weak) id <BaseRequestReponseDelegate> yxg_delegate;
+/** 链接*/
+@property (nonatomic, copy) NSString *yxg_url;
+/** 默认GET*/
+@property (nonatomic, assign) BOOL yxg_isPost;
+/** 图片数组*/
+@property (nonatomic, strong) NSArray <UIImage *>*yxg_imageArray;
+
+/** 构造方法*/
++ (instancetype)yxg_request;
++ (instancetype)yxg_requestWithUrl:(NSString *)yxg_url;
++ (instancetype)yxg_requestWithUrl:(NSString *)yxg_url isPost:(BOOL)yxg_isPost;
++ (instancetype)yxg_requestWithUrl:(NSString *)yxg_url isPost:(BOOL)yxg_isPost delegate:(id <BaseRequestReponseDelegate>)yxg_delegate;
 
 
 /** 开始请求，如果设置了代理，不需要block回调*/

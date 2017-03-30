@@ -10,7 +10,34 @@
 
 @implementation BaseRequest
 
+#pragma mark - 构造
++ (instancetype)yxg_request {
+    return [[self alloc] init];
+}
 
++ (instancetype)yxg_requestWithUrl:(NSString *)yxg_url {
+    return [self yxg_requestWithUrl:yxg_url isPost:NO];
+}
+
++ (instancetype)yxg_requestWithUrl:(NSString *)yxg_url isPost:(BOOL)yxg_isPost {
+    return [self yxg_requestWithUrl:yxg_url isPost:yxg_isPost delegate:nil];
+}
+
++ (instancetype)yxg_requestWithUrl:(NSString *)yxg_url isPost:(BOOL)yxg_isPost delegate:(id <BaseRequestReponseDelegate>)yxg_delegate {
+    BaseRequest *request = [self yxg_request];
+    request.yxg_url = yxg_url;
+    request.yxg_isPost = yxg_isPost;
+    request.yxg_delegate = yxg_delegate;
+    return request;
+}
+
+-(void)setYxg_url:(NSString *)yxg_url{
+    if (yxg_url.length == 0 || [yxg_url isKindOfClass:[NSNull class]]) {
+        return ;
+    }
+    _yxg_url = yxg_url;
+
+}
 -(void)yxg_sendRequest{
     [self yxg_sendRequestWithCompletion:nil];
 }

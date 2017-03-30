@@ -10,6 +10,6 @@
 
 @interface homeTableViewCell : BaseTableViewCell
 
-- (void)initConfigWithData:(NSInteger)row;
+- (void)initConfigWithData:(NSString *)row;
 
 @end

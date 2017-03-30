@@ -11,5 +11,5 @@
 @interface YXGHomeViewController : BaseTableViewController
 
 @property (nonatomic, strong) BaseRequest *request;
-
+@property (nonatomic)NSArray *List;
 @end

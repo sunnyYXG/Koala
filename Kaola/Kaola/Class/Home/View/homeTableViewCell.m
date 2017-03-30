@@ -10,13 +10,13 @@
 
 @implementation homeTableViewCell
 
--(void)initConfigWithData:(NSInteger)row{
+-(void)initConfigWithData:(NSString *)row{
     for (UIView *view in self.subviews) {
         if (view) {
             [view removeFromSuperview];
         }
     }
-    UILabel *label = [Factory createLabelWithTitle:[NSString stringWithFormat:@"这是第%ld行",row] frame:CGRectMake(10, 10, SCREEN_WIDTH - 20, 80)];
+    UILabel *label = [Factory createLabelWithTitle:[NSString stringWithFormat:@"这是:%@",row] frame:CGRectMake(10, 10, SCREEN_WIDTH - 20, 80)];
     [self addSubview:label];
 }
 @end
