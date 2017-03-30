@@ -6,9 +6,9 @@
 //  Copyright © 2017年 YXG. All rights reserved.
 //
 
-#import "BaseViewController.h"
+#import "BaseTableViewController.h"
 
-@interface YXGHomeOtherController : BaseViewController
+@interface YXGHomeOtherController : BaseTableViewController
 @property (nonatomic , copy) NSString *content;
 
 @end

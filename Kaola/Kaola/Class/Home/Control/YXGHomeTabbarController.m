@@ -58,6 +58,7 @@
         YXGHomeOtherController *otherViewController = [[YXGHomeOtherController alloc] init];
         otherViewController.title = namearray[i];
         otherViewController.content = contentarray[i];
+//        otherViewController.view.backgroundColor = [UIColor redColor];
         [viewArray addObject:otherViewController];
     }
     
@@ -173,12 +174,14 @@
 }
 - (void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar {
     [UIView animateWithDuration:0.3 animations:^{
+        _ERCodeBtn.hidden = YES;
         self.navigationController.navigationBarHidden = YES;
         _searchBar.frame = CGRectMake(0, 20, SCREEN_WIDTH, 44);
         _searchBar.showsCancelButton = YES;
     }];
 }
 - (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar {
+    _ERCodeBtn.hidden = NO;
     _searchBar.frame = CGRectMake(47, 20, SCREEN_WIDTH - 94, 44);
     _searchBar.showsCancelButton = NO;
     [_searchBar resignFirstResponder];
@@ -190,7 +193,10 @@
 - (UIButton *)ERCodeBtn{
     if (!_ERCodeBtn) {
         _ERCodeBtn = [[UIButton alloc]initWithFrame:CGRectMake(15, 31, 22, 22)];
-        _ERCodeBtn.backgroundColor = [UIColor orangeColor];
+//        _ERCodeBtn.backgroundColor = [UIColor orangeColor];
+//        [_ERCodeBtn setBackgroundImage:[UIImage imageNamed:@"ERCode"] forState:UIControlStateNormal];
+        [_ERCodeBtn setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
+        [_ERCodeBtn setTitle:@"+" forState:UIControlStateNormal];
         [_ERCodeBtn addTarget:self action:@selector(scanningQRCode:) forControlEvents:UIControlEventTouchUpInside];
 
     }

@@ -40,6 +40,8 @@
 		0D0FB28C1E8A285A00D00581 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D0FB2861E8A285A00D00581 /* BaseViewController.m */; };
 		0D0FB28D1E8A285A00D00581 /* BaseTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D0FB2891E8A285A00D00581 /* BaseTableViewCell.m */; };
 		0D0FB2901E8A288E00D00581 /* BaseTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D0FB28F1E8A288E00D00581 /* BaseTableView.m */; };
+		0DF71C931E8C869100B4DB14 /* BaseTableHeaderFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DF71C921E8C869100B4DB14 /* BaseTableHeaderFooterView.m */; };
+		0DF71C961E8C95B400B4DB14 /* homeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DF71C951E8C95B400B4DB14 /* homeTableViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -129,6 +131,10 @@
 		0D0FB2891E8A285A00D00581 /* BaseTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseTableViewCell.m; sourceTree = "<group>"; };
 		0D0FB28E1E8A288E00D00581 /* BaseTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseTableView.h; sourceTree = "<group>"; };
 		0D0FB28F1E8A288E00D00581 /* BaseTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseTableView.m; sourceTree = "<group>"; };
+		0DF71C911E8C869100B4DB14 /* BaseTableHeaderFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseTableHeaderFooterView.h; sourceTree = "<group>"; };
+		0DF71C921E8C869100B4DB14 /* BaseTableHeaderFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseTableHeaderFooterView.m; sourceTree = "<group>"; };
+		0DF71C941E8C95B400B4DB14 /* homeTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = homeTableViewCell.h; sourceTree = "<group>"; };
+		0DF71C951E8C95B400B4DB14 /* homeTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = homeTableViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -302,6 +308,8 @@
 			children = (
 				0D0FB22E1E89EE7D00D00581 /* HomeNavTabBar.h */,
 				0D0FB22F1E89EE7D00D00581 /* HomeNavTabBar.m */,
+				0DF71C941E8C95B400B4DB14 /* homeTableViewCell.h */,
+				0DF71C951E8C95B400B4DB14 /* homeTableViewCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -459,6 +467,8 @@
 				0D0FB2891E8A285A00D00581 /* BaseTableViewCell.m */,
 				0D0FB28E1E8A288E00D00581 /* BaseTableView.h */,
 				0D0FB28F1E8A288E00D00581 /* BaseTableView.m */,
+				0DF71C911E8C869100B4DB14 /* BaseTableHeaderFooterView.h */,
+				0DF71C921E8C869100B4DB14 /* BaseTableHeaderFooterView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -602,6 +612,7 @@
 				0D0FB1E31E89EDEC00D00581 /* YXGAppDelegate.m in Sources */,
 				0D0FB28B1E8A285A00D00581 /* BaseTableViewController.m in Sources */,
 				0D0FB2631E89EE7D00D00581 /* YXGClassifyViewController.m in Sources */,
+				0DF71C931E8C869100B4DB14 /* BaseTableHeaderFooterView.m in Sources */,
 				0D0FB2681E89EE7D00D00581 /* HomeNavTabBar.m in Sources */,
 				0D0FB2721E89EE7D00D00581 /* SGQRCodeConst.m in Sources */,
 				0D0FB26F1E89EE7D00D00581 /* ThemeManager.m in Sources */,
@@ -623,6 +634,7 @@
 				0D0FB26B1E89EE7D00D00581 /* NSString+Extension.m in Sources */,
 				0D0FB2751E89EE7D00D00581 /* QRCodeScanningVC.m in Sources */,
 				0D0FB2701E89EE7D00D00581 /* SGQRCodeScanningVC.m in Sources */,
+				0DF71C961E8C95B400B4DB14 /* homeTableViewCell.m in Sources */,
 				0D0FB2741E89EE7D00D00581 /* QRCodeGenerateVC.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

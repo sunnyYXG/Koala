@@ -18,6 +18,10 @@
 #import "YXGMineViewController.h"//我的
 
 #import "BaseDefine.h"
+#import "Factory.h"
+#import "HelperTools.h"
+#import "UIView+Addition.h"
+#import "NSString+Extension.h"
 
 
 #endif /* PrefixHeader_pch */

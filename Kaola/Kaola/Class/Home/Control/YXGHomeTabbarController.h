@@ -8,7 +8,6 @@
 
 #import "BaseViewController.h"
 
-@class HomeNavTabBar;
 @interface YXGHomeTabbarController : BaseViewController
 
 @property (nonatomic, assign)   BOOL        scrollAnimation;            // Default value: NO

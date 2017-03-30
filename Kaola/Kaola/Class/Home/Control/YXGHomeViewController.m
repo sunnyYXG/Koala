@@ -7,6 +7,8 @@
 //
 
 #import "YXGHomeViewController.h"
+#import "BaseTableViewCell.h"
+#import "homeTableViewCell.h"
 
 @interface YXGHomeViewController ()
 
@@ -16,23 +18,42 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-//    self.view.backgroundColor = [UIColor grayColor];
-    // Do any additional setup after loading the view.
+    [self loadData];
 }
+
+- (void)loadData{
+    [self yxg_reloadData];
+}
+#pragma mark - UITableViewDelegate
+- (NSInteger)yxg_numberOfSections {
+    return 1;
+}
+
+- (NSInteger)yxg_numberOfRowsInSection:(NSInteger)section {
+    return 10;
+}
+
+- (BaseTableViewCell *)yxg_cellAtIndexPath:(NSIndexPath *)indexPath {
+    // 1. 创建cell
+    homeTableViewCell *cell = [homeTableViewCell cellWithTableView:self.tableView];
+    [cell initConfigWithData:indexPath.row];
+    
+    // 3. 返回cell
+    return cell;
+}
+
+- (void)yxg_didSelectCellAtIndexPath:(NSIndexPath *)indexPath cell:(BaseTableViewCell *)cell {
+    DDLog(@"只是打印");
+}
+
+- (CGFloat)yxg_cellheightAtIndexPath:(NSIndexPath *)indexPath {
+    return 100;
+}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

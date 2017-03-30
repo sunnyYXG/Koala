@@ -6,8 +6,8 @@
 //  Copyright © 2017年 YXG. All rights reserved.
 //
 
-#import "BaseViewController.h"
+#import "BaseTableViewController.h"
 
-@interface YXGHomeViewController : BaseViewController
+@interface YXGHomeViewController : BaseTableViewController
 
 @end
