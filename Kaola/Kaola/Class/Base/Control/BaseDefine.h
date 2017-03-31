@@ -40,6 +40,11 @@
 #define IMP_BLOCK_SELF(type) __block type *block_self=self;
 #endif
 
+/**
+ *  弱指针
+ */
+#define WeakSelf(weakSelf)  __weak __typeof(&*self)weakSelf = self;
+
 #ifdef DEBUG
 #define DLog(...) NSLog(@"%s(第%d行) %@", __PRETTY_FUNCTION__, __LINE__, [NSString stringWithFormat:__VA_ARGS__])
 #else

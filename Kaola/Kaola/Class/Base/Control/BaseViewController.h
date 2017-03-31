@@ -24,11 +24,24 @@
 
 - (void)presentVc:(UIViewController *)vc completion:(void (^)(void))completion;
 
-- (void)pushVc:(UIViewController *)vc;
+- (void)pushVc:(UIViewController *)vc userInfo:(NSDictionary *)userInfo;
 
 - (void)removeChildVc:(UIViewController *)childVc;
 
 - (void)addChildVc:(UIViewController *)childVc;
+
+- (void)startProgress;
+
+- (void)stopProgress;
+
+- (void)showSuccess:(NSString *)msg;
+
+- (void)showError:(NSString *)msg;
+
+/**
+ *  储存上个界面传递过来的数据
+ */
+@property (nonatomic) NSDictionary *userInfo;
 
 /** 加载中*/
 - (void)showLoadingAnimation;

@@ -44,17 +44,12 @@
 - (void)yxg_sendRequestWithCompletion:(NHAPIDicCompletion)completion {
     
         AFHTTPSessionManager *mgr = [AFHTTPSessionManager manager];
-            [mgr GET:home_url parameters:nil progress:^(NSProgress * _Nonnull downloadProgress) {
-            
+            [mgr GET:self.yxg_url parameters:nil progress:^(NSProgress * _Nonnull downloadProgress) {
             
         } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
             
+            //数据请求成功的block回调
             completion(responseObject, YES, @"");
-
-//            _baseModel = [[BaseClass alloc]init];
-//            _baseModel = (BaseClass *)[BaseClass yy_modelWithJSON:responseObject];
-//            DDLog(@"yymodel:%@",_baseModel.body);
-            
             
         } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
             //

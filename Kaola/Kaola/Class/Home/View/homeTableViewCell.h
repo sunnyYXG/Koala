@@ -7,9 +7,11 @@
 //
 
 #import "BaseTableViewCell.h"
-
+@class HomeTableViewCellFrame;
 @interface homeTableViewCell : BaseTableViewCell
 
-- (void)initConfigWithData:(NSString *)row;
+
+/** 首页cellFrame模型*/
+@property (nonatomic, strong) HomeTableViewCellFrame *cellFrame;
 
 @end

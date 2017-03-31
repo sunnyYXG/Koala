@@ -19,7 +19,6 @@
     [UIView setAnimationsEnabled:YES];
     self.automaticallyAdjustsScrollViewInsets = NO;
     self.edgesForExtendedLayout = UIRectEdgeAll;
-
     // Do any additional setup after loading the view, typically from a nib.
 }
 
@@ -61,12 +60,14 @@
     [self presentViewController:vc animated:YES completion:completion];
 }
 
-- (void)pushVc:(UIViewController *)vc {
+- (void)pushVc:(UIViewController *)vc userInfo:(NSDictionary *)userInfo{
     if ([vc isKindOfClass:[UIViewController class]] == NO) return ;
     if (self.navigationController == nil) return ;
     if (vc.hidesBottomBarWhenPushed == NO) {
         vc.hidesBottomBarWhenPushed = YES;
     }
+    BaseViewController *ctr = (BaseViewController *)vc;
+    ctr.userInfo = userInfo;
     [self.navigationController pushViewController:vc animated:YES];
 }
 
@@ -94,7 +95,42 @@
 }
 
 - (void)loadData {
+    
 }
+
+
+- (void)startProgress {
+    self.view.userInteractionEnabled = NO;
+    if (self.navigationController != nil) {
+        self.navigationController.interactivePopGestureRecognizer.enabled = NO;
+    }
+    [SVProgressHUD show];
+}
+
+- (void)stopProgress {
+    [SVProgressHUD dismiss];
+    self.view.userInteractionEnabled = YES;
+    if (self.navigationController != nil) {
+        self.navigationController.interactivePopGestureRecognizer.enabled = YES;
+    }
+}
+
+- (void)showSuccess:(NSString *)msg {
+    [SVProgressHUD showSuccessWithStatus:msg];
+    self.view.userInteractionEnabled = YES;
+    if (self.navigationController != nil) {
+        self.navigationController.interactivePopGestureRecognizer.enabled = YES;
+    }
+}
+
+- (void)showError:(NSString *)msg {
+    [SVProgressHUD showErrorWithStatus:msg];
+    self.view.userInteractionEnabled = YES;
+    if (self.navigationController != nil) {
+        self.navigationController.interactivePopGestureRecognizer.enabled = YES;
+    }
+}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
