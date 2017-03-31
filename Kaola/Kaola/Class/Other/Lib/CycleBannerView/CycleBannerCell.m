@@ -1,10 +1,10 @@
 //
 //  CycleBannerCell.m
 //  CycleScrollView
+//  Kaola
 //
-//  Created by 范英强 on 2016/11/17.
-//  Copyright © 2016年 gyh. All rights reserved.
-//
+//  Created by rongyun on 17/3/31.
+//  Copyright © 2017年 YXGang. All rights reserved.
 
 #import "CycleBannerCell.h"
 

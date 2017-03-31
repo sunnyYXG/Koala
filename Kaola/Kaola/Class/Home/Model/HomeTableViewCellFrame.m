@@ -29,17 +29,10 @@
     if (home == nil) return;
     _home = home;
 
-    for (ItemList *item in home.itemList) {
-//        DDLog(@"ddd%@",item);
-    }
-    DDLog(@"ddd%ld",home.itemList.count);
-
-    self.cellHeight = 180;
     if (home.itemList.count == 0) {
         self.media_type = HomeServiceDataMediaTypeBigImages;
-        
-        self.IVFrame = CGRectMake(0, 10, SCREEN_WIDTH - 20, 100);
-        self.cellHeight = _IVFrame.size.height;
+        self.IVFrame = CGRectMake(0, 5, SCREEN_WIDTH , 80);
+        self.cellHeight = self.IVFrame.size.height + 10;
         
     }else{
 
@@ -57,11 +50,26 @@
         
         if (home.itemList.count > 2 ) {
             self.media_type = HomeServiceDataMediaTypeOther;
+            self.IVFrame = CGRectMake(0, 0, SCREEN_WIDTH , SCREEN_WIDTH * 0.55);
+
+            CGFloat w = self.IVFrame.size.width/3 - 10;
+
+            for (NSInteger i = 0; i < home.itemList.count; i ++) {
+                CGRect frame = CGRectMake(i * w + (i + 1) * 10, 10, w, w);
+                NSValue *value = [NSValue valueWithCGRect:frame];
+                [self.IVSFrame addObject:value];
+                ItemList *item = (ItemList *)home.itemList[i];
+                if (item.imgUrl == nil) {
+                    [self.images addObject:item.logoUrl];
+
+                }else{
+                    [self.images addObject:item.imgUrl];
+                }
+            }
+            self.cellHeight = self.IVFrame.size.height *2 - 30;
         
         }
     }
-//    _IVFrame = CGRectMake(0, 10, SCREEN_WIDTH, 100);
-    
 }
 
 @end

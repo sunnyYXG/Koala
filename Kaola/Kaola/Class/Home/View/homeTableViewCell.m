@@ -24,13 +24,12 @@
     _cellFrame = cellFrame;
     Home *home = cellFrame.home;
 
-    if (cellFrame.media_type == 0) {
+    if (cellFrame.media_type == 1) {
         UIImageView *IV = [[UIImageView alloc]initWithFrame:cellFrame.IVFrame];
         [IV sd_setImageWithURL:[NSURL URLWithString:home.imageUrl] placeholderImage:nil];
         [self addSubview:IV];
     }else if (cellFrame.media_type == 2) {
         for (NSInteger i = 0; i < home.itemList.count; i++) {
-            ItemList *banner = (ItemList *)home.itemList;
             NSValue *value = cellFrame.IVSFrame[i];
             CGRect rect = [value CGRectValue];
             UIImageView *IV = [[UIImageView alloc]initWithFrame:rect];
@@ -38,6 +37,27 @@
             [self addSubview:IV];
 
         }
+    }else if (cellFrame.media_type == 3){
+        CGFloat w = SCREEN_WIDTH/3 - 10;
+        UIScrollView *sc = [[UIScrollView alloc]initWithFrame:CGRectMake(0, SCREEN_WIDTH * 0.55, SCREEN_WIDTH,cellFrame.cellHeight - SCREEN_WIDTH * 0.55)];
+        sc.showsHorizontalScrollIndicator = FALSE;//水平滚动条是否显示
+        [self addSubview:sc];
+        UIImageView *IV = [[UIImageView alloc]initWithFrame:cellFrame.IVFrame];
+        [IV sd_setImageWithURL:[NSURL URLWithString:home.imageUrl] placeholderImage:nil];
+        [self addSubview:IV];
+        
+        for (NSInteger i = 0; i < cellFrame.images.count; i++) {
+            NSValue *value = cellFrame.IVSFrame[i];
+            CGRect rect = [value CGRectValue];
+            UIImageView *IV = [[UIImageView alloc]initWithFrame:rect];
+            [IV sd_setImageWithURL:[NSURL URLWithString:cellFrame.images[i]] placeholderImage:nil];
+            [sc addSubview:IV];
+            
+        }
+        
+        [sc setContentSize:CGSizeMake(cellFrame.images.count * (w + 10) + 10, cellFrame.cellHeight - SCREEN_WIDTH * 0.55)];//SCREEN_WIDTH * 0.55 + 10
+
+
     }
     
 }

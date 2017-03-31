@@ -43,8 +43,6 @@
 		0D2AFAF71E8DFEE70012232A /* CycleBannerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D2AFAF41E8DFEE70012232A /* CycleBannerCell.m */; };
 		0D2AFAF81E8DFEE70012232A /* CycleBannerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D2AFAF61E8DFEE70012232A /* CycleBannerView.m */; };
 		0D2AFAFC1E8E129A0012232A /* BannerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D2AFAFB1E8E129A0012232A /* BannerViewController.m */; };
-		0D2AFB011E8E28290012232A /* SVProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 0D2AFAFE1E8E28290012232A /* SVProgressHUD.bundle */; };
-		0D2AFB021E8E28290012232A /* SVProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D2AFB001E8E28290012232A /* SVProgressHUD.m */; };
 		0D2AFB051E8E2F860012232A /* HomeTableViewCellFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D2AFB041E8E2F860012232A /* HomeTableViewCellFrame.m */; };
 		0D99767A1E8CE52E00F69D42 /* BannerList.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D99766E1E8CE52D00F69D42 /* BannerList.m */; };
 		0D99767B1E8CE52E00F69D42 /* BaseClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D9976701E8CE52D00F69D42 /* BaseClass.m */; };
@@ -152,9 +150,6 @@
 		0D2AFAF61E8DFEE70012232A /* CycleBannerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CycleBannerView.m; sourceTree = "<group>"; };
 		0D2AFAFA1E8E129A0012232A /* BannerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BannerViewController.h; sourceTree = "<group>"; };
 		0D2AFAFB1E8E129A0012232A /* BannerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BannerViewController.m; sourceTree = "<group>"; };
-		0D2AFAFE1E8E28290012232A /* SVProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = SVProgressHUD.bundle; sourceTree = "<group>"; };
-		0D2AFAFF1E8E28290012232A /* SVProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVProgressHUD.h; sourceTree = "<group>"; };
-		0D2AFB001E8E28290012232A /* SVProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVProgressHUD.m; sourceTree = "<group>"; };
 		0D2AFB031E8E2F860012232A /* HomeTableViewCellFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeTableViewCellFrame.h; sourceTree = "<group>"; };
 		0D2AFB041E8E2F860012232A /* HomeTableViewCellFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeTableViewCellFrame.m; sourceTree = "<group>"; };
 		0D99766D1E8CE52D00F69D42 /* BannerList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BannerList.h; sourceTree = "<group>"; };
@@ -532,7 +527,6 @@
 		0D2AFADA1E8DF7BE0012232A /* Lib */ = {
 			isa = PBXGroup;
 			children = (
-				0D2AFAFD1E8E28290012232A /* SVProgressHUD */,
 				0D2AFAF21E8DFEE70012232A /* CycleBannerView */,
 			);
 			path = Lib;
@@ -556,16 +550,6 @@
 				0D2AFAFB1E8E129A0012232A /* BannerViewController.m */,
 			);
 			path = Web;
-			sourceTree = "<group>";
-		};
-		0D2AFAFD1E8E28290012232A /* SVProgressHUD */ = {
-			isa = PBXGroup;
-			children = (
-				0D2AFAFE1E8E28290012232A /* SVProgressHUD.bundle */,
-				0D2AFAFF1E8E28290012232A /* SVProgressHUD.h */,
-				0D2AFB001E8E28290012232A /* SVProgressHUD.m */,
-			);
-			path = SVProgressHUD;
 			sourceTree = "<group>";
 		};
 		0D99766C1E8CE52D00F69D42 /* Model */ = {
@@ -737,7 +721,6 @@
 				0D0FB1EB1E89EDEC00D00581 /* Assets.xcassets in Resources */,
 				0D0FB2711E89EE7D00D00581 /* SGQRCode.bundle in Resources */,
 				0D0FB2791E89EE7D00D00581 /* InfoPlist.strings in Resources */,
-				0D2AFB011E8E28290012232A /* SVProgressHUD.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -827,7 +810,6 @@
 				0D0FB26F1E89EE7D00D00581 /* ThemeManager.m in Sources */,
 				0D0FB28D1E8A285A00D00581 /* BaseTableViewCell.m in Sources */,
 				0D99767A1E8CE52E00F69D42 /* BannerList.m in Sources */,
-				0D2AFB021E8E28290012232A /* SVProgressHUD.m in Sources */,
 				0D0FB28C1E8A285A00D00581 /* BaseViewController.m in Sources */,
 				0D99767D1E8CE52E00F69D42 /* Home.m in Sources */,
 				0D99767E1E8CE52E00F69D42 /* ItemList.m in Sources */,
