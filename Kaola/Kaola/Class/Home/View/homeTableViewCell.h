@@ -8,10 +8,21 @@
 
 #import "BaseTableViewCell.h"
 @class HomeTableViewCellFrame;
-@interface homeTableViewCell : BaseTableViewCell
 
+@protocol homeTableViewCellDelegate <NSObject>
 
-/** 首页cellFrame模型*/
-@property (nonatomic, strong) HomeTableViewCellFrame *cellFrame;
+- (void)pushBannerWebViewWithURL:(NSString *)url;
 
 @end
+
+@interface homeTableViewCell : BaseTableViewCell
+
+@property (nonatomic)id<homeTableViewCellDelegate>delegate;
+/** 首页cellFrame模型*/
+@property (nonatomic, strong) HomeTableViewCellFrame *cellFrame;
+@property (nonatomic)UIScrollView *sc;
+@property (nonatomic)Home *home;
+@property (nonatomic)NSMutableArray *links_URL;
+
+@end
+

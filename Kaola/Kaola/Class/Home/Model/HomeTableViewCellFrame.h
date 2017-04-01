@@ -30,11 +30,10 @@ typedef NS_ENUM(NSUInteger, HomeServiceDataMediaType) {
 
 @property (nonatomic)Home *home;
 
-//子菜单
-@property (nonatomic)CGRect IVFrame;
-
-@property (nonatomic)NSMutableArray *IVSFrame;
-@property (nonatomic)NSMutableArray *images;
+@property (nonatomic)CGRect image_Frame;
+@property (nonatomic)CGRect sc_Frame;
+@property (nonatomic)NSMutableArray *images_Frame;
+@property (nonatomic)NSMutableArray *images_URL;
 
 
 @property (nonatomic)CGFloat cellHeight;

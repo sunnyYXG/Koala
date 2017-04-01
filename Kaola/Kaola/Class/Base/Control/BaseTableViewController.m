@@ -33,7 +33,7 @@
  */
 - (BaseTableView *)tableView {
     if(!_tableView){
-        BaseTableView *tab = [[BaseTableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
+        BaseTableView *tab = [[BaseTableView alloc] initWithFrame:self.view.bounds style:UITableViewStyleGrouped];
         [self.view addSubview:tab];
         _tableView = tab;
         tab.dataSource = self;

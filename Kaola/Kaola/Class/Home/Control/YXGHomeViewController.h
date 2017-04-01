@@ -9,7 +9,27 @@
 #import "BaseTableViewController.h"
 #import "BaseRequest.h"
 #import "CycleBannerView.h"
+
+@class HomeTJMenuView;
+
+/**
+ *  数据类型
+ */
+typedef NS_ENUM(NSUInteger, HomeServiceDataType) {
+    /** 主要数据*/
+    HomeServiceDataTypeMain = 1,
+    /** 今日精选*/
+    HomeServiceDataTypeAuslese = 2,
+    /** 个性推荐*/
+    HomeServiceDataTypeRecommend = 3,
+    
+};
+
+
 @interface YXGHomeViewController : BaseTableViewController
+
+/** 请求的数据类型*/
+@property (nonatomic, assign) HomeServiceDataType data_type;
 
 @property (nonatomic, strong) BaseRequest *request;
 @property (nonatomic)NSString *URLString;
@@ -27,4 +47,6 @@
  *  顶部广告轮播视图
  */
 @property (nonatomic , strong) CycleBannerView *bannerView;
+
+@property (nonatomic)HomeTJMenuView *TJMenuView;
 @end

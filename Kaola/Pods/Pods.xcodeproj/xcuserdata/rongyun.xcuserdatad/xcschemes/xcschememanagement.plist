@@ -39,6 +39,11 @@
 			<key>orderHint</key>
 			<integer>7</integer>
 		</dict>
+		<key>SVProgressHUD.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>9</integer>
+		</dict>
 		<key>YYModel.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -48,6 +53,11 @@
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
 		<key>04CF549EBEEE7BC87AEAE35397184D94</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>1F564420AD628C3682D8CBA890888277</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -63,6 +73,11 @@
 			<true/>
 		</dict>
 		<key>59C8B73670AC70009D97D16857766117</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>69B979CE764AFBD62A3A92AC86D55B43</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -83,6 +98,16 @@
 			<true/>
 		</dict>
 		<key>A316B54C67E947D23CECD230FA5BFAEF</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>EF39831F719CAD55954B23A95C184082</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F9F84FF6740F251ACCB5990CFA65D1FD</key>
 		<dict>
 			<key>primary</key>
 			<true/>

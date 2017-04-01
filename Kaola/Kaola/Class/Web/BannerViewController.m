@@ -26,12 +26,6 @@
     }
     return _webView;
 }
--(BannerList *)banner{
-    if (!_banner) {
-        _banner = [[BannerList alloc]init];
-    }
-    return _banner;
-}
 
 - (UIScrollView *)scrollView{
     if (!_scrollView) {
@@ -48,8 +42,8 @@
     self.view.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:self.scrollView];
     [self.scrollView addSubview:self.webView];
-    self.banner = (BannerList *)[self.userInfo objectForKey:@"banner"];
-    [self configureWebViewWith:self.banner.linkUrl];
+    self.bannerUrl = [self.userInfo objectForKey:@"bannerUrl"];
+    [self configureWebViewWith:self.bannerUrl];
     
 }
 

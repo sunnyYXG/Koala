@@ -11,7 +11,10 @@
 #import "HomeListRequest.h"
 #import "BannerViewController.h"
 #import "HomeTableViewCellFrame.h"
-@interface YXGHomeViewController ()
+#import "HomeTJMenuView.h"
+#import "HomeModelHandle.h"
+#import "HomeSectionCell1.h"
+@interface YXGHomeViewController ()<homeTableViewCellDelegate>
 
 @property (nonatomic)BaseClass *baseModel;
 
@@ -47,16 +50,21 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     HomeListRequest *request = [HomeListRequest yxg_request];
-    request.yxg_url = home_url;
     self.request = request;
-    [self loadData];
+    [self loadDataType:HomeServiceDataTypeMain withUrl:home_url];
     [self initBannerView];
     
 }
 
+- (void)loadDataType:(HomeServiceDataType)type withUrl:(NSString *)url{
+    self.request.yxg_url = home_recommend_url;
+    self.data_type = type;
+    [self loadData];
+
+}
 - (void)initBannerView
 {
-    CycleBannerView *bannerView = [[CycleBannerView alloc] initWithFrame:CGRectMake(0, 100, SCREEN_WIDTH, SCREEN_WIDTH * 0.55)];
+    CycleBannerView *bannerView = [[CycleBannerView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_WIDTH * 0.55)];
     bannerView.bgImg = [UIImage imageNamed:@"shadow.png"];
     
     IMP_BLOCK_SELF(YXGHomeViewController);
@@ -64,35 +72,55 @@
         
         BannerList *banner = block_self.BannerList[index];
         
-        [block_self pushVc:[BannerViewController new] userInfo:@{@"banner":banner}];
+        [block_self pushVc:[BannerViewController new] userInfo:@{@"bannerUrl":banner.linkUrl}];
     };
-    self.tableView.tableHeaderView = bannerView;
+    
+    UIView *headView = [[UIView alloc]initWithFrame:CGRectMake(0, 100, SCREEN_WIDTH, bannerView.height + bannerView.height/3)];
+    [headView addSubview:bannerView];
+
+    _TJMenuView = [[HomeTJMenuView alloc]initWithFrame:CGRectMake(headView.left, bannerView.bottom, SCREEN_WIDTH, bannerView.height/3)];
+
+    [headView addSubview:self.TJMenuView];
+    
+    self.tableView.tableHeaderView = headView;
     self.bannerView = bannerView;
-    [self yxg_reloadData];
 }
 
 #pragma mark - UITableViewDelegate
 - (NSInteger)yxg_numberOfSections {
-    return 1;
+//    return 1;
+    return 2;
+
 }
 
 - (NSInteger)yxg_numberOfRowsInSection:(NSInteger)section {
-    return self.HomeList.count;
+    if (section == 0) {
+        return self.HomeList.count;
+
+    }else{
+        return 20;
+    }
 }
 
 - (BaseTableViewCell *)yxg_cellAtIndexPath:(NSIndexPath *)indexPath {
-    // 1. 创建cell
-    homeTableViewCell *cell = [homeTableViewCell cellWithTableView:self.tableView];
-//    Home *home = self.HomeList[indexPath.row];
-//    [cell initConfigWithData:home.viewCode];
     
-    
-    HomeTableViewCellFrame *cellFrame = self.cellFrameArray[indexPath.row];
-    cell.cellFrame = cellFrame;
-    cell.selectionStyle = UITableViewCellSelectionStyleNone;
-
-    // 3. 返回cell
-    return cell;
+    if (indexPath.section == 0) {
+        homeTableViewCell *cell = [homeTableViewCell cellWithTableView:self.tableView];
+        
+        HomeTableViewCellFrame *cellFrame = self.cellFrameArray[indexPath.row];
+        cell.cellFrame = cellFrame;
+        cell.delegate =self;
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        cell.backgroundColor = ColorFromRGB(234, 235, 237);
+        cell.userInteractionEnabled = YES;
+        return cell;
+    }else{
+        
+        HomeSectionCell1 *cell = [HomeSectionCell1 cellWithTableView:self.tableView];
+//        cell.backgroundColor = [UIColor orangeColor];
+        [cell createView:indexPath.row];
+        return cell;
+    }
 }
 
 - (void)yxg_didSelectCellAtIndexPath:(NSIndexPath *)indexPath cell:(BaseTableViewCell *)cell {
@@ -100,21 +128,38 @@
 }
 
 - (CGFloat)yxg_cellheightAtIndexPath:(NSIndexPath *)indexPath {
-    HomeTableViewCellFrame *cellFrame = self.cellFrameArray[indexPath.row];
-    return cellFrame.cellHeight;
+    
+    if (indexPath.section == 0) {
+        HomeTableViewCellFrame *cellFrame = self.cellFrameArray[indexPath.row];
+        return cellFrame.cellHeight;
+
+    }else{
+        return 50.0f;
+    }
 }
 
 - (void)loadData{
 
     [self startProgress];
-    NSMutableArray *BannerImages = [[NSMutableArray alloc]init];
+//    NSMutableArray *BannerImages = [[NSMutableArray alloc]init];
     if (!self.request) return;
     IMP_BLOCK_SELF(YXGHomeViewController);
     [self.request yxg_sendRequestWithCompletion:^(id response, BOOL success, NSString *message) {
         if (success) {
             [self stopProgress];
-            block_self.baseModel = (BaseClass *)[BaseClass yy_modelWithJSON:response];
             
+            DDLog(@"moedlaaaaaa:%@",response);
+            if (self.data_type == 1) {
+                block_self.baseModel = (BaseClass *)[BaseClass yy_modelWithJSON:response];
+                NSDictionary *dic = [HomeModelHandle HomeModelHandle:block_self.baseModel];
+                block_self.HomeList = [dic objectForKey:@"HomeList"];
+                block_self.cellFrameArray = [dic objectForKey:@"cellFrameArray"];
+                block_self.bannerView.aryImg = [dic objectForKey:@"BannerImages"];
+            }
+
+            
+            
+            /*
             for (NSDictionary *dic in block_self.baseModel.body.home) {
                 Home *home = [Home modelObjectWithDictionary:dic];
                 [block_self.HomeList addObject:home];
@@ -136,12 +181,17 @@
                     cellFrame.home = block_self.HomeList[i];
                     [self.cellFrameArray addObject:cellFrame];
             }
-
+             */
         }
         [block_self yxg_reloadData];
     }];
 }
 
+#pragma mark - homeTableViewCellDelegate
+-(void)pushBannerWebViewWithURL:(NSString *)url{
+    [self pushVc:[BannerViewController new] userInfo:@{@"bannerUrl":url}];
+
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }

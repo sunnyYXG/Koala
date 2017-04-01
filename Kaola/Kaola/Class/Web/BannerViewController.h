@@ -12,6 +12,6 @@
 
 @property (nonatomic)UIWebView *webView;
 @property (nonatomic)NSDictionary *BannerDic;
-@property (nonatomic) BannerList *banner;
+@property (nonatomic) NSString *bannerUrl;
 @property (nonatomic)UIScrollView *scrollView;
 @end
