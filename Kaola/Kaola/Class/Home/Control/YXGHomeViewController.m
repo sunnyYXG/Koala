@@ -57,7 +57,7 @@
 }
 
 - (void)loadDataType:(HomeServiceDataType)type withUrl:(NSString *)url{
-    self.request.yxg_url = home_recommend_url;
+    self.request.yxg_url = home_url;
     self.data_type = type;
     [self loadData];
 
