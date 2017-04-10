@@ -8,6 +8,17 @@
 
 #import <UIKit/UIKit.h>
 
-@interface HomeTJMenuView : UIView
+@protocol HomeTJMenuViewDelegate <NSObject>
+
+- (void)pushWebViewWithURL:(NSString *)url;
+
+@end
+
+@interface HomeTJMenuView : UIView<UIGestureRecognizerDelegate>
+
+@property (nonatomic)id<HomeTJMenuViewDelegate>delegate;
+
+@property (nonatomic)NSArray *menus;
+@property (nonatomic)NSArray *h5_urls;
 
 @end
