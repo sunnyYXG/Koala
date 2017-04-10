@@ -14,15 +14,15 @@
     self = [super initWithFrame:frame];
     if (self) {
         self.backgroundColor = [UIColor whiteColor];
-        [self createView];
     }
     return self;
 }
--(void)createView{
-    for (NSInteger i = 0; i < 5; i ++) {
+
+-(void)setMenus:(NSArray *)menus{
+    for (NSInteger i = 0; i < menus.count; i ++) {
         UIView *view = [[UIView alloc]init];
         [self addSubview:view];
-
+        
         CGFloat w = (self.width-60)/5;
         [view mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.mas_equalTo(i * (w + 10) + 10);
@@ -31,15 +31,31 @@
             make.height.mas_equalTo(self.height - 20);
         }];
         
-        UIButton *button = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, w, self.height - 20)];
-        [button setImage:[UIImage imageNamed:@"home_press"] forState:UIControlStateNormal];
-        [button setTitle:@"请点击" forState:UIControlStateNormal];
-        [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-        button.titleLabel.font = [UIFont systemFontOfSize:12.f] ;
-        button.imageEdgeInsets = UIEdgeInsetsMake(0, button.width/4 + 5,button.height/2,button.width/4 + 5);
-        button.titleEdgeInsets = UIEdgeInsetsMake(button.height/2,-(button.width/3 + 5), 0,0);
-        button.contentHorizontalAlignment = UIControlContentHorizontalAlignmentCenter;
-        [view addSubview:button];
+        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(Html5ImageIsTap:)];
+        tap.numberOfTouchesRequired = 1;
+        tap.numberOfTapsRequired = 1;
+        tap.delegate = self;
+
+        
+        UIImageView *IV = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, w, self.height - 20)];
+        IV.tag = 100 + i;
+        IV.userInteractionEnabled = YES;
+        [IV addGestureRecognizer:tap];
+        IV.image = [UIImage imageNamed:menus[i]];
+        
+        [view addSubview:IV];
     }
+
 }
+
+
+- (void)Html5ImageIsTap:(UITapGestureRecognizer *)tap {
+    
+    NSString *url = self.h5_urls[tap.view.tag - 100];
+    if ([self.delegate respondsToSelector:@selector(pushWebViewWithURL:)]) {
+        [self.delegate pushWebViewWithURL:url];
+    }
+    
+}
+
 @end

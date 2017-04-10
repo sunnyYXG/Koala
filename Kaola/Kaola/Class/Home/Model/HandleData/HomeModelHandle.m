@@ -30,6 +30,9 @@
         [BannerImages addObject:banner.imgUrl];
     }
     
+    Home *TJMenu = (Home *)HomeList[1];
+    NSArray *menus = TJMenu.itemList;
+
     [HomeList removeObjectAtIndex:0];
     for (NSInteger i = 0; i < HomeList.count; i ++) {
         HomeTableViewCellFrame *cellFrame = [[HomeTableViewCellFrame alloc] init];
@@ -37,7 +40,8 @@
         [cellFrameArray addObject:cellFrame];
     }
     
-    NSDictionary *dic = @{@"HomeList":HomeList,@"BannerImages":BannerImages,@"cellFrameArray":cellFrameArray};
+    
+    NSDictionary *dic = @{@"HomeList":HomeList,@"BannerImages":BannerImages,@"cellFrameArray":cellFrameArray,@"BannerList":home.bannerList,@"menus":menus};
     return dic;
 }
 

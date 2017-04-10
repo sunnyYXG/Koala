@@ -14,7 +14,7 @@
 #import "HomeTJMenuView.h"
 #import "HomeModelHandle.h"
 #import "HomeSectionCell1.h"
-@interface YXGHomeViewController ()<homeTableViewCellDelegate>
+@interface YXGHomeViewController ()<homeTableViewCellDelegate,HomeTJMenuViewDelegate>
 
 @property (nonatomic)BaseClass *baseModel;
 
@@ -51,7 +51,11 @@
     [super viewDidLoad];
     HomeListRequest *request = [HomeListRequest yxg_request];
     self.request = request;
-    [self loadDataType:HomeServiceDataTypeMain withUrl:home_recommend_url];
+    self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        [self loadDataType:HomeServiceDataTypeMain withUrl:home_url];
+    }];
+    [self.tableView.mj_header beginRefreshing];
+
     [self initBannerView];
     
 }
@@ -79,7 +83,9 @@
     [headView addSubview:bannerView];
 
     _TJMenuView = [[HomeTJMenuView alloc]initWithFrame:CGRectMake(headView.left, bannerView.bottom, SCREEN_WIDTH, bannerView.height/3)];
-
+    _TJMenuView.delegate = self;
+    self.TJMenuView.menus = @[@"point",@"onsale",@"index",@"list",@"introduce"];
+    self.TJMenuView.h5_urls = @[point_url,onsale_url,index_url,list_url,introduce_url];
     [headView addSubview:self.TJMenuView];
     
     self.tableView.tableHeaderView = headView;
@@ -88,23 +94,15 @@
 
 #pragma mark - UITableViewDelegate
 - (NSInteger)yxg_numberOfSections {
-//    return 1;
-    return 2;
-
+    return 1;
 }
 
 - (NSInteger)yxg_numberOfRowsInSection:(NSInteger)section {
-    if (section == 0) {
-        return self.HomeList.count;
-
-    }else{
-        return 20;
-    }
+    return self.HomeList.count;
 }
 
 - (BaseTableViewCell *)yxg_cellAtIndexPath:(NSIndexPath *)indexPath {
     
-    if (indexPath.section == 0) {
         homeTableViewCell *cell = [homeTableViewCell cellWithTableView:self.tableView];
         
         HomeTableViewCellFrame *cellFrame = self.cellFrameArray[indexPath.row];
@@ -114,13 +112,6 @@
         cell.backgroundColor = ColorFromRGB(234, 235, 237);
         cell.userInteractionEnabled = YES;
         return cell;
-    }else{
-        
-        HomeSectionCell1 *cell = [HomeSectionCell1 cellWithTableView:self.tableView];
-//        cell.backgroundColor = [UIColor orangeColor];
-        [cell createView:indexPath.row];
-        return cell;
-    }
 }
 
 - (void)yxg_didSelectCellAtIndexPath:(NSIndexPath *)indexPath cell:(BaseTableViewCell *)cell {
@@ -141,47 +132,20 @@
 - (void)loadData{
 
     [self startProgress];
-//    NSMutableArray *BannerImages = [[NSMutableArray alloc]init];
     if (!self.request) return;
     IMP_BLOCK_SELF(YXGHomeViewController);
     [self.request yxg_sendRequestWithCompletion:^(id response, BOOL success, NSString *message) {
         if (success) {
             [self stopProgress];
-            
+            [self.tableView.mj_header endRefreshing];
+
             DDLog(@"moedlaaaaaa:%@",response);
-            if (self.data_type == 1) {
                 block_self.baseModel = (BaseClass *)[BaseClass yy_modelWithJSON:response];
                 NSDictionary *dic = [HomeModelHandle HomeModelHandle:block_self.baseModel];
                 block_self.HomeList = [dic objectForKey:@"HomeList"];
                 block_self.cellFrameArray = [dic objectForKey:@"cellFrameArray"];
                 block_self.bannerView.aryImg = [dic objectForKey:@"BannerImages"];
-            }
-
-            
-            
-            /*
-            for (NSDictionary *dic in block_self.baseModel.body.home) {
-                Home *home = [Home modelObjectWithDictionary:dic];
-                [block_self.HomeList addObject:home];
-            }
-            //广告
-            Home *home = (Home *)[block_self.HomeList firstObject];
-            block_self.BannerList = home.bannerList;
-            for (id obj in block_self.BannerList) {
-                BannerList *banner = (BannerList *)obj;
-                [BannerImages addObject:banner.imgUrl];
-            }
-
-            block_self.bannerView.aryImg = [BannerImages copy];
-//            block_self.bannerView.aryText = [titles copy];
-
-            [block_self.HomeList removeObjectAtIndex:0];
-            for (NSInteger i = 0; i < block_self.HomeList.count; i ++) {
-                    HomeTableViewCellFrame *cellFrame = [[HomeTableViewCellFrame alloc] init];
-                    cellFrame.home = block_self.HomeList[i];
-                    [self.cellFrameArray addObject:cellFrame];
-            }
-             */
+                block_self.BannerList = [dic objectForKey:@"BannerList"];
         }
         [block_self yxg_reloadData];
     }];
@@ -191,6 +155,10 @@
 -(void)pushBannerWebViewWithURL:(NSString *)url{
     [self pushVc:[BannerViewController new] userInfo:@{@"bannerUrl":url}];
 
+}
+#pragma mark - HomeTJMenuViewDelegate
+-(void)pushWebViewWithURL:(NSString *)url{
+    [self pushVc:[BannerViewController new] userInfo:@{@"bannerUrl":url}];
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

@@ -18,8 +18,22 @@
     [super viewDidLoad];
     [self createTab];
     
+    self.request = [BaseRequest yxg_request];
+    self.request.yxg_url = openad_url;
+    [self loadData];
+
 }
 
+- (void)loadData{
+    
+    if (!self.request) return;
+    [self.request yxg_sendRequestWithCompletion:^(id response, BOOL success, NSString *message) {
+        if (success) {
+            DDLog(@"openad--success");
+        }
+    }];
+    
+}
 
 
 - (void)createTab{
@@ -36,6 +50,7 @@
                                       title:(NSString *)title {
     
     UIViewController *vc = [[NSClassFromString(classname) alloc] init];
+
     BaseNavigationViewController *nav = [[BaseNavigationViewController alloc] initWithRootViewController:vc];
     nav.tabBarItem.title = title;
     nav.tabBarItem.image = [UIImage imageNamed:imagename];

@@ -42,7 +42,7 @@
     [self yxg_sendRequestWithCompletion:nil];
 }
 - (void)yxg_sendRequestWithCompletion:(NHAPIDicCompletion)completion {
-    
+//    NSDictionary *dic = @{@"_httimestamp":@"1491802251",@"lastActivityPos":@"0",@"lastBrandPos":@"0",@"lastGoodsPos":@"0",@"pageNo":@"1"};
         AFHTTPSessionManager *mgr = [AFHTTPSessionManager manager];
             [mgr GET:self.yxg_url parameters:nil progress:^(NSProgress * _Nonnull downloadProgress) {
             
@@ -55,4 +55,6 @@
             //
         }];
 }
+
+
 @end
