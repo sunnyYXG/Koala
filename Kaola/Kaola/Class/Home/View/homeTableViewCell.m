@@ -86,14 +86,13 @@
             UIImageView *IV = [self createIVWIthFrame:rect imageUrl:nil tag:i tap:tap];
             [self.sc addSubview:IV];
             
-            UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(IV.left, IV.bottom + 10, IV.width, self.sc.height - IV.height - 10)];
-            label.text = @"产品说明";
-            label.textAlignment = NSTextAlignmentCenter;
+            UIView *view = [[UIView alloc]initWithFrame:CGRectMake(IV.left, IV.bottom + 10, IV.width, self.sc.height - IV.height - 10)];
+            view.backgroundColor = [UIColor orangeColor];
             if (i == cellFrame.images_Frame.count - 1) {
                 IV.image = [UIImage imageNamed:@"Class"];
             }else{
                 [IV sd_setImageWithURL:[NSURL URLWithString:cellFrame.images_URL[i]] placeholderImage:nil];
-                [self.sc addSubview:label];
+                [self.sc addSubview:view];
             }
             [self.links_URL addObject:self.home.linkUrl];
 
