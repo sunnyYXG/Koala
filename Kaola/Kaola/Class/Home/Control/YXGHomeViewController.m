@@ -51,13 +51,13 @@
     [super viewDidLoad];
     HomeListRequest *request = [HomeListRequest yxg_request];
     self.request = request;
-    [self loadDataType:HomeServiceDataTypeMain withUrl:home_url];
+    [self loadDataType:HomeServiceDataTypeMain withUrl:home_recommend_url];
     [self initBannerView];
     
 }
 
 - (void)loadDataType:(HomeServiceDataType)type withUrl:(NSString *)url{
-    self.request.yxg_url = home_url;
+    self.request.yxg_url = url;
     self.data_type = type;
     [self loadData];
 

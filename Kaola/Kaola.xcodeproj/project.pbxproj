@@ -569,9 +569,9 @@
 			isa = PBXGroup;
 			children = (
 				0DBEFEAE1E8F8E9B00E28A6C /* AusleseData */,
-				0DBEFEAF1E8F8E9B00E28A6C /* HandleData */,
 				0DBEFEB21E8F8E9B00E28A6C /* mainData */,
 				0DBEFEC01E8F8E9B00E28A6C /* RecommendData */,
+				0DBEFEAF1E8F8E9B00E28A6C /* HandleData */,
 				0D2AFB031E8E2F860012232A /* HomeTableViewCellFrame.h */,
 				0D2AFB041E8E2F860012232A /* HomeTableViewCellFrame.m */,
 			);
