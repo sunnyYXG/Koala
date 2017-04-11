@@ -38,11 +38,11 @@
     if (_cellFrame == cellFrame && _cellFrame) {
         return ;
     }
-    for (UIView *view in self.subviews) {
-        if (view) {
-            [view removeFromSuperview];
-        }
-    }
+//    for (UIView *view in self.subviews) {
+//        if (view) {
+//            [view removeFromSuperview];
+//        }
+//    }
 
     _cellFrame = cellFrame;
     self.home = cellFrame.home;
@@ -107,7 +107,6 @@
             [IV sd_setImageWithURL:[NSURL URLWithString:cellFrame.images_URL[i]] placeholderImage:nil];
             if (cellFrame.info_type != 1) {
                 UIView *ItemView = [[UIView alloc]initWithFrame:[cellFrame.InfoS_Frame[i] CGRectValue]];
-//                ItemView.backgroundColor = [UIColor orangeColor];
                 [self.sc addSubview:ItemView];
                 
                 [self configIntroduce:(ItemList *)self.home.itemList[i] ItemView:ItemView infoType:cellFrame.info_type];
@@ -143,16 +142,20 @@
 }
 
 - (void)HomeServiceDataMediaTypeOther_TypeTitle:(ItemList *)item ItemView:(UIView *)ItemView{
-    UILabel *label = [Factory createLabelWithTitle:[NSString stringWithFormat:@"%@%@",item.goodsNumLabel,item.title] frame:CGRectMake(0, 0, ItemView.width, ItemView.height - 30)];
+    NSString *goods = @"";
+    if (item.goodsNumLabel) {
+        goods = item.goodsNumLabel;
+    }
+    UILabel *label = [Factory createLabelWithTitle:[NSString stringWithFormat:@"%@%@",goods,item.title] frame:CGRectMake(0, 0, ItemView.width, ItemView.height - 30)];
     label.numberOfLines = 2;
     [ItemView addSubview:label];
-    [HelperTools setTextColor:label AndRange:NSMakeRange(0, 5) AndColor:ColorFromRGB(255, 133, 131)];
+    [HelperTools setTextColor:label AndRange:NSMakeRange(0, goods.length) AndColor:ColorFromRGB(255, 133, 131)];
     
-    UILabel *Price = [Factory createLabelWithTitle:[NSString stringWithFormat:@"¥%f¥%f",item.currentPrice,item.originalPrice] frame:CGRectMake(0, label.bottom, ItemView.width,30)];
+    UILabel *Price = [Factory createLabelWithTitle:[NSString stringWithFormat:@"¥%.0f ¥%.0f",item.currentPrice,item.originalPrice] frame:CGRectMake(0, label.bottom, ItemView.width,20)];
     [ItemView addSubview:Price];
     
     [HelperTools setTextColor:Price AndRange:NSMakeRange(0, 4) AndColor:ColorFromRGB(198, 36, 17)];
-    [HelperTools setTextColor:Price AndRange:NSMakeRange(4, 4) AndColor:ColorFromRGB(146, 146, 146) AndFont:12];
+//    [HelperTools setTextColor:Price AndRange:NSMakeRange(5, 3) AndColor:ColorFromRGB(146, 146, 146) AndFont:12];
     
 
     

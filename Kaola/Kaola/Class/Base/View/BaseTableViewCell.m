@@ -27,12 +27,12 @@
     return self;
 }
 
-+ (instancetype)cellWithTableView:(UITableView *)tableView {
++ (instancetype)cellWithTableView:(UITableView *)tableView identifier:(NSString *)identifier{
     if (tableView == nil) {
         return [[self alloc] init];
     }
-    NSString *classname = NSStringFromClass([self class]);
-    NSString *identifier = [classname stringByAppendingString:@"CellID"];
+//    NSString *classname = NSStringFromClass([self class]);
+//    NSString *identifier = [classname stringByAppendingString:@"CellID"];
     [tableView registerClass:[self class] forCellReuseIdentifier:identifier];
     return [tableView dequeueReusableCellWithIdentifier:identifier];
 }

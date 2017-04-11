@@ -102,7 +102,7 @@
 
 - (BaseTableViewCell *)yxg_cellAtIndexPath:(NSIndexPath *)indexPath {
     
-        homeTableViewCell *cell = [homeTableViewCell cellWithTableView:self.tableView];
+        homeTableViewCell *cell = [homeTableViewCell cellWithTableView:self.tableView identifier:[NSString stringWithFormat:@"cell%ld%ld",indexPath.section,indexPath.row]];
         
         HomeTableViewCellFrame *cellFrame = self.cellFrameArray[indexPath.row];
         cell.cellFrame = cellFrame;

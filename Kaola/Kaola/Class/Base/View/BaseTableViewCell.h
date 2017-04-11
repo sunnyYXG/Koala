@@ -15,7 +15,7 @@
 /**
  *  快速创建一个不是从xib中加载的tableview cell
  */
-+ (instancetype)cellWithTableView:(UITableView *)tableView;
++ (instancetype)cellWithTableView:(UITableView *)tableView identifier:(NSString *)identifier;
 
 /**
  *  快速创建一个从xib中加载的tableview cell

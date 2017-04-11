@@ -93,7 +93,7 @@
         return [self yxg_cellAtIndexPath:indexPath];
     }
     // 1. 创建cell
-    BaseTableViewCell *cell = [BaseTableViewCell cellWithTableView:self.tableView];
+    BaseTableViewCell *cell = [BaseTableViewCell cellWithTableView:self.tableView identifier:[NSString stringWithFormat:@"cell%ld%ld",indexPath.section,indexPath.row]];
     
     // 2. 返回cell
     return cell;
@@ -136,7 +136,7 @@
 
 - (NSInteger)yxg_numberOfRowsInSection:(NSInteger)section { return 0; }
 
-- (UITableViewCell *)yxg_cellAtIndexPath:(NSIndexPath *)indexPath { return [BaseTableViewCell cellWithTableView:self.tableView]; }
+- (UITableViewCell *)yxg_cellAtIndexPath:(NSIndexPath *)indexPath { return [BaseTableViewCell cellWithTableView:self.tableView identifier:[NSString stringWithFormat:@"cell%ld%ld",indexPath.section,indexPath.row]]; }
 
 - (CGFloat)yxg_cellheightAtIndexPath:(NSIndexPath *)indexPath { return 0; }
 
