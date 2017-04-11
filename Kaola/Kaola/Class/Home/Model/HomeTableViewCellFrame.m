@@ -126,7 +126,7 @@
             
         }
     }else{
-        self.cellHeight = self.cellHeight + 20;
+        self.cellHeight = self.cellHeight + 30;
         self.sc_Frame = CGRectMake(0, self.image_Frame.size.height + self.image_Frame.origin.y, SCREEN_WIDTH, self.cellHeight - SCREEN_WIDTH * 0.55 - 10);
 
         return HomeServiceDataMediaTypeOther_TypeTitle;

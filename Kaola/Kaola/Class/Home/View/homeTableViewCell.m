@@ -46,6 +46,8 @@
 
     _cellFrame = cellFrame;
     self.home = cellFrame.home;
+//    self.backgroundColor = [UIColor orangeColor];
+
     if (cellFrame.media_type == 1) {
         [self HomeServiceDataMediaTypeBigImages:cellFrame.image_Frame url:self.home.imageUrl];
 
@@ -101,7 +103,7 @@
         [self.sc addSubview:IV];
         
         if (i == cellFrame.images_Frame.count - 1) {
-            IV.image = [UIImage imageNamed:@"Class"];
+            IV.image = [UIImage imageNamed:@"SeeMore"];
         }else{
             
             [IV sd_setImageWithURL:[NSURL URLWithString:cellFrame.images_URL[i]] placeholderImage:nil];
@@ -146,24 +148,21 @@
     if (item.goodsNumLabel) {
         goods = item.goodsNumLabel;
     }
-    UILabel *label = [Factory createLabelWithTitle:[NSString stringWithFormat:@"%@%@",goods,item.title] frame:CGRectMake(0, 0, ItemView.width, ItemView.height - 30)];
+    UILabel *label = [Factory createLabelWithTitle:[NSString stringWithFormat:@"%@%@",goods,item.title] frame:CGRectMake(0, 0, ItemView.width, ItemView.height - 40)];
     label.numberOfLines = 2;
     [ItemView addSubview:label];
     [HelperTools setTextColor:label AndRange:NSMakeRange(0, goods.length) AndColor:ColorFromRGB(255, 133, 131)];
     
-    UILabel *Price = [Factory createLabelWithTitle:[NSString stringWithFormat:@"¥%.0f ¥%.0f",item.currentPrice,item.originalPrice] frame:CGRectMake(0, label.bottom, ItemView.width,20)];
+    NSString *currentPrice = [NSString stringWithFormat:@"¥%.0f",item.currentPrice];
+    NSString *originalPrice = [NSString stringWithFormat:@"¥%.0f",item.originalPrice];
+
+    UILabel *Price = [Factory createLabelWithTitle:[NSString stringWithFormat:@"%@ %@",currentPrice,originalPrice] frame:CGRectMake(0, label.bottom, ItemView.width,20)];
+    Price.textAlignment = NSTextAlignmentCenter;
     [ItemView addSubview:Price];
-    
-    [HelperTools setTextColor:Price AndRange:NSMakeRange(0, 4) AndColor:ColorFromRGB(198, 36, 17)];
-//    [HelperTools setTextColor:Price AndRange:NSMakeRange(5, 3) AndColor:ColorFromRGB(146, 146, 146) AndFont:12];
-    
 
+    [HelperTools setTextColor:Price AndRange:NSMakeRange(0, currentPrice.length) AndColor:ColorFromRGB(198, 36, 17)];
+    [HelperTools setTextColor:Price AndRange:NSMakeRange(currentPrice.length + 1, originalPrice.length) AndColor:ColorFromRGB(146, 146, 146) AndFont:12];
     
-//    label.backgroundColor = [UIColor blueColor];
-//    Price.backgroundColor = [UIColor orangeColor];
-//    ItemView.backgroundColor = [UIColor grayColor];
-
-
 }
 
 

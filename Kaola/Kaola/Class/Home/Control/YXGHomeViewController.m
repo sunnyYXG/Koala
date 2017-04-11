@@ -125,12 +125,12 @@
 
 - (void)loadData{
 
-    [self startProgress];
+//    [self startProgress];
     if (!self.request) return;
     IMP_BLOCK_SELF(YXGHomeViewController);
     [self.request yxg_sendRequestWithCompletion:^(id response, BOOL success, NSString *message) {
         if (success) {
-            [self stopProgress];
+//            [self stopProgress];
             [self.tableView.mj_header endRefreshing];
 
             DDLog(@"moedlaaaaaa:%@",response);
