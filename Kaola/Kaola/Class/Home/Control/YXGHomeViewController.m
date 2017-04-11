@@ -87,7 +87,6 @@
     self.TJMenuView.menus = @[@"point",@"onsale",@"index",@"list",@"introduce"];
     self.TJMenuView.h5_urls = @[point_url,onsale_url,index_url,list_url,introduce_url];
     [headView addSubview:self.TJMenuView];
-    
     self.tableView.tableHeaderView = headView;
     self.bannerView = bannerView;
 }
@@ -120,13 +119,8 @@
 
 - (CGFloat)yxg_cellheightAtIndexPath:(NSIndexPath *)indexPath {
     
-    if (indexPath.section == 0) {
-        HomeTableViewCellFrame *cellFrame = self.cellFrameArray[indexPath.row];
-        return cellFrame.cellHeight;
-
-    }else{
-        return 50.0f;
-    }
+    HomeTableViewCellFrame *cellFrame = self.cellFrameArray[indexPath.row];
+    return cellFrame.cellHeight;
 }
 
 - (void)loadData{

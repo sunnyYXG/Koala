@@ -44,74 +44,134 @@
         }
     }
 
-    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(OptionImageIsTap:)];
-    tap.numberOfTouchesRequired = 1;
-    tap.numberOfTapsRequired = 1;
-    tap.delegate = self;
-
     _cellFrame = cellFrame;
     self.home = cellFrame.home;
     if (cellFrame.media_type == 1) {
-
-        UIImageView *IV = [self createIVWIthFrame:cellFrame.image_Frame imageUrl:self.home.imageUrl tag:0 tap:tap];
-        [self addSubview:IV];
+        [self HomeServiceDataMediaTypeBigImages:cellFrame.image_Frame url:self.home.imageUrl];
 
     }else if (cellFrame.media_type == 2) {
-        for (NSInteger i = 0; i < self.home.itemList.count; i++) {
-            
-            NSValue *value = cellFrame.images_Frame[i];
-            CGRect rect = [value CGRectValue];
-
-            UITapGestureRecognizer *tap = [self createTap];
-            UIImageView *IV = [self createIVWIthFrame:rect imageUrl:cellFrame.images_URL[i] tag:i tap:tap];
-            [self addSubview:IV];
-
-            ItemList *item = (ItemList *)self.home.itemList[i];
-            [self.links_URL addObject:item.linkUrl];
-        }
+        [self HomeServiceDataMediaTypeLittleImages:self.home images_Frame:cellFrame.images_Frame images_URL:cellFrame.images_URL];
+        
     }else if (cellFrame.media_type == 3){
-        CGFloat w = SCREEN_WIDTH/3 - 10;
-        self.sc.frame = cellFrame.sc_Frame;
-        [self addSubview:self.sc];
-        
-        UIImageView *IV = [self createIVWIthFrame:cellFrame.image_Frame imageUrl:self.home.imageUrl tag:0 tap:tap];
-        [self addSubview:IV];
-
-        for (NSInteger i = 0; i < cellFrame.images_Frame.count; i++) {
-            
-            NSValue *value = cellFrame.images_Frame[i];
-            CGRect rect = [value CGRectValue];
-            
-            UITapGestureRecognizer *tap = [self createTap];
-            UIImageView *IV = [self createIVWIthFrame:rect imageUrl:nil tag:i tap:tap];
-            [self.sc addSubview:IV];
-            
-            UIView *view = [[UIView alloc]initWithFrame:CGRectMake(IV.left, IV.bottom + 10, IV.width, self.sc.height - IV.height - 10)];
-            view.backgroundColor = [UIColor orangeColor];
-            if (i == cellFrame.images_Frame.count - 1) {
-                IV.image = [UIImage imageNamed:@"Class"];
-            }else{
-                [IV sd_setImageWithURL:[NSURL URLWithString:cellFrame.images_URL[i]] placeholderImage:nil];
-                [self.sc addSubview:view];
-            }
-            [self.links_URL addObject:self.home.linkUrl];
-
-        }
-        
-        [self.sc setContentSize:CGSizeMake(cellFrame.images_Frame.count * (w + 10) + 10, cellFrame.cellHeight - SCREEN_WIDTH * 0.55 - 10)];
-
+        [self HomeServiceDataMediaTypeOther:cellFrame url:self.home.imageUrl];
 
     }
     
 }
-- (void)OptionImageIsTap:(UITapGestureRecognizer *)tap {
+
+-(void)HomeServiceDataMediaTypeBigImages:(CGRect)frame url:(NSString *)url{
+
+    UITapGestureRecognizer *tap = [self createTapWtirhAction:@selector(BigImagesTap:)];
+    UIImageView *IV = [self createIVWIthFrame:frame imageUrl:url tag:0 tap:tap];
+    [self addSubview:IV];
+}
+
+-(void)HomeServiceDataMediaTypeLittleImages:(Home *)home images_Frame:(NSArray *)images_Frame images_URL:(NSArray *)images_URL{
+    for (NSInteger i = 0; i < home.itemList.count; i++) {
+        
+        NSValue *value = images_Frame[i];
+        CGRect rect = [value CGRectValue];
+        
+        UITapGestureRecognizer *tap = [self createTapWtirhAction:@selector(LittleImagesTap:)];
+        UIImageView *IV = [self createIVWIthFrame:rect imageUrl:images_URL[i] tag:i tap:tap];
+        [self addSubview:IV];
+        
+        ItemList *item = (ItemList *)home.itemList[i];
+        [self.links_URL addObject:item.linkUrl];
+    }
+}
+
+-(void)HomeServiceDataMediaTypeOther:(HomeTableViewCellFrame *)cellFrame url:(NSString *)url{
+    UITapGestureRecognizer *tap = [self createTapWtirhAction:@selector(BigImagesTap:)];
+
+    CGFloat w = SCREEN_WIDTH/3 - 10;
+    self.sc.frame = cellFrame.sc_Frame;
+    [self addSubview:self.sc];
+    
+    UIImageView *IV = [self createIVWIthFrame:cellFrame.image_Frame imageUrl:url tag:0 tap:tap];
+    [self addSubview:IV];
+    
+    for (NSInteger i = 0; i < cellFrame.images_Frame.count; i++) {
+        
+        NSValue *value = cellFrame.images_Frame[i];
+        CGRect rect = [value CGRectValue];
+        
+        UITapGestureRecognizer *tap = [self createTapWtirhAction:@selector(LittleImagesTap:)];
+        UIImageView *IV = [self createIVWIthFrame:rect imageUrl:nil tag:i tap:tap];
+        [self.sc addSubview:IV];
+        
+        if (i == cellFrame.images_Frame.count - 1) {
+            IV.image = [UIImage imageNamed:@"Class"];
+        }else{
+            
+            [IV sd_setImageWithURL:[NSURL URLWithString:cellFrame.images_URL[i]] placeholderImage:nil];
+            if (cellFrame.info_type != 1) {
+                UIView *ItemView = [[UIView alloc]initWithFrame:[cellFrame.InfoS_Frame[i] CGRectValue]];
+//                ItemView.backgroundColor = [UIColor orangeColor];
+                [self.sc addSubview:ItemView];
+                
+                [self configIntroduce:(ItemList *)self.home.itemList[i] ItemView:ItemView infoType:cellFrame.info_type];
+            }
+        }
+        [self.links_URL addObject:self.home.linkUrl];
+        
+    }
+    
+    [self.sc setContentSize:CGSizeMake(cellFrame.images_Frame.count * (w + 10) + 10, cellFrame.cellHeight - SCREEN_WIDTH * 0.55 - 10)];
+}
+
+- (void)configIntroduce:(ItemList *)item ItemView:(UIView *)ItemView infoType:(HomeServiceDataMediaTypeOtherType)data_type{
+    switch (data_type) {
+        case 2:
+            [self HomeServiceDataMediaTypeOther_TypeTitle:item ItemView:ItemView];
+            break;
+        case 3:
+            [self HomeServiceDataMediaTypeOther_TypeDescription:item ItemView:ItemView];
+            break;
+            
+        default:
+            break;
+    }
+    
+}
+
+- (void)HomeServiceDataMediaTypeOther_TypeDescription:(ItemList *)item ItemView:(UIView *)ItemView{
+    
+    UILabel *label = [Factory createLabelWithTitle:item.description1 frame:CGRectMake(0, 0, ItemView.width, ItemView.height - 20)];
+    label.textAlignment = NSTextAlignmentCenter;
+    [ItemView addSubview:label];
+}
+
+- (void)HomeServiceDataMediaTypeOther_TypeTitle:(ItemList *)item ItemView:(UIView *)ItemView{
+    UILabel *label = [Factory createLabelWithTitle:[NSString stringWithFormat:@"%@%@",item.goodsNumLabel,item.title] frame:CGRectMake(0, 0, ItemView.width, ItemView.height - 30)];
+    label.numberOfLines = 2;
+    [ItemView addSubview:label];
+    [HelperTools setTextColor:label AndRange:NSMakeRange(0, 5) AndColor:ColorFromRGB(255, 133, 131)];
+    
+    UILabel *Price = [Factory createLabelWithTitle:[NSString stringWithFormat:@"¥%f¥%f",item.currentPrice,item.originalPrice] frame:CGRectMake(0, label.bottom, ItemView.width,30)];
+    [ItemView addSubview:Price];
+    
+    [HelperTools setTextColor:Price AndRange:NSMakeRange(0, 4) AndColor:ColorFromRGB(198, 36, 17)];
+    [HelperTools setTextColor:Price AndRange:NSMakeRange(4, 4) AndColor:ColorFromRGB(146, 146, 146) AndFont:12];
+    
+
+    
+//    label.backgroundColor = [UIColor blueColor];
+//    Price.backgroundColor = [UIColor orangeColor];
+//    ItemView.backgroundColor = [UIColor grayColor];
+
+
+}
+
+
+- (void)BigImagesTap:(UITapGestureRecognizer *)tap {
     NSString *url = self.home.linkUrl;
     if ([self.delegate respondsToSelector:@selector(pushBannerWebViewWithURL:)]) {
         [self.delegate pushBannerWebViewWithURL:url];
     }
 
 }
-- (void)OptionImageIsTap1:(UITapGestureRecognizer *)tap {
+- (void)LittleImagesTap:(UITapGestureRecognizer *)tap {
     UIImageView *imageView = (UIImageView *)[self.sc viewWithTag:tap.view.tag];
     NSString *url = self.links_URL[imageView.tag];
     if ([self.delegate respondsToSelector:@selector(pushBannerWebViewWithURL:)]) {
@@ -120,13 +180,14 @@
     
 }
 
--(UITapGestureRecognizer *)createTap{
-    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(OptionImageIsTap1:)];
+-(UITapGestureRecognizer *)createTapWtirhAction:(nullable SEL)action{
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:action];
     tap.numberOfTouchesRequired = 1;
     tap.numberOfTapsRequired = 1;
     tap.delegate = self;
     return tap;
 }
+
 
 -(UIImageView *)createIVWIthFrame:(CGRect)frame imageUrl:(NSString *)url tag:(NSInteger)tag tap:(UITapGestureRecognizer *)tap{
     UIImageView *IV = [[UIImageView alloc]initWithFrame:frame];

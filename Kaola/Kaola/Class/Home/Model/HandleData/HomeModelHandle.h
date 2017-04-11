@@ -8,7 +8,10 @@
 
 #import <Foundation/Foundation.h>
 
+
+
 @interface HomeModelHandle : NSObject
+
 
 +(NSDictionary *)HomeModelHandle:(BaseClass *)baseModel;
 
