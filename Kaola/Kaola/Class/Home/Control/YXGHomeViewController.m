@@ -62,6 +62,7 @@
 
 - (void)loadDataType:(HomeServiceDataType)type withUrl:(NSString *)url{
     self.request.yxg_url = url;
+    self.request.paramsDic = [HomeListRequest params];
     self.data_type = type;
     [self loadData];
 

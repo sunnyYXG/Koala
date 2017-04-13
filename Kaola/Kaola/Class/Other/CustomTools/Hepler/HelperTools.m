@@ -52,4 +52,15 @@
     return CGRectMake(frame.origin.x, frame.origin.y, frame.size.width, txtFrame.size.height);
 }
 
++ (NSString *)HTtimeStamp{
+    double timeStamp = ceil([[NSDate date] timeIntervalSince1970]);
+    NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
+    [formatter setGeneratesDecimalNumbers:false];
+    NSNumber *timeNumber = [NSNumber numberWithDouble:timeStamp];
+    NSString *timeString = [formatter stringFromNumber:timeNumber];
+    
+    return timeString;
+    //    return [NSNumber numberWithLongLong:[timeString longLongValue]];
+}
+
 @end

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0D00F3601E9F68D10021D07D /* MainRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D00F35F1E9F68D10021D07D /* MainRequest.m */; };
 		0D0261061E8F395D0026A7D0 /* HomeTJMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D0261051E8F395D0026A7D0 /* HomeTJMenuView.m */; };
 		0D0FB1E01E89EDEC00D00581 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D0FB1DF1E89EDEC00D00581 /* main.m */; };
 		0D0FB1E31E89EDEC00D00581 /* YXGAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D0FB1E21E89EDEC00D00581 /* YXGAppDelegate.m */; };
@@ -78,6 +79,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0D00F35E1E9F68D10021D07D /* MainRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainRequest.h; sourceTree = "<group>"; };
+		0D00F35F1E9F68D10021D07D /* MainRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainRequest.m; sourceTree = "<group>"; };
 		0D0261041E8F395D0026A7D0 /* HomeTJMenuView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeTJMenuView.h; sourceTree = "<group>"; };
 		0D0261051E8F395D0026A7D0 /* HomeTJMenuView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeTJMenuView.m; sourceTree = "<group>"; };
 		0D0FB1DB1E89EDEC00D00581 /* Kaola.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Kaola.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -382,6 +385,8 @@
 				0D0FB2311E89EE7D00D00581 /* MainTabBarController.h */,
 				0D0FB2321E89EE7D00D00581 /* MainTabBarController.m */,
 				644085881E8D3818001456E2 /* BaseUrl.h */,
+				0D00F35E1E9F68D10021D07D /* MainRequest.h */,
+				0D00F35F1E9F68D10021D07D /* MainRequest.m */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -868,6 +873,7 @@
 				0D0FB2651E89EE7D00D00581 /* YXGHomeOtherController.m in Sources */,
 				0D0FB2641E89EE7D00D00581 /* YXGFindViewController.m in Sources */,
 				0D2AFB051E8E2F860012232A /* HomeTableViewCellFrame.m in Sources */,
+				0D00F3601E9F68D10021D07D /* MainRequest.m in Sources */,
 				0D0FB2671E89EE7D00D00581 /* YXGHomeViewController.m in Sources */,
 				0DBEFEC41E8F8E9B00E28A6C /* Body.m in Sources */,
 				0D0FB2901E8A288E00D00581 /* BaseTableView.m in Sources */,

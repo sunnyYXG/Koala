@@ -42,9 +42,10 @@
     [self yxg_sendRequestWithCompletion:nil];
 }
 - (void)yxg_sendRequestWithCompletion:(NHAPIDicCompletion)completion {
-//    NSDictionary *dic = @{@"_httimestamp":@"1491802251",@"lastActivityPos":@"0",@"lastBrandPos":@"0",@"lastGoodsPos":@"0",@"pageNo":@"1"};
+//    NSDictionary *params = [self params];
+
         AFHTTPSessionManager *mgr = [AFHTTPSessionManager manager];
-            [mgr GET:self.yxg_url parameters:nil progress:^(NSProgress * _Nonnull downloadProgress) {
+            [mgr GET:self.yxg_url parameters:self.paramsDic progress:^(NSProgress * _Nonnull downloadProgress) {
             
         } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
             
@@ -54,6 +55,31 @@
         } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
             //
         }];
+}
+
+-(NSDictionary *)params{
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    params[@"_httimestamp"] = [self HTtimeStamp];
+    params[@"lastActivityPos"] = @"0";
+    params[@"lastGoodsPos"] = @"0";
+    params[@"pageNo"] = @"1";
+    return params;
+}
+
+/*
+
+ */
+
+- (NSString *)HTtimeStamp{
+    
+    double timeStamp = ceil([[NSDate date] timeIntervalSince1970]);
+    NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
+    [formatter setGeneratesDecimalNumbers:false];
+    NSNumber *timeNumber = [NSNumber numberWithDouble:timeStamp];
+    NSString *timeString = [formatter stringFromNumber:timeNumber];
+    
+    return timeString;
+//    return [NSNumber numberWithLongLong:[timeString longLongValue]];
 }
 
 

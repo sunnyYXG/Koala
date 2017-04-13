@@ -25,6 +25,8 @@ typedef void(^NHAPIDicCompletion)(id response, BOOL success, NSString *message);
 @property (nonatomic, assign) BOOL yxg_isPost;
 /** 图片数组*/
 @property (nonatomic, strong) NSArray <UIImage *>*yxg_imageArray;
+/** 参数 */
+@property (nonatomic, strong) NSDictionary *paramsDic;
 
 /** 构造方法*/
 + (instancetype)yxg_request;

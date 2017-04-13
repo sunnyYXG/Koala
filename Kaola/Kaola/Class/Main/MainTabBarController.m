@@ -8,6 +8,8 @@
 
 #import "MainTabBarController.h"
 #import "BaseNavigationViewController.h"
+#import "MainRequest.h"
+
 @interface MainTabBarController ()
 
 @end
@@ -18,18 +20,33 @@
     [super viewDidLoad];
     [self createTab];
     
-    self.request = [BaseRequest yxg_request];
-    self.request.yxg_url = openad_url;
-    [self loadData];
+    MainRequest *request = [MainRequest yxg_request];
+    self.request = request;
+    [self loadDataWithMainUrl:main_url];
+    [self loadDataWithUrl:openad_url];
+    [self loadDataWithUrl:path_url];
 
 }
+
+- (void)loadDataWithUrl:(NSString *)url{
+    self.request.yxg_url = url;
+    self.request.paramsDic = [MainRequest params];
+    [self loadData];
+}
+
+- (void)loadDataWithMainUrl:(NSString *)url{
+    self.request.yxg_url = url;
+    self.request.paramsDic = [MainRequest main_params];
+    [self loadData];
+}
+
 
 - (void)loadData{
     
     if (!self.request) return;
     [self.request yxg_sendRequestWithCompletion:^(id response, BOOL success, NSString *message) {
         if (success) {
-            DDLog(@"openad--success");
+            DDLog(@"openad/path--success");
         }
     }];
     

@@ -1,15 +1,18 @@
 //
-//  HomeListRequest.h
+//  MainRequest.h
 //  Kaola
 //
-//  Created by sunny_FX on 2017/3/30.
+//  Created by rongyun on 17/4/13.
 //  Copyright © 2017年 YXGang. All rights reserved.
 //
 
 #import "BaseRequest.h"
 
-@interface HomeListRequest : BaseRequest
+@interface MainRequest : BaseRequest
 
 /** 参数 */
 + (NSDictionary *)params;
+
++ (NSDictionary *)main_params;
+
 @end

@@ -15,4 +15,6 @@
 
 + (void)setTextColor:(UILabel *)label AndRange:(NSRange)range AndColor:(UIColor *)vaColor AndFont:(CGFloat)font;
 
+/** 时间戳 */
++ (NSString *)HTtimeStamp;
 @end
