@@ -9,6 +9,10 @@
 #ifndef BaseUrl_h
 #define BaseUrl_h
 //
+
+//#define login_url @"http://webcache-sp.kaola.com/api/version_check/webapp"
+
+#define login_url @"http://log-collector.kaola.com/api/alarmCommon?"
 #define main_url @"http://sp.kaola.com/api/application?"
 #define openad_url @"http://sp.kaola.com/api/openad?"
 #define path_url @"http://sp.kaola.com/api/patch?"

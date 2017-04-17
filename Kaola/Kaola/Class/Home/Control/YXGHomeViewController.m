@@ -64,7 +64,7 @@
     self.request.yxg_url = url;
     self.request.paramsDic = [HomeListRequest params];
     self.data_type = type;
-    [self loadData];
+//    [self loadData];
 
 }
 - (void)initBannerView
@@ -125,13 +125,11 @@
 }
 
 - (void)loadData{
-
-//    [self startProgress];
     if (!self.request) return;
     IMP_BLOCK_SELF(YXGHomeViewController);
+//    WeakSelf(weak_self);
     [self.request yxg_sendRequestWithCompletion:^(id response, BOOL success, NSString *message) {
         if (success) {
-//            [self stopProgress];
             [self.tableView.mj_header endRefreshing];
 
             DDLog(@"moedlaaaaaa:%@",response);
