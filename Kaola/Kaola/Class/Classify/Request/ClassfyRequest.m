@@ -11,7 +11,7 @@
 @implementation ClassfyRequest
 
 
--(NSDictionary *)paramsDic{
++(NSDictionary *)params{
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
     params[@"_httimestamp"] = [HelperTools HTtimeStamp];
     return params;

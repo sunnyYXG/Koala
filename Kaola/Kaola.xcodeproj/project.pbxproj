@@ -47,8 +47,11 @@
 		0D2AFAFC1E8E129A0012232A /* BannerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D2AFAFB1E8E129A0012232A /* BannerViewController.m */; };
 		0D2AFB051E8E2F860012232A /* HomeTableViewCellFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D2AFB041E8E2F860012232A /* HomeTableViewCellFrame.m */; };
 		0DADDB481EAD922E00CC6075 /* YXGClassfyTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DADDB471EAD922E00CC6075 /* YXGClassfyTableView.m */; };
-		0DADDB4C1EAD975E00CC6075 /* ClassfyTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DADDB4B1EAD975E00CC6075 /* ClassfyTableViewCell.m */; };
-		0DADDB501EAD9D9D00CC6075 /* ClassfyRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DADDB4F1EAD9D9D00CC6075 /* ClassfyRequest.m */; };
+		0DADDB891EADBF9300CC6075 /* ClassfyTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DADDB7D1EADBF9300CC6075 /* ClassfyTableViewCell.m */; };
+		0DADDB8A1EADBF9300CC6075 /* ClassfyRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DADDB801EADBF9300CC6075 /* ClassfyRequest.m */; };
+		0DADDB8B1EADBF9300CC6075 /* ClassfyBody.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DADDB831EADBF9300CC6075 /* ClassfyBody.m */; };
+		0DADDB8C1EADBF9300CC6075 /* ClassfyCategoryTreeMenuList.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DADDB851EADBF9300CC6075 /* ClassfyCategoryTreeMenuList.m */; };
+		0DADDB8D1EADBF9300CC6075 /* ClassfyModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DADDB871EADBF9300CC6075 /* ClassfyModel.m */; };
 		0DBEFEAA1E8F7DE700E28A6C /* HomeSectionCell1.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DBEFEA91E8F7DE700E28A6C /* HomeSectionCell1.m */; };
 		0DBEFEC11E8F8E9B00E28A6C /* HomeModelHandle.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DBEFEB11E8F8E9B00E28A6C /* HomeModelHandle.m */; };
 		0DBEFEC21E8F8E9B00E28A6C /* BannerList.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DBEFEB41E8F8E9B00E28A6C /* BannerList.m */; };
@@ -165,10 +168,17 @@
 		0D2AFB041E8E2F860012232A /* HomeTableViewCellFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeTableViewCellFrame.m; sourceTree = "<group>"; };
 		0DADDB461EAD922E00CC6075 /* YXGClassfyTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YXGClassfyTableView.h; sourceTree = "<group>"; };
 		0DADDB471EAD922E00CC6075 /* YXGClassfyTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YXGClassfyTableView.m; sourceTree = "<group>"; };
-		0DADDB4A1EAD975E00CC6075 /* ClassfyTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClassfyTableViewCell.h; sourceTree = "<group>"; };
-		0DADDB4B1EAD975E00CC6075 /* ClassfyTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClassfyTableViewCell.m; sourceTree = "<group>"; };
-		0DADDB4E1EAD9D9D00CC6075 /* ClassfyRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClassfyRequest.h; sourceTree = "<group>"; };
-		0DADDB4F1EAD9D9D00CC6075 /* ClassfyRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClassfyRequest.m; sourceTree = "<group>"; };
+		0DADDB7C1EADBF9300CC6075 /* ClassfyTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClassfyTableViewCell.h; sourceTree = "<group>"; };
+		0DADDB7D1EADBF9300CC6075 /* ClassfyTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClassfyTableViewCell.m; sourceTree = "<group>"; };
+		0DADDB7F1EADBF9300CC6075 /* ClassfyRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClassfyRequest.h; sourceTree = "<group>"; };
+		0DADDB801EADBF9300CC6075 /* ClassfyRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClassfyRequest.m; sourceTree = "<group>"; };
+		0DADDB821EADBF9300CC6075 /* ClassfyBody.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClassfyBody.h; sourceTree = "<group>"; };
+		0DADDB831EADBF9300CC6075 /* ClassfyBody.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClassfyBody.m; sourceTree = "<group>"; };
+		0DADDB841EADBF9300CC6075 /* ClassfyCategoryTreeMenuList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClassfyCategoryTreeMenuList.h; sourceTree = "<group>"; };
+		0DADDB851EADBF9300CC6075 /* ClassfyCategoryTreeMenuList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClassfyCategoryTreeMenuList.m; sourceTree = "<group>"; };
+		0DADDB861EADBF9300CC6075 /* ClassfyModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClassfyModel.h; sourceTree = "<group>"; };
+		0DADDB871EADBF9300CC6075 /* ClassfyModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClassfyModel.m; sourceTree = "<group>"; };
+		0DADDB881EADBF9300CC6075 /* ClassfyDataModels.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClassfyDataModels.h; sourceTree = "<group>"; };
 		0DBEFEA81E8F7DE700E28A6C /* HomeSectionCell1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeSectionCell1.h; sourceTree = "<group>"; };
 		0DBEFEA91E8F7DE700E28A6C /* HomeSectionCell1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeSectionCell1.m; sourceTree = "<group>"; };
 		0DBEFEB01E8F8E9B00E28A6C /* HomeModelHandle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeModelHandle.h; sourceTree = "<group>"; };
@@ -318,8 +328,9 @@
 		0D0FB21D1E89EE7D00D00581 /* Classify */ = {
 			isa = PBXGroup;
 			children = (
-				0DADDB4D1EAD9D0900CC6075 /* Request */,
-				0DADDB491EAD971700CC6075 /* View */,
+				0DADDB7B1EADBF9300CC6075 /* View */,
+				0DADDB7E1EADBF9300CC6075 /* Request */,
+				0DADDB811EADBF9300CC6075 /* Model */,
 				0D0FB21E1E89EE7D00D00581 /* Control */,
 			);
 			path = Classify;
@@ -596,22 +607,36 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		0DADDB491EAD971700CC6075 /* View */ = {
+		0DADDB7B1EADBF9300CC6075 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				0DADDB4A1EAD975E00CC6075 /* ClassfyTableViewCell.h */,
-				0DADDB4B1EAD975E00CC6075 /* ClassfyTableViewCell.m */,
+				0DADDB7C1EADBF9300CC6075 /* ClassfyTableViewCell.h */,
+				0DADDB7D1EADBF9300CC6075 /* ClassfyTableViewCell.m */,
 			);
-			name = View;
+			path = View;
 			sourceTree = "<group>";
 		};
-		0DADDB4D1EAD9D0900CC6075 /* Request */ = {
+		0DADDB7E1EADBF9300CC6075 /* Request */ = {
 			isa = PBXGroup;
 			children = (
-				0DADDB4E1EAD9D9D00CC6075 /* ClassfyRequest.h */,
-				0DADDB4F1EAD9D9D00CC6075 /* ClassfyRequest.m */,
+				0DADDB7F1EADBF9300CC6075 /* ClassfyRequest.h */,
+				0DADDB801EADBF9300CC6075 /* ClassfyRequest.m */,
 			);
-			name = Request;
+			path = Request;
+			sourceTree = "<group>";
+		};
+		0DADDB811EADBF9300CC6075 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				0DADDB821EADBF9300CC6075 /* ClassfyBody.h */,
+				0DADDB831EADBF9300CC6075 /* ClassfyBody.m */,
+				0DADDB841EADBF9300CC6075 /* ClassfyCategoryTreeMenuList.h */,
+				0DADDB851EADBF9300CC6075 /* ClassfyCategoryTreeMenuList.m */,
+				0DADDB861EADBF9300CC6075 /* ClassfyModel.h */,
+				0DADDB871EADBF9300CC6075 /* ClassfyModel.m */,
+				0DADDB881EADBF9300CC6075 /* ClassfyDataModels.h */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		0DBEFEAE1E8F8E9B00E28A6C /* AusleseData */ = {
@@ -885,6 +910,7 @@
 				0D0FB26C1E89EE7D00D00581 /* UIView+Addition.m in Sources */,
 				0D0FB2661E89EE7D00D00581 /* YXGHomeTabbarController.m in Sources */,
 				0D0FB2731E89EE7D00D00581 /* SGQRCodeTool.m in Sources */,
+				0DADDB8B1EADBF9300CC6075 /* ClassfyBody.m in Sources */,
 				0D0FB1E31E89EDEC00D00581 /* YXGAppDelegate.m in Sources */,
 				0D0FB28B1E8A285A00D00581 /* BaseTableViewController.m in Sources */,
 				0D0FB2631E89EE7D00D00581 /* YXGClassifyViewController.m in Sources */,
@@ -892,8 +918,9 @@
 				0D0FB2681E89EE7D00D00581 /* HomeNavTabBar.m in Sources */,
 				0D2AFAFC1E8E129A0012232A /* BannerViewController.m in Sources */,
 				0D0FB2721E89EE7D00D00581 /* SGQRCodeConst.m in Sources */,
-				0DADDB501EAD9D9D00CC6075 /* ClassfyRequest.m in Sources */,
+				0DADDB8A1EADBF9300CC6075 /* ClassfyRequest.m in Sources */,
 				0D0FB26F1E89EE7D00D00581 /* ThemeManager.m in Sources */,
+				0DADDB8D1EADBF9300CC6075 /* ClassfyModel.m in Sources */,
 				0D0FB28D1E8A285A00D00581 /* BaseTableViewCell.m in Sources */,
 				0D0FB28C1E8A285A00D00581 /* BaseViewController.m in Sources */,
 				0D0FB26E1E89EE7D00D00581 /* HelperTools.m in Sources */,
@@ -902,7 +929,7 @@
 				0D0FB1E01E89EDEC00D00581 /* main.m in Sources */,
 				0D0FB2691E89EE7D00D00581 /* MainTabBarController.m in Sources */,
 				0D0FB26D1E89EE7D00D00581 /* Factory.m in Sources */,
-				0DADDB4C1EAD975E00CC6075 /* ClassfyTableViewCell.m in Sources */,
+				0DADDB891EADBF9300CC6075 /* ClassfyTableViewCell.m in Sources */,
 				0DBEFEC31E8F8E9B00E28A6C /* BaseClass.m in Sources */,
 				0D0FB2651E89EE7D00D00581 /* YXGHomeOtherController.m in Sources */,
 				0D0FB2641E89EE7D00D00581 /* YXGFindViewController.m in Sources */,
@@ -919,6 +946,7 @@
 				644085871E8D2ED3001456E2 /* BaseRequest.m in Sources */,
 				0DBEFEC21E8F8E9B00E28A6C /* BannerList.m in Sources */,
 				0D0FB2751E89EE7D00D00581 /* QRCodeScanningVC.m in Sources */,
+				0DADDB8C1EADBF9300CC6075 /* ClassfyCategoryTreeMenuList.m in Sources */,
 				0D0FB2701E89EE7D00D00581 /* SGQRCodeScanningVC.m in Sources */,
 				0D2AFAF81E8DFEE70012232A /* CycleBannerView.m in Sources */,
 				0DBEFEC11E8F8E9B00E28A6C /* HomeModelHandle.m in Sources */,

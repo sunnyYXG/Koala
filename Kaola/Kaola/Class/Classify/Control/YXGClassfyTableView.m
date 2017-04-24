@@ -9,9 +9,11 @@
 #import "YXGClassfyTableView.h"
 #import "ClassfyTableViewCell.h"
 #import "ClassfyRequest.h"
+#import "ClassfyDataModels.h"
 
 @interface YXGClassfyTableView ()
 
+@property (nonatomic)ClassfyModel *baseModel;
 
 @end
 
@@ -42,7 +44,7 @@
 }
 -(BaseTableViewCell *)yxg_cellAtIndexPath:(NSIndexPath *)indexPath{
     ClassfyTableViewCell *cell = [ClassfyTableViewCell cellWithTableView:self.tableView identifier:[NSString stringWithFormat:@"cell%ld%ld",indexPath.section,indexPath.row]];
-    cell.backgroundColor = [UIColor orangeColor];
+//    cell.backgroundColor = [UIColor orangeColor];
     return cell;
 }
 
@@ -53,16 +55,16 @@
         if (success) {
             [self.tableView.mj_header endRefreshing];
             
-            DDLog(@"moedlaaaaaa:%@",response);
-//            block_self.baseModel = (BaseClass *)[BaseClass yy_modelWithJSON:response];
-//            NSDictionary *dic = [HomeModelHandle HomeModelHandle:block_self.baseModel];
-//            block_self.HomeList = [dic objectForKey:@"HomeList"];
-//            block_self.cellFrameArray = [dic objectForKey:@"cellFrameArray"];
-//            block_self.bannerView.aryImg = [dic objectForKey:@"BannerImages"];
-//            block_self.BannerList = [dic objectForKey:@"BannerList"];
+            block_self.baseModel = (ClassfyModel *)[ClassfyModel yy_modelWithJSON:response];
+            block_self.data = [NSArray arrayWithArray:block_self.baseModel.body.categoryTreeMenuList];
         }
+        
         [block_self yxg_reloadData];
+        
+
     }];
+    
+    
 }
 
 - (void)didReceiveMemoryWarning {

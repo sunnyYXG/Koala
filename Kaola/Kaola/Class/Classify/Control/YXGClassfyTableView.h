@@ -11,5 +11,5 @@
 @interface YXGClassfyTableView : BaseTableViewController
 
 @property (nonatomic)BaseRequest *request;
-
+@property (nonatomic)NSArray *data;
 @end
