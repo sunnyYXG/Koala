@@ -46,6 +46,9 @@
 		0D2AFAF81E8DFEE70012232A /* CycleBannerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D2AFAF61E8DFEE70012232A /* CycleBannerView.m */; };
 		0D2AFAFC1E8E129A0012232A /* BannerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D2AFAFB1E8E129A0012232A /* BannerViewController.m */; };
 		0D2AFB051E8E2F860012232A /* HomeTableViewCellFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D2AFB041E8E2F860012232A /* HomeTableViewCellFrame.m */; };
+		0DADDB481EAD922E00CC6075 /* YXGClassfyTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DADDB471EAD922E00CC6075 /* YXGClassfyTableView.m */; };
+		0DADDB4C1EAD975E00CC6075 /* ClassfyTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DADDB4B1EAD975E00CC6075 /* ClassfyTableViewCell.m */; };
+		0DADDB501EAD9D9D00CC6075 /* ClassfyRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DADDB4F1EAD9D9D00CC6075 /* ClassfyRequest.m */; };
 		0DBEFEAA1E8F7DE700E28A6C /* HomeSectionCell1.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DBEFEA91E8F7DE700E28A6C /* HomeSectionCell1.m */; };
 		0DBEFEC11E8F8E9B00E28A6C /* HomeModelHandle.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DBEFEB11E8F8E9B00E28A6C /* HomeModelHandle.m */; };
 		0DBEFEC21E8F8E9B00E28A6C /* BannerList.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DBEFEB41E8F8E9B00E28A6C /* BannerList.m */; };
@@ -160,6 +163,12 @@
 		0D2AFAFB1E8E129A0012232A /* BannerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BannerViewController.m; sourceTree = "<group>"; };
 		0D2AFB031E8E2F860012232A /* HomeTableViewCellFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeTableViewCellFrame.h; sourceTree = "<group>"; };
 		0D2AFB041E8E2F860012232A /* HomeTableViewCellFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeTableViewCellFrame.m; sourceTree = "<group>"; };
+		0DADDB461EAD922E00CC6075 /* YXGClassfyTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YXGClassfyTableView.h; sourceTree = "<group>"; };
+		0DADDB471EAD922E00CC6075 /* YXGClassfyTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YXGClassfyTableView.m; sourceTree = "<group>"; };
+		0DADDB4A1EAD975E00CC6075 /* ClassfyTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClassfyTableViewCell.h; sourceTree = "<group>"; };
+		0DADDB4B1EAD975E00CC6075 /* ClassfyTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClassfyTableViewCell.m; sourceTree = "<group>"; };
+		0DADDB4E1EAD9D9D00CC6075 /* ClassfyRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClassfyRequest.h; sourceTree = "<group>"; };
+		0DADDB4F1EAD9D9D00CC6075 /* ClassfyRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClassfyRequest.m; sourceTree = "<group>"; };
 		0DBEFEA81E8F7DE700E28A6C /* HomeSectionCell1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeSectionCell1.h; sourceTree = "<group>"; };
 		0DBEFEA91E8F7DE700E28A6C /* HomeSectionCell1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeSectionCell1.m; sourceTree = "<group>"; };
 		0DBEFEB01E8F8E9B00E28A6C /* HomeModelHandle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeModelHandle.h; sourceTree = "<group>"; };
@@ -309,6 +318,8 @@
 		0D0FB21D1E89EE7D00D00581 /* Classify */ = {
 			isa = PBXGroup;
 			children = (
+				0DADDB4D1EAD9D0900CC6075 /* Request */,
+				0DADDB491EAD971700CC6075 /* View */,
 				0D0FB21E1E89EE7D00D00581 /* Control */,
 			);
 			path = Classify;
@@ -319,6 +330,8 @@
 			children = (
 				0D0FB21F1E89EE7D00D00581 /* YXGClassifyViewController.h */,
 				0D0FB2201E89EE7D00D00581 /* YXGClassifyViewController.m */,
+				0DADDB461EAD922E00CC6075 /* YXGClassfyTableView.h */,
+				0DADDB471EAD922E00CC6075 /* YXGClassfyTableView.m */,
 			);
 			path = Control;
 			sourceTree = "<group>";
@@ -581,6 +594,24 @@
 				0D2AFB041E8E2F860012232A /* HomeTableViewCellFrame.m */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		0DADDB491EAD971700CC6075 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				0DADDB4A1EAD975E00CC6075 /* ClassfyTableViewCell.h */,
+				0DADDB4B1EAD975E00CC6075 /* ClassfyTableViewCell.m */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		0DADDB4D1EAD9D0900CC6075 /* Request */ = {
+			isa = PBXGroup;
+			children = (
+				0DADDB4E1EAD9D9D00CC6075 /* ClassfyRequest.h */,
+				0DADDB4F1EAD9D9D00CC6075 /* ClassfyRequest.m */,
+			);
+			name = Request;
 			sourceTree = "<group>";
 		};
 		0DBEFEAE1E8F8E9B00E28A6C /* AusleseData */ = {
@@ -849,6 +880,7 @@
 				6440858C1E8D3EA2001456E2 /* HomeListRequest.m in Sources */,
 				0D0261061E8F395D0026A7D0 /* HomeTJMenuView.m in Sources */,
 				0DBEFEC51E8F8E9B00E28A6C /* Home.m in Sources */,
+				0DADDB481EAD922E00CC6075 /* YXGClassfyTableView.m in Sources */,
 				0D2AFAF71E8DFEE70012232A /* CycleBannerCell.m in Sources */,
 				0D0FB26C1E89EE7D00D00581 /* UIView+Addition.m in Sources */,
 				0D0FB2661E89EE7D00D00581 /* YXGHomeTabbarController.m in Sources */,
@@ -860,6 +892,7 @@
 				0D0FB2681E89EE7D00D00581 /* HomeNavTabBar.m in Sources */,
 				0D2AFAFC1E8E129A0012232A /* BannerViewController.m in Sources */,
 				0D0FB2721E89EE7D00D00581 /* SGQRCodeConst.m in Sources */,
+				0DADDB501EAD9D9D00CC6075 /* ClassfyRequest.m in Sources */,
 				0D0FB26F1E89EE7D00D00581 /* ThemeManager.m in Sources */,
 				0D0FB28D1E8A285A00D00581 /* BaseTableViewCell.m in Sources */,
 				0D0FB28C1E8A285A00D00581 /* BaseViewController.m in Sources */,
@@ -869,6 +902,7 @@
 				0D0FB1E01E89EDEC00D00581 /* main.m in Sources */,
 				0D0FB2691E89EE7D00D00581 /* MainTabBarController.m in Sources */,
 				0D0FB26D1E89EE7D00D00581 /* Factory.m in Sources */,
+				0DADDB4C1EAD975E00CC6075 /* ClassfyTableViewCell.m in Sources */,
 				0DBEFEC31E8F8E9B00E28A6C /* BaseClass.m in Sources */,
 				0D0FB2651E89EE7D00D00581 /* YXGHomeOtherController.m in Sources */,
 				0D0FB2641E89EE7D00D00581 /* YXGFindViewController.m in Sources */,

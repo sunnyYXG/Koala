@@ -14,6 +14,8 @@
 #import "HomeTJMenuView.h"
 #import "HomeModelHandle.h"
 #import "HomeSectionCell1.h"
+#import "DataModels.h"
+
 @interface YXGHomeViewController ()<homeTableViewCellDelegate,HomeTJMenuViewDelegate>
 
 @property (nonatomic)BaseClass *baseModel;
@@ -54,9 +56,9 @@
     self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
         [self loadDataType:HomeServiceDataTypeMain withUrl:home_url];
     }];
-    [self.tableView.mj_header beginRefreshing];
+//    [self.tableView.mj_header beginRefreshing];
 
-    [self initBannerView];
+//    [self initBannerView];
     
 }
 
@@ -64,7 +66,7 @@
     self.request.yxg_url = url;
     self.request.paramsDic = [HomeListRequest params];
     self.data_type = type;
-//    [self loadData];
+    [self loadData];
 
 }
 - (void)initBannerView

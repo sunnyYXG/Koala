@@ -7,16 +7,27 @@
 //
 
 #import "YXGClassifyViewController.h"
+#import "YXGClassfyTableView.h"
 
 @interface YXGClassifyViewController ()
 
+@property (nonatomic)YXGClassfyTableView *iTableview;
 @end
 
 @implementation YXGClassifyViewController
 
+-(YXGClassfyTableView *)iTableview{
+    if (!_iTableview) {
+        _iTableview = [[YXGClassfyTableView alloc]init];
+    }
+    return _iTableview;
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    [self.view addSubview:self.iTableview.tableView];
+    CGRect frame = CGRectMake(0, 64, 100, self.view.height);
+    self.iTableview.tableView.frame = frame;
+
 }
 
 - (void)didReceiveMemoryWarning {

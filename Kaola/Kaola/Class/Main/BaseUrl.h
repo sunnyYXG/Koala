@@ -17,6 +17,9 @@
 #define openad_url @"http://sp.kaola.com/api/openad?"
 #define path_url @"http://sp.kaola.com/api/patch?"
 
+/**
+ *  首页接口
+ */
 //首页主数据
 #define home_url @"http://sp.kaola.com/api/home?"
 //首页 今日精选
@@ -36,5 +39,10 @@
 #define list_url @"http://m.kaola.com/groupBuyMall/goods/list.html"
 //立省
 #define introduce_url @"http://m.kaola.com/one_invite_one/introduce.html"
+
+/**
+ *  分类接口
+ */
+#define classfy_url @"http://sp.kaola.com/api/category?V330"
 
 #endif /* BaseUrl_h */
