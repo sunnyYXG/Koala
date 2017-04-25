@@ -111,7 +111,7 @@
         cell.cellFrame = cellFrame;
         cell.delegate =self;
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
-        cell.backgroundColor = ColorFromRGB(234, 235, 237);
+        cell.backgroundColor = UIColorFromRGB(234, 235, 237);
         cell.userInteractionEnabled = YES;
         return cell;
 }

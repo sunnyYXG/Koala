@@ -13,9 +13,9 @@
 #define SCREEN_HEIGHT                   ([UIScreen mainScreen].bounds.size.height)
 #define theApp                          ((AppDelegate *)[[UIApplication sharedApplication] delegate])
 #define theWindow                       [[UIApplication sharedApplication] delegate].window
-#define ColorFromString(colorString)           [UIColor colorWithHexString:colorString]
-#define ColorFromRGBValue(rgbValue) [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
-#define ColorFromRGB(r,g,b) [UIColor colorWithRed:(r)/255.0f green:(g)/255.0f blue:(b)/255.0f alpha:1]
+#define UIColorFromString(colorString)           [UIColor colorWithHexString:colorString]
+#define UIColorFromRGBValue(rgbValue) [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
+#define UIColorFromRGB(r,g,b) [UIColor colorWithRed:(r)/255.0f green:(g)/255.0f blue:(b)/255.0f alpha:1]
 
 #define kUserDefaultsCookie @"cookies"
 

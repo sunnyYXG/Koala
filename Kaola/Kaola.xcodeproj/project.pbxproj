@@ -46,6 +46,11 @@
 		0D2AFAF81E8DFEE70012232A /* CycleBannerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D2AFAF61E8DFEE70012232A /* CycleBannerView.m */; };
 		0D2AFAFC1E8E129A0012232A /* BannerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D2AFAFB1E8E129A0012232A /* BannerViewController.m */; };
 		0D2AFB051E8E2F860012232A /* HomeTableViewCellFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D2AFB041E8E2F860012232A /* HomeTableViewCellFrame.m */; };
+		0D35E8141EAEED0B00C04367 /* ClassfyModelHandle.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D35E8131EAEED0B00C04367 /* ClassfyModelHandle.m */; };
+		0D35E8181EAF3FDC00C04367 /* RightCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D35E8161EAF3FDC00C04367 /* RightCollectionViewCell.m */; };
+		0D35E8191EAF3FDC00C04367 /* RightCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0D35E8171EAF3FDC00C04367 /* RightCollectionViewCell.xib */; };
+		0D35E81D1EAF40A000C04367 /* 3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0D35E81B1EAF40A000C04367 /* 3.jpg */; };
+		0D35E81E1EAF40A000C04367 /* 4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0D35E81C1EAF40A000C04367 /* 4.jpg */; };
 		0DADDB481EAD922E00CC6075 /* YXGClassfyTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DADDB471EAD922E00CC6075 /* YXGClassfyTableView.m */; };
 		0DADDB891EADBF9300CC6075 /* ClassfyTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DADDB7D1EADBF9300CC6075 /* ClassfyTableViewCell.m */; };
 		0DADDB8A1EADBF9300CC6075 /* ClassfyRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DADDB801EADBF9300CC6075 /* ClassfyRequest.m */; };
@@ -166,6 +171,13 @@
 		0D2AFAFB1E8E129A0012232A /* BannerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BannerViewController.m; sourceTree = "<group>"; };
 		0D2AFB031E8E2F860012232A /* HomeTableViewCellFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeTableViewCellFrame.h; sourceTree = "<group>"; };
 		0D2AFB041E8E2F860012232A /* HomeTableViewCellFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeTableViewCellFrame.m; sourceTree = "<group>"; };
+		0D35E8121EAEED0B00C04367 /* ClassfyModelHandle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClassfyModelHandle.h; sourceTree = "<group>"; };
+		0D35E8131EAEED0B00C04367 /* ClassfyModelHandle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClassfyModelHandle.m; sourceTree = "<group>"; };
+		0D35E8151EAF3FDC00C04367 /* RightCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RightCollectionViewCell.h; sourceTree = "<group>"; };
+		0D35E8161EAF3FDC00C04367 /* RightCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RightCollectionViewCell.m; sourceTree = "<group>"; };
+		0D35E8171EAF3FDC00C04367 /* RightCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RightCollectionViewCell.xib; sourceTree = "<group>"; };
+		0D35E81B1EAF40A000C04367 /* 3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 3.jpg; sourceTree = "<group>"; };
+		0D35E81C1EAF40A000C04367 /* 4.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 4.jpg; sourceTree = "<group>"; };
 		0DADDB461EAD922E00CC6075 /* YXGClassfyTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YXGClassfyTableView.h; sourceTree = "<group>"; };
 		0DADDB471EAD922E00CC6075 /* YXGClassfyTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YXGClassfyTableView.m; sourceTree = "<group>"; };
 		0DADDB7C1EADBF9300CC6075 /* ClassfyTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClassfyTableViewCell.h; sourceTree = "<group>"; };
@@ -594,6 +606,15 @@
 			path = Web;
 			sourceTree = "<group>";
 		};
+		0D35E81A1EAF408400C04367 /* images */ = {
+			isa = PBXGroup;
+			children = (
+				0D35E81B1EAF40A000C04367 /* 3.jpg */,
+				0D35E81C1EAF40A000C04367 /* 4.jpg */,
+			);
+			name = images;
+			sourceTree = "<group>";
+		};
 		0D99766C1E8CE52D00F69D42 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -610,6 +631,10 @@
 		0DADDB7B1EADBF9300CC6075 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				0D35E81A1EAF408400C04367 /* images */,
+				0D35E8151EAF3FDC00C04367 /* RightCollectionViewCell.h */,
+				0D35E8161EAF3FDC00C04367 /* RightCollectionViewCell.m */,
+				0D35E8171EAF3FDC00C04367 /* RightCollectionViewCell.xib */,
 				0DADDB7C1EADBF9300CC6075 /* ClassfyTableViewCell.h */,
 				0DADDB7D1EADBF9300CC6075 /* ClassfyTableViewCell.m */,
 			);
@@ -635,6 +660,8 @@
 				0DADDB861EADBF9300CC6075 /* ClassfyModel.h */,
 				0DADDB871EADBF9300CC6075 /* ClassfyModel.m */,
 				0DADDB881EADBF9300CC6075 /* ClassfyDataModels.h */,
+				0D35E8121EAEED0B00C04367 /* ClassfyModelHandle.h */,
+				0D35E8131EAEED0B00C04367 /* ClassfyModelHandle.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -826,7 +853,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0D35E81E1EAF40A000C04367 /* 4.jpg in Resources */,
+				0D35E81D1EAF40A000C04367 /* 3.jpg in Resources */,
 				0D0FB1EB1E89EDEC00D00581 /* Assets.xcassets in Resources */,
+				0D35E8191EAF3FDC00C04367 /* RightCollectionViewCell.xib in Resources */,
 				0D0FB2711E89EE7D00D00581 /* SGQRCode.bundle in Resources */,
 				0D0FB2791E89EE7D00D00581 /* InfoPlist.strings in Resources */,
 			);
@@ -914,6 +944,7 @@
 				0D0FB1E31E89EDEC00D00581 /* YXGAppDelegate.m in Sources */,
 				0D0FB28B1E8A285A00D00581 /* BaseTableViewController.m in Sources */,
 				0D0FB2631E89EE7D00D00581 /* YXGClassifyViewController.m in Sources */,
+				0D35E8181EAF3FDC00C04367 /* RightCollectionViewCell.m in Sources */,
 				0DF71C931E8C869100B4DB14 /* BaseTableHeaderFooterView.m in Sources */,
 				0D0FB2681E89EE7D00D00581 /* HomeNavTabBar.m in Sources */,
 				0D2AFAFC1E8E129A0012232A /* BannerViewController.m in Sources */,
@@ -949,6 +980,7 @@
 				0DADDB8C1EADBF9300CC6075 /* ClassfyCategoryTreeMenuList.m in Sources */,
 				0D0FB2701E89EE7D00D00581 /* SGQRCodeScanningVC.m in Sources */,
 				0D2AFAF81E8DFEE70012232A /* CycleBannerView.m in Sources */,
+				0D35E8141EAEED0B00C04367 /* ClassfyModelHandle.m in Sources */,
 				0DBEFEC11E8F8E9B00E28A6C /* HomeModelHandle.m in Sources */,
 				0DBEFEC71E8F8E9B00E28A6C /* LocationInfo.m in Sources */,
 				0DF71C961E8C95B400B4DB14 /* homeTableViewCell.m in Sources */,
