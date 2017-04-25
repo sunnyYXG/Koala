@@ -22,9 +22,10 @@
     
     MainRequest *request = [MainRequest yxg_request];
     self.request = request;
-    [self loadDataWithMainUrl:main_url];
-    [self loadDataWithUrl:openad_url];
-    [self loadDataWithUrl:path_url];
+    [self login:login_url];
+//    [self loadDataWithMainUrl:main_url];
+//    [self loadDataWithUrl:openad_url];
+//    [self loadDataWithUrl:path_url];
 
 }
 
@@ -40,6 +41,10 @@
     [self loadData];
 }
 
+- (void)login:(NSString *)url{
+    self.request.yxg_url = url;
+    [self loadData];
+}
 
 - (void)loadData{
     

@@ -15,15 +15,6 @@
     params[@"_httimestamp"] = [HelperTools HTtimeStamp];
     return params;
 }
-/*
- //sp.kaola.com/api/application?
- _httimestamp=1492071823
- &
- &=
- &=
- &=
- &=
- */
 
 + (NSDictionary *)main_params{
     NSMutableDictionary *params = [NSMutableDictionary dictionary];

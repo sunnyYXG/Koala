@@ -41,10 +41,13 @@
 -(void)yxg_sendRequest{
     [self yxg_sendRequestWithCompletion:nil];
 }
+
 - (void)yxg_sendRequestWithCompletion:(NHAPIDicCompletion)completion {
 //    NSDictionary *params = [self params];
 
         AFHTTPSessionManager *mgr = [AFHTTPSessionManager manager];
+         mgr.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json", @"text/json", @"text/javascript",@"application/x-json",@"text/html", nil];
+    
             [mgr GET:self.yxg_url parameters:self.paramsDic progress:^(NSProgress * _Nonnull downloadProgress) {
             
         } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
@@ -55,6 +58,7 @@
         } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
             //
         }];
+    
 }
 
 -(NSDictionary *)params{

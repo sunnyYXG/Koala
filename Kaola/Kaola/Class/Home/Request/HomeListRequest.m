@@ -12,7 +12,7 @@
 
 + (NSDictionary *)params{
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
-    params[@"httimestamp-123"] = [HelperTools HTtimeStamp];
+    params[@"_httimestamp"] = [HelperTools HTtimeStamp];
     params[@"lastActivityPos"] = @"0";
     params[@"lastBrandPos"] = @"0";
     params[@"lastGoodsPos"] = @"0";
