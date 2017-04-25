@@ -9,6 +9,7 @@
 #ifndef BaseUrl_h
 #define BaseUrl_h
 //
+<<<<<<< HEAD
 //_httimestamp=1492084765
 //#define login_url   @"http://webcache-sp.kaola.com/api/version_check/webapp"
 #define login_url   @"http://log-collector.kaola.com/api/alarmCommon?_httimestamp=1492084765"
@@ -17,7 +18,19 @@
 #define openad_url  @"http://sp.kaola.com/api/openad?"
 #define path_url    @"http://sp.kaola.com/api/patch?"
 
+=======
 
+//#define login_url @"http://webcache-sp.kaola.com/api/version_check/webapp"
+
+#define login_url @"http://log-collector.kaola.com/api/alarmCommon?"
+#define main_url @"http://sp.kaola.com/api/application?"
+#define openad_url @"http://sp.kaola.com/api/openad?"
+#define path_url @"http://sp.kaola.com/api/patch?"
+>>>>>>> d37f26d6dfd8ddb2a260ac6646dae0ca7fb15823
+
+/**
+ *  首页接口
+ */
 //首页主数据
 #define home_url    @"http://sp.kaola.com/api/home?"
 //首页 今日精选
@@ -37,5 +50,10 @@
 #define list_url    @"http://m.kaola.com/groupBuyMall/goods/list.html"
 //立省
 #define introduce_url   @"http://m.kaola.com/one_invite_one/introduce.html"
+
+/**
+ *  分类接口
+ */
+#define classfy_url @"http://sp.kaola.com/api/category?V330"
 
 #endif /* BaseUrl_h */

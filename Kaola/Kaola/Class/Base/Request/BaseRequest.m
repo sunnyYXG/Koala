@@ -46,11 +46,32 @@
 //    NSDictionary *params = [self params];
 
         AFHTTPSessionManager *mgr = [AFHTTPSessionManager manager];
+<<<<<<< HEAD
          mgr.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json", @"text/json", @"text/javascript",@"application/x-json",@"text/html", nil];
     
+=======
+    [mgr.requestSerializer setValue:[[NSUserDefaults standardUserDefaults]objectForKey:@"mUserDefaultsCookie"]forHTTPHeaderField:@"Cookie"];
+
+>>>>>>> d37f26d6dfd8ddb2a260ac6646dae0ca7fb15823
             [mgr GET:self.yxg_url parameters:self.paramsDic progress:^(NSProgress * _Nonnull downloadProgress) {
             
         } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+            
+            /*
+            NSArray *cookies = [[NSHTTPCookieStorage sharedHTTPCookieStorage] cookiesForURL: [NSURL URLWithString:home_url]];
+            NSData *data = [NSKeyedArchiver archivedDataWithRootObject:cookies];
+            [[NSUserDefaults standardUserDefaults] setObject:data forKey:kUserDefaultsCookie];
+
+            NSData *cookiesdata = [[NSUserDefaults standardUserDefaults] objectForKey:kUserDefaultsCookie];
+            if([cookiesdata length]) {
+                NSArray *cookies = [NSKeyedUnarchiver unarchiveObjectWithData:cookiesdata];
+                DDLog(@"cookies:%@",cookies);
+                NSHTTPCookie *cookie;
+                for (cookie in cookies) {
+                    [[NSHTTPCookieStorage sharedHTTPCookieStorage] setCookie:cookie];
+                }
+            }  
+*/
             
             //数据请求成功的block回调
             completion(responseObject, YES, @"");
@@ -59,32 +80,95 @@
             //
         }];
     
-}
-
--(NSDictionary *)params{
-    NSMutableDictionary *params = [NSMutableDictionary dictionary];
-    params[@"_httimestamp"] = [self HTtimeStamp];
-    params[@"lastActivityPos"] = @"0";
-    params[@"lastGoodsPos"] = @"0";
-    params[@"pageNo"] = @"1";
-    return params;
-}
-
-/*
-
- */
-
-- (NSString *)HTtimeStamp{
+<<<<<<< HEAD
+=======
     
-    double timeStamp = ceil([[NSDate date] timeIntervalSince1970]);
-    NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
-    [formatter setGeneratesDecimalNumbers:false];
-    NSNumber *timeNumber = [NSNumber numberWithDouble:timeStamp];
-    NSString *timeString = [formatter stringFromNumber:timeNumber];
-    
-    return timeString;
-//    return [NSNumber numberWithLongLong:[timeString longLongValue]];
+>>>>>>> d37f26d6dfd8ddb2a260ac6646dae0ca7fb15823
 }
+
+
++(void)yxg_getCookiesWithPost{
+
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    manager.requestSerializer = [AFJSONRequestSerializer serializer];
+    [manager.requestSerializer setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+
+    NSDictionary *dic = @{@"httimestamp":@"1492408547"};
+    [manager POST:login_url parameters:dic progress:^(NSProgress * _Nonnull uploadProgress) {
+        //
+    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+       
+#if 1
+        NSLog(@"\n======================================\n");
+        NSDictionary *fields = ((NSHTTPURLResponse*)task.response).allHeaderFields;
+        NSLog(@"fields = %@",[fields description]);
+        NSURL *url = [NSURL URLWithString:@"http://log-collector.kaola.com/api/alarmCommon?_httimestamp=1492407604"];
+        NSLog(@"\n======================================\n");
+        //获取cookie方法1
+        NSArray *cookies = [NSHTTPCookie cookiesWithResponseHeaderFields:fields forURL:url];
+        for (NSHTTPCookie *cookie in cookies) {
+            NSLog(@"cookie,name:= %@,valuie = %@",cookie.name,cookie.value);
+        }
+        NSLog(@"\n======================================\n");
+        //        //获取cookie方法2
+        //        NSString *cookies2 = [((NSHTTPURLResponse*)task.response) valueForKey:@"Set-Cookie"];
+        //        NSLog(@"cookies2 = %@",[cookies2 description]);
+        /*
+        NSArray *cookies = [[NSHTTPCookieStorage sharedHTTPCookieStorage] cookies];
+        for (NSHTTPCookie *cookie in cookies) {
+            // Here I see the correct rails session cookie
+            NSLog(@"cookie: %@", cookie);
+        }
+        
+        NSData *cookiesData = [NSKeyedArchiver archivedDataWithRootObject: [[NSHTTPCookieStorage sharedHTTPCookieStorage] cookies]];
+        DDLog(@"cookiesData:%@",cookiesData);
+        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+        [defaults setObject: cookiesData forKey: @"sessionCookies"];
+        [defaults synchronize];
+*/
+        /*
+        NSDictionary *fields = [responseObject allHeaderFields];
+        NSLog(@"fields = %@",[fields description]);
+        NSURL *url = [NSURL URLWithString:login_url];
+        //获取cookie方法1
+        NSArray *cookies = [NSHTTPCookie cookiesWithResponseHeaderFields:fields forURL:url];
+        NSLog(@"cookies11--%@",cookies);
+        
+        //获取cookie方法2
+        //NSString *cookieString = [[HTTPResponse allHeaderFields] valueForKey:@"Set-Cookie"];
+         */
+
+#else
+        //获取cookie
+        NSArray *cookies = [[NSHTTPCookieStorage sharedHTTPCookieStorage]cookiesForURL:[NSURL URLWithString:login_url]];
+        for (NSHTTPCookie *tempCookie in cookies)
+        {
+            //打印cookies
+            NSLog(@"getCookie:%@",tempCookie);
+        }
+        
+        
+        NSDictionary *Request = [NSHTTPCookie requestHeaderFieldsWithCookies:cookies];
+        NSUserDefaults *userCookies = [NSUserDefaults standardUserDefaults];
+        [userCookies setObject:[Request objectForKey:@"Cookie"] forKey:@"mUserDefaultsCookie"];
+        [userCookies synchronize];
+        
+        DDLog(@"cookies:%@",cookies);
+
+        
+#endif
+        
+        
+        
+
+        
+        //
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        //
+    }];
+}
+
+
 
 
 @end

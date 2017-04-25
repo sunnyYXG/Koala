@@ -8,6 +8,11 @@
 
 #import "BaseViewController.h"
 
+
 @interface YXGClassifyViewController : BaseViewController
+
+@property (nonatomic, strong) UICollectionView *rightCollectionView;
+@property (nonatomic,strong) NSArray *myData;
+@property (nonatomic,assign) NSInteger selectedIndex;
 
 @end

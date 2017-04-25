@@ -14,6 +14,8 @@
 #import "HomeTJMenuView.h"
 #import "HomeModelHandle.h"
 #import "HomeSectionCell1.h"
+#import "DataModels.h"
+
 @interface YXGHomeViewController ()<homeTableViewCellDelegate,HomeTJMenuViewDelegate>
 
 @property (nonatomic)BaseClass *baseModel;
@@ -54,9 +56,9 @@
     self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
         [self loadDataType:HomeServiceDataTypeMain withUrl:home_url];
     }];
-    [self.tableView.mj_header beginRefreshing];
+//    [self.tableView.mj_header beginRefreshing];
 
-    [self initBannerView];
+//    [self initBannerView];
     
 }
 
@@ -109,7 +111,7 @@
         cell.cellFrame = cellFrame;
         cell.delegate =self;
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
-        cell.backgroundColor = ColorFromRGB(234, 235, 237);
+        cell.backgroundColor = UIColorFromRGB(234, 235, 237);
         cell.userInteractionEnabled = YES;
         return cell;
 }
@@ -125,13 +127,11 @@
 }
 
 - (void)loadData{
-
-//    [self startProgress];
     if (!self.request) return;
     IMP_BLOCK_SELF(YXGHomeViewController);
+//    WeakSelf(weak_self);
     [self.request yxg_sendRequestWithCompletion:^(id response, BOOL success, NSString *message) {
         if (success) {
-//            [self stopProgress];
             [self.tableView.mj_header endRefreshing];
 
             DDLog(@"moedlaaaaaa:%@",response);

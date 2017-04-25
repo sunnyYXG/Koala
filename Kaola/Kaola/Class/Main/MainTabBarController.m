@@ -20,12 +20,23 @@
     [super viewDidLoad];
     [self createTab];
     
+<<<<<<< HEAD
     MainRequest *request = [MainRequest yxg_request];
     self.request = request;
     [self login:login_url];
 //    [self loadDataWithMainUrl:main_url];
 //    [self loadDataWithUrl:openad_url];
 //    [self loadDataWithUrl:path_url];
+=======
+//    MainRequest *request = [MainRequest yxg_request];
+//    self.request = request;
+//    [self.request yxg_getCookiesWithPost];
+//    [self loadDataWithMainUrl:main_url];
+//    [self loadDataWithUrl:openad_url];
+//    [self loadDataWithUrl:path_url];
+    
+    [BaseRequest yxg_getCookiesWithPost];
+>>>>>>> d37f26d6dfd8ddb2a260ac6646dae0ca7fb15823
 
 }
 

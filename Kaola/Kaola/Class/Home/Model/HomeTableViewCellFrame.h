@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 #import "HomeModelHandle.h"
+#import "DataModels.h"
+
 /**
  *  数据类型
  */

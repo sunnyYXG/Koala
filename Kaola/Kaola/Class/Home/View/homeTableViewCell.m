@@ -151,7 +151,7 @@
     UILabel *label = [Factory createLabelWithTitle:[NSString stringWithFormat:@"%@%@",goods,item.title] frame:CGRectMake(0, 0, ItemView.width, ItemView.height - 40)];
     label.numberOfLines = 2;
     [ItemView addSubview:label];
-    [HelperTools setTextColor:label AndRange:NSMakeRange(0, goods.length) AndColor:ColorFromRGB(255, 133, 131)];
+    [HelperTools setTextColor:label AndRange:NSMakeRange(0, goods.length) AndColor:UIColorFromRGB(255, 133, 131)];
     
     NSString *currentPrice = [NSString stringWithFormat:@"¥%.0f",item.currentPrice];
     NSString *originalPrice = [NSString stringWithFormat:@"¥%.0f",item.originalPrice];
@@ -160,8 +160,8 @@
     Price.textAlignment = NSTextAlignmentCenter;
     [ItemView addSubview:Price];
 
-    [HelperTools setTextColor:Price AndRange:NSMakeRange(0, currentPrice.length) AndColor:ColorFromRGB(198, 36, 17)];
-    [HelperTools setTextColor:Price AndRange:NSMakeRange(currentPrice.length + 1, originalPrice.length) AndColor:ColorFromRGB(146, 146, 146) AndFont:12];
+    [HelperTools setTextColor:Price AndRange:NSMakeRange(0, currentPrice.length) AndColor:UIColorFromRGB(198, 36, 17)];
+    [HelperTools setTextColor:Price AndRange:NSMakeRange(currentPrice.length + 1, originalPrice.length) AndColor:UIColorFromRGB(146, 146, 146) AndFont:12];
     
 }
 

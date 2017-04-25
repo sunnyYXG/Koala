@@ -8,7 +8,7 @@
 
 #import "BaseTableViewCell.h"
 @class HomeTableViewCellFrame;
-
+@class Home;
 @protocol homeTableViewCellDelegate <NSObject>
 
 - (void)pushBannerWebViewWithURL:(NSString *)url;

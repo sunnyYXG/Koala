@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-
+@class BaseClass;
 
 
 @interface HomeModelHandle : NSObject
