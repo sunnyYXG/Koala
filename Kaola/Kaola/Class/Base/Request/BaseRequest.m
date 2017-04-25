@@ -46,13 +46,6 @@
 //    NSDictionary *params = [self params];
 
         AFHTTPSessionManager *mgr = [AFHTTPSessionManager manager];
-<<<<<<< HEAD
-         mgr.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json", @"text/json", @"text/javascript",@"application/x-json",@"text/html", nil];
-    
-=======
-    [mgr.requestSerializer setValue:[[NSUserDefaults standardUserDefaults]objectForKey:@"mUserDefaultsCookie"]forHTTPHeaderField:@"Cookie"];
-
->>>>>>> d37f26d6dfd8ddb2a260ac6646dae0ca7fb15823
             [mgr GET:self.yxg_url parameters:self.paramsDic progress:^(NSProgress * _Nonnull downloadProgress) {
             
         } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
@@ -80,10 +73,6 @@
             //
         }];
     
-<<<<<<< HEAD
-=======
-    
->>>>>>> d37f26d6dfd8ddb2a260ac6646dae0ca7fb15823
 }
 
 
