@@ -1115,7 +1115,7 @@
 				DEVELOPMENT_TEAM = ZD8NCKVX95;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/Kaola/PrefixHeader.pch";
 				INFOPLIST_FILE = Kaola/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = sunny.Kaola;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1134,7 +1134,7 @@
 				DEVELOPMENT_TEAM = ZD8NCKVX95;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/Kaola/PrefixHeader.pch";
 				INFOPLIST_FILE = Kaola/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = sunny.Kaola;
 				PRODUCT_NAME = "$(TARGET_NAME)";
