@@ -9,8 +9,9 @@
 #import "YXGClassifyViewController.h"
 #import "YXGClassfyTableView.h"
 #import "RightCollectionViewCell.h"
+#import "ClassfyCategoryTreeMenuList.h"
 
-@interface YXGClassifyViewController ()<UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout,YXGClassfyTableViewDelegate>
+@interface YXGClassifyViewController ()<UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout>
 
 @property (nonatomic)YXGClassfyTableView *iTableview;
 @end
@@ -20,7 +21,6 @@
 -(YXGClassfyTableView *)iTableview{
     if (!_iTableview) {
         _iTableview = [[YXGClassfyTableView alloc]init];
-        _iTableview.delegate = self;
     }
     return _iTableview;
 }
@@ -33,22 +33,29 @@
     
     [self CreatRightCollectionView];
     
-//    [self.iTableview CollectionReloadBlock:^(NSInteger selectedIndex) {
-//        _selectedIndex = selectedIndex;
-//        DDLog(@"rrrrr:%ld",selectedIndex);
-//        [_rightCollectionView reloadData];
-//    }];
+    WEAK_BLOCK_SELF(YXGClassifyViewController);
+    self.iTableview.clickCellBlock = ^(ClassfyCategoryTreeMenuList *treeMenu){
+        DDLog(@"title:%@ -- type:%.0f -- categoryId:%.0f",treeMenu.title,treeMenu.type,treeMenu.categoryId);
+        [block_self loadData];
+        _categoryId = treeMenu.categoryId;
+//                [block_self.rightCollectionView reloadData];
+    };
+//    WeakSelf(weak_self);
+//     self.iTableview.Block = ^(NSInteger selectedIndex) {
+//         _selectedIndex = selectedIndex;
+//         [block_self.rightCollectionView reloadData];
+//     };
+
+}
+
+-(void)loadData{
     
-
 }
 
-- (void)CollectionReloadBlockWithID:(NSInteger)row{
-    _selectedIndex = row;
-    [_rightCollectionView reloadData];
-}
+
 -(void)CreatRightCollectionView
 {
-    _myData = [[NSArray alloc]initWithObjects:@"笔记本",@"休闲裤",@"牛仔裤",@"手机",@"净化器",@"火锅",@"OPPO",@"面膜",@"漱口水",@"测试",@"测试1", nil];
+    _myData = [[NSArray alloc]initWithObjects:@"图片",@"休闲裤",@"牛仔裤",@"手机",@"净化器",@"火锅",@"OPPO",@"面膜",@"漱口水",@"测试",@"测试1", nil];
 
     UICollectionViewFlowLayout *flowayout = [[UICollectionViewFlowLayout alloc]init];
     
@@ -82,7 +89,7 @@
     
     RightCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"RightCollectionViewCell" forIndexPath:indexPath];
     //根据左边点击的indepath更新右边内容;
-    switch (_selectedIndex % 2)
+    switch (_categoryId % 2)
     {
         case 0:
             cell.collectionView_imageview.image = [UIImage imageNamed:@"3.jpg"];
@@ -100,6 +107,7 @@
     
     
 }
+
 -(UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section
 {
     

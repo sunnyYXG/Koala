@@ -8,14 +8,10 @@
 
 #import "BaseTableViewController.h"
 #import "BaseRequest.h"
+@class ClassfyCategoryTreeMenuList;
 
 //typedef void (^CollectionViewReloadBlock)(NSInteger selectedIndex);
 
-@protocol YXGClassfyTableViewDelegate <NSObject>
-
-- (void)CollectionReloadBlockWithID:(NSInteger)row;
-
-@end
 
 @interface YXGClassfyTableView : BaseTableViewController
 
@@ -25,10 +21,9 @@
 @property (nonatomic)BOOL select_first_cell;
 
 
-@property (nonatomic)id<YXGClassfyTableViewDelegate>delegate;
+
+@property (nonatomic, copy) void (^clickCellBlock)(ClassfyCategoryTreeMenuList *treeMenu);
 
 //@property (nonatomic, copy) CollectionViewReloadBlock Block;
-//- (void)CollectionReloadBlock:(CollectionViewReloadBlock)block;
-//@property (nonatomic)NSInteger num;
 
 @end

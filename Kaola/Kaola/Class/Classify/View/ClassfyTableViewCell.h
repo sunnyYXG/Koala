@@ -9,9 +9,10 @@
 #import "BaseTableViewCell.h"
 @class ClassfyCategoryTreeMenuList;
 
+//cell样式
 typedef NS_ENUM(NSUInteger, ClassfyTableViewCellType) {
-    ClassfyTableViewCellTypeNil = 1,
-    ClassfyTableViewCellTypeColor = 2,
+    ClassfyTableViewCellTypeNil = 1,    //cell 无背景
+    ClassfyTableViewCellTypeColor = 2,  //cell 有背景
     
 };
 

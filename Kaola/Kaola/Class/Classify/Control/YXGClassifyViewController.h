@@ -13,6 +13,6 @@
 
 @property (nonatomic, strong) UICollectionView *rightCollectionView;
 @property (nonatomic,strong) NSArray *myData;
-@property (nonatomic,assign) NSInteger selectedIndex;
+@property (nonatomic,assign) NSInteger categoryId;
 
 @end

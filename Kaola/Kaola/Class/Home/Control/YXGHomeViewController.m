@@ -74,7 +74,7 @@
     CycleBannerView *bannerView = [[CycleBannerView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_WIDTH * 0.55)];
     bannerView.bgImg = [UIImage imageNamed:@"shadow.png"];
     
-    IMP_BLOCK_SELF(YXGHomeViewController);
+    WEAK_BLOCK_SELF(YXGHomeViewController);
     bannerView.clickItemBlock = ^(NSInteger index) {
         
         BannerList *banner = block_self.BannerList[index];
@@ -128,13 +128,11 @@
 
 - (void)loadData{
     if (!self.request) return;
-    IMP_BLOCK_SELF(YXGHomeViewController);
-//    WeakSelf(weak_self);
+    WEAK_BLOCK_SELF(YXGHomeViewController);
     [self.request yxg_sendRequestWithCompletion:^(id response, BOOL success, NSString *message) {
         if (success) {
             [self.tableView.mj_header endRefreshing];
 
-            DDLog(@"moedlaaaaaa:%@",response);
                 block_self.baseModel = (BaseClass *)[BaseClass yy_modelWithJSON:response];
                 NSDictionary *dic = [HomeModelHandle HomeModelHandle:block_self.baseModel];
                 block_self.HomeList = [dic objectForKey:@"HomeList"];

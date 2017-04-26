@@ -60,26 +60,38 @@
     return cell;
 }
 -(void)yxg_didSelectCellAtIndexPath:(NSIndexPath *)indexPath cell:(BaseTableViewCell *)cell{
+    //滚动选中的cell
     [self.tableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionMiddle animated:YES];
+    //撤销上次选中的cell
     self.last_cell.type_cell = ClassfyTableViewCellTypeNil;
     [self.last_cell setbackgroundColor:self.last_cell.type_cell];
 
+    //设置当前点击的cell
     ClassfyTableViewCell *now_cell = (ClassfyTableViewCell *)cell;
     now_cell.type_cell = ClassfyTableViewCellTypeColor;
     [now_cell setbackgroundColor:now_cell.type_cell];
+    
+    //保存选中的cell
     self.last_cell = now_cell;
     
+    //第一次进来默认选中的是第一个cell
     self.select_first_cell = YES;
     
-    if ([self.delegate respondsToSelector:@selector(CollectionReloadBlockWithID:)]) {
-        [self.delegate CollectionReloadBlockWithID:indexPath.row];
+    
+    ClassfyCategoryTreeMenuList *treeMune = self.data[indexPath.row];
+    if (self.clickCellBlock) {
+        self.clickCellBlock(treeMune);
     }
+    
+//    if (self.Block) {
+//        self.Block(indexPath.row);
+//    }
 
 }
 
 - (void)loadData{
     if (!self.request) return;
-    IMP_BLOCK_SELF(YXGClassfyTableView);
+    WEAK_BLOCK_SELF(YXGClassfyTableView);
     [self.request yxg_sendRequestWithCompletion:^(id response, BOOL success, NSString *message) {
         if (success) {
             block_self.baseModel = (ClassfyModel *)[ClassfyModel yy_modelWithJSON:response];
@@ -88,10 +100,6 @@
         [block_self yxg_reloadData];
     }];
 }
-
-//-(void)CollectionReloadBlock:(CollectionViewReloadBlock)block{
-//    block(100);
-//}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

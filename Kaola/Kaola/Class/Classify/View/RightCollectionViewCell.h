@@ -1,9 +1,9 @@
 //
 //  RightCollectionViewCell.h
-//  Group
+//  Kaola
 //
-//  Created by randy on 16/3/1.
-//  Copyright © 2016年 Randy. All rights reserved.
+//  Created by rongyun on 17/4/24.
+//  Copyright © 2017年 YXGang. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
