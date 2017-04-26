@@ -7,7 +7,7 @@
 //
 
 #import "BaseTableViewController.h"
-#import "BaseRequest.h"
+//#import "BaseRequest.h"
 @class ClassfyCategoryTreeMenuList;
 
 //typedef void (^CollectionViewReloadBlock)(NSInteger selectedIndex);

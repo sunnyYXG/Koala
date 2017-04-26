@@ -17,4 +17,12 @@
     return params;
 
 }
+
++(NSDictionary *)categoryParamsWithCategoryID:(NSString *)CategoryID{
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    params[@"_httimestamp"] = [HelperTools HTtimeStamp];
+    params[@"categoryId"] = CategoryID;
+    return params;
+}
+
 @end

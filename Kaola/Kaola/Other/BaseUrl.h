@@ -51,6 +51,11 @@
 /**
  *  分类接口
  */
+//左边treeMenu
 #define classfy_url @"http://sp.kaola.com/api/category?V330"
+//右边CollectionView
+#define category_url @"http://sp.kaola.com/api/category/frontCategory?V330"
+#define recForYou_url @"http://sp.kaola.com/api/category/recForYou?V330"
+
 
 #endif /* BaseUrl_h */

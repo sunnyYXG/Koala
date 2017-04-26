@@ -17,4 +17,6 @@
 
 /** 时间戳 */
 + (NSString *)HTtimeStamp;
+
++ (NSString *)stringWith_int:(NSInteger)integer;
 @end

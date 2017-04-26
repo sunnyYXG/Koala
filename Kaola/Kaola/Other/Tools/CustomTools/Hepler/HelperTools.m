@@ -63,4 +63,8 @@
     //    return [NSNumber numberWithLongLong:[timeString longLongValue]];
 }
 
++ (NSString *)stringWith_int:(NSInteger)integer{
+    return [NSString stringWithFormat:@"%ld",integer];
+}
+
 @end

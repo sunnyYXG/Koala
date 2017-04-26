@@ -13,4 +13,7 @@
 /** 参数 */
 + (NSDictionary *)params;
 
+/** 分类参数 */
++ (NSDictionary *)categoryParamsWithCategoryID:(NSString *)CategoryID;
+
 @end

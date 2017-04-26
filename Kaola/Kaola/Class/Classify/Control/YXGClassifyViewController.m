@@ -10,6 +10,7 @@
 #import "YXGClassfyTableView.h"
 #import "RightCollectionViewCell.h"
 #import "ClassfyCategoryTreeMenuList.h"
+#import "ClassfyRequest.h"
 
 @interface YXGClassifyViewController ()<UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout>
 
@@ -36,20 +37,63 @@
     WEAK_BLOCK_SELF(YXGClassifyViewController);
     self.iTableview.clickCellBlock = ^(ClassfyCategoryTreeMenuList *treeMenu){
         DDLog(@"title:%@ -- type:%.0f -- categoryId:%.0f",treeMenu.title,treeMenu.type,treeMenu.categoryId);
-        [block_self loadData];
+        [block_self loadDataWithUrl:category_url];
         _categoryId = treeMenu.categoryId;
-//                [block_self.rightCollectionView reloadData];
     };
 //    WeakSelf(weak_self);
 //     self.iTableview.Block = ^(NSInteger selectedIndex) {
 //         _selectedIndex = selectedIndex;
-//         [block_self.rightCollectionView reloadData];
+//         [weak_self.rightCollectionView reloadData];
 //     };
+    
+//    self.type_category = CategoryDataTypeRecForYou;
+//    ClassfyRequest *request = [ClassfyRequest yxg_request];
+//    self.request = request;
 
 }
 
+- (void)loadDataWithCategoryType:(CategoryDataType)type{
+    switch (type) {
+        case 1:
+            [self loadDataRecForYouWithUrl:recForYou_url];
+            break;
+        case 2:
+            [self loadDataWithUrl:category_url];
+            break;
+        case 3:
+            
+            break;
+        case 4:
+            
+            break;
+
+        default:
+            break;
+    }
+
+}
+
+//为你推荐数据
+- (void)loadDataRecForYouWithUrl:(NSString *)url{
+    self.request.yxg_url = url;
+    self.request.paramsDic = [ClassfyRequest params];
+    [self loadData];
+}
+//其他分类数据
+- (void)loadDataWithUrl:(NSString *)url{
+    self.request.yxg_url = url;
+    self.request.paramsDic = [ClassfyRequest categoryParamsWithCategoryID:[HelperTools stringWith_int:_categoryId]];
+    [self loadData];
+}
+
 -(void)loadData{
-    
+    WEAK_BLOCK_SELF(YXGClassifyViewController);
+    [self.request yxg_sendRequestWithCompletion:^(id response, BOOL success, NSString *message) {
+        if (success) {
+            //
+        }
+        [block_self.rightCollectionView reloadData];
+    }];
 }
 
 

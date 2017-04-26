@@ -30,7 +30,6 @@
 		0D0FB2901E8A288E00D00581 /* BaseTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D0FB28F1E8A288E00D00581 /* BaseTableView.m */; };
 		0D2AFAFC1E8E129A0012232A /* BannerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D2AFAFB1E8E129A0012232A /* BannerViewController.m */; };
 		0D2AFB051E8E2F860012232A /* HomeTableViewCellFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D2AFB041E8E2F860012232A /* HomeTableViewCellFrame.m */; };
-		0D35E8141EAEED0B00C04367 /* ClassfyModelHandle.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D35E8131EAEED0B00C04367 /* ClassfyModelHandle.m */; };
 		0D35E8181EAF3FDC00C04367 /* RightCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D35E8161EAF3FDC00C04367 /* RightCollectionViewCell.m */; };
 		0D35E8191EAF3FDC00C04367 /* RightCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0D35E8171EAF3FDC00C04367 /* RightCollectionViewCell.xib */; };
 		0D35E81D1EAF40A000C04367 /* 3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0D35E81B1EAF40A000C04367 /* 3.jpg */; };
@@ -38,9 +37,6 @@
 		0DADDB481EAD922E00CC6075 /* YXGClassfyTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DADDB471EAD922E00CC6075 /* YXGClassfyTableView.m */; };
 		0DADDB891EADBF9300CC6075 /* ClassfyTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DADDB7D1EADBF9300CC6075 /* ClassfyTableViewCell.m */; };
 		0DADDB8A1EADBF9300CC6075 /* ClassfyRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DADDB801EADBF9300CC6075 /* ClassfyRequest.m */; };
-		0DADDB8B1EADBF9300CC6075 /* ClassfyBody.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DADDB831EADBF9300CC6075 /* ClassfyBody.m */; };
-		0DADDB8C1EADBF9300CC6075 /* ClassfyCategoryTreeMenuList.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DADDB851EADBF9300CC6075 /* ClassfyCategoryTreeMenuList.m */; };
-		0DADDB8D1EADBF9300CC6075 /* ClassfyModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DADDB871EADBF9300CC6075 /* ClassfyModel.m */; };
 		0DBEFEAA1E8F7DE700E28A6C /* HomeSectionCell1.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DBEFEA91E8F7DE700E28A6C /* HomeSectionCell1.m */; };
 		0DBEFEC11E8F8E9B00E28A6C /* HomeModelHandle.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DBEFEB11E8F8E9B00E28A6C /* HomeModelHandle.m */; };
 		0DBEFEC21E8F8E9B00E28A6C /* BannerList.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DBEFEB41E8F8E9B00E28A6C /* BannerList.m */; };
@@ -67,6 +63,17 @@
 		0DFB52AA1EB06A8A002418F2 /* SGQRCodeScanningView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DFB52961EB06A8A002418F2 /* SGQRCodeScanningView.m */; };
 		0DFB52AB1EB06A8A002418F2 /* CycleBannerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DFB529A1EB06A8A002418F2 /* CycleBannerCell.m */; };
 		0DFB52AC1EB06A8A002418F2 /* CycleBannerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DFB529C1EB06A8A002418F2 /* CycleBannerView.m */; };
+		0DFB52B81EB07518002418F2 /* ClassfyBody.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DFB52B01EB07518002418F2 /* ClassfyBody.m */; };
+		0DFB52B91EB07518002418F2 /* ClassfyCategoryTreeMenuList.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DFB52B21EB07518002418F2 /* ClassfyCategoryTreeMenuList.m */; };
+		0DFB52BA1EB07518002418F2 /* ClassfyModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DFB52B51EB07518002418F2 /* ClassfyModel.m */; };
+		0DFB52BB1EB07518002418F2 /* ClassfyModelHandle.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DFB52B71EB07518002418F2 /* ClassfyModelHandle.m */; };
+		0DFB52F81EB0793A002418F2 /* CategoryBaseClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DFB52EA1EB0793A002418F2 /* CategoryBaseClass.m */; };
+		0DFB52F91EB0793A002418F2 /* CategoryBody.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DFB52EC1EB0793A002418F2 /* CategoryBody.m */; };
+		0DFB52FA1EB0793A002418F2 /* CategoryBrandList.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DFB52EE1EB0793A002418F2 /* CategoryBrandList.m */; };
+		0DFB52FB1EB0793A002418F2 /* CategoryChildCategoryViewList.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DFB52F01EB0793A002418F2 /* CategoryChildCategoryViewList.m */; };
+		0DFB52FC1EB0793A002418F2 /* CategoryHotActivityList.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DFB52F31EB0793A002418F2 /* CategoryHotActivityList.m */; };
+		0DFB52FD1EB0793A002418F2 /* CategoryLevel2CategoryList.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DFB52F51EB0793A002418F2 /* CategoryLevel2CategoryList.m */; };
+		0DFB52FE1EB0793A002418F2 /* CategoryTopBanner.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DFB52F71EB0793A002418F2 /* CategoryTopBanner.m */; };
 		644085871E8D2ED3001456E2 /* BaseRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 644085861E8D2ED3001456E2 /* BaseRequest.m */; };
 		6440858C1E8D3EA2001456E2 /* HomeListRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6440858B1E8D3EA2001456E2 /* HomeListRequest.m */; };
 		AB48723F9A3857289BA8BF04 /* libPods-Kaola.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B7BEA3B558DAC911CE5B734 /* libPods-Kaola.a */; };
@@ -138,8 +145,6 @@
 		0D2AFAFB1E8E129A0012232A /* BannerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BannerViewController.m; sourceTree = "<group>"; };
 		0D2AFB031E8E2F860012232A /* HomeTableViewCellFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeTableViewCellFrame.h; sourceTree = "<group>"; };
 		0D2AFB041E8E2F860012232A /* HomeTableViewCellFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeTableViewCellFrame.m; sourceTree = "<group>"; };
-		0D35E8121EAEED0B00C04367 /* ClassfyModelHandle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClassfyModelHandle.h; sourceTree = "<group>"; };
-		0D35E8131EAEED0B00C04367 /* ClassfyModelHandle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClassfyModelHandle.m; sourceTree = "<group>"; };
 		0D35E8151EAF3FDC00C04367 /* RightCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RightCollectionViewCell.h; sourceTree = "<group>"; };
 		0D35E8161EAF3FDC00C04367 /* RightCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RightCollectionViewCell.m; sourceTree = "<group>"; };
 		0D35E8171EAF3FDC00C04367 /* RightCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RightCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -151,13 +156,6 @@
 		0DADDB7D1EADBF9300CC6075 /* ClassfyTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClassfyTableViewCell.m; sourceTree = "<group>"; };
 		0DADDB7F1EADBF9300CC6075 /* ClassfyRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClassfyRequest.h; sourceTree = "<group>"; };
 		0DADDB801EADBF9300CC6075 /* ClassfyRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClassfyRequest.m; sourceTree = "<group>"; };
-		0DADDB821EADBF9300CC6075 /* ClassfyBody.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClassfyBody.h; sourceTree = "<group>"; };
-		0DADDB831EADBF9300CC6075 /* ClassfyBody.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClassfyBody.m; sourceTree = "<group>"; };
-		0DADDB841EADBF9300CC6075 /* ClassfyCategoryTreeMenuList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClassfyCategoryTreeMenuList.h; sourceTree = "<group>"; };
-		0DADDB851EADBF9300CC6075 /* ClassfyCategoryTreeMenuList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClassfyCategoryTreeMenuList.m; sourceTree = "<group>"; };
-		0DADDB861EADBF9300CC6075 /* ClassfyModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClassfyModel.h; sourceTree = "<group>"; };
-		0DADDB871EADBF9300CC6075 /* ClassfyModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClassfyModel.m; sourceTree = "<group>"; };
-		0DADDB881EADBF9300CC6075 /* ClassfyDataModels.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClassfyDataModels.h; sourceTree = "<group>"; };
 		0DBEFEA81E8F7DE700E28A6C /* HomeSectionCell1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeSectionCell1.h; sourceTree = "<group>"; };
 		0DBEFEA91E8F7DE700E28A6C /* HomeSectionCell1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeSectionCell1.m; sourceTree = "<group>"; };
 		0DBEFEB01E8F8E9B00E28A6C /* HomeModelHandle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeModelHandle.h; sourceTree = "<group>"; };
@@ -213,6 +211,30 @@
 		0DFB529A1EB06A8A002418F2 /* CycleBannerCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CycleBannerCell.m; sourceTree = "<group>"; };
 		0DFB529B1EB06A8A002418F2 /* CycleBannerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CycleBannerView.h; sourceTree = "<group>"; };
 		0DFB529C1EB06A8A002418F2 /* CycleBannerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CycleBannerView.m; sourceTree = "<group>"; };
+		0DFB52AF1EB07518002418F2 /* ClassfyBody.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClassfyBody.h; sourceTree = "<group>"; };
+		0DFB52B01EB07518002418F2 /* ClassfyBody.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClassfyBody.m; sourceTree = "<group>"; };
+		0DFB52B11EB07518002418F2 /* ClassfyCategoryTreeMenuList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClassfyCategoryTreeMenuList.h; sourceTree = "<group>"; };
+		0DFB52B21EB07518002418F2 /* ClassfyCategoryTreeMenuList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClassfyCategoryTreeMenuList.m; sourceTree = "<group>"; };
+		0DFB52B31EB07518002418F2 /* ClassfyDataModels.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClassfyDataModels.h; sourceTree = "<group>"; };
+		0DFB52B41EB07518002418F2 /* ClassfyModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClassfyModel.h; sourceTree = "<group>"; };
+		0DFB52B51EB07518002418F2 /* ClassfyModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClassfyModel.m; sourceTree = "<group>"; };
+		0DFB52B61EB07518002418F2 /* ClassfyModelHandle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClassfyModelHandle.h; sourceTree = "<group>"; };
+		0DFB52B71EB07518002418F2 /* ClassfyModelHandle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClassfyModelHandle.m; sourceTree = "<group>"; };
+		0DFB52E91EB0793A002418F2 /* CategoryBaseClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CategoryBaseClass.h; sourceTree = "<group>"; };
+		0DFB52EA1EB0793A002418F2 /* CategoryBaseClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CategoryBaseClass.m; sourceTree = "<group>"; };
+		0DFB52EB1EB0793A002418F2 /* CategoryBody.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CategoryBody.h; sourceTree = "<group>"; };
+		0DFB52EC1EB0793A002418F2 /* CategoryBody.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CategoryBody.m; sourceTree = "<group>"; };
+		0DFB52ED1EB0793A002418F2 /* CategoryBrandList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CategoryBrandList.h; sourceTree = "<group>"; };
+		0DFB52EE1EB0793A002418F2 /* CategoryBrandList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CategoryBrandList.m; sourceTree = "<group>"; };
+		0DFB52EF1EB0793A002418F2 /* CategoryChildCategoryViewList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CategoryChildCategoryViewList.h; sourceTree = "<group>"; };
+		0DFB52F01EB0793A002418F2 /* CategoryChildCategoryViewList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CategoryChildCategoryViewList.m; sourceTree = "<group>"; };
+		0DFB52F11EB0793A002418F2 /* CategoryDataModels.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CategoryDataModels.h; sourceTree = "<group>"; };
+		0DFB52F21EB0793A002418F2 /* CategoryHotActivityList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CategoryHotActivityList.h; sourceTree = "<group>"; };
+		0DFB52F31EB0793A002418F2 /* CategoryHotActivityList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CategoryHotActivityList.m; sourceTree = "<group>"; };
+		0DFB52F41EB0793A002418F2 /* CategoryLevel2CategoryList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CategoryLevel2CategoryList.h; sourceTree = "<group>"; };
+		0DFB52F51EB0793A002418F2 /* CategoryLevel2CategoryList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CategoryLevel2CategoryList.m; sourceTree = "<group>"; };
+		0DFB52F61EB0793A002418F2 /* CategoryTopBanner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CategoryTopBanner.h; sourceTree = "<group>"; };
+		0DFB52F71EB0793A002418F2 /* CategoryTopBanner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CategoryTopBanner.m; sourceTree = "<group>"; };
 		4B7BEA3B558DAC911CE5B734 /* libPods-Kaola.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Kaola.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		644085851E8D2ED3001456E2 /* BaseRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseRequest.h; sourceTree = "<group>"; };
 		644085861E8D2ED3001456E2 /* BaseRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseRequest.m; sourceTree = "<group>"; };
@@ -540,15 +562,8 @@
 		0DADDB811EADBF9300CC6075 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				0DADDB821EADBF9300CC6075 /* ClassfyBody.h */,
-				0DADDB831EADBF9300CC6075 /* ClassfyBody.m */,
-				0DADDB841EADBF9300CC6075 /* ClassfyCategoryTreeMenuList.h */,
-				0DADDB851EADBF9300CC6075 /* ClassfyCategoryTreeMenuList.m */,
-				0DADDB861EADBF9300CC6075 /* ClassfyModel.h */,
-				0DADDB871EADBF9300CC6075 /* ClassfyModel.m */,
-				0DADDB881EADBF9300CC6075 /* ClassfyDataModels.h */,
-				0D35E8121EAEED0B00C04367 /* ClassfyModelHandle.h */,
-				0D35E8131EAEED0B00C04367 /* ClassfyModelHandle.m */,
+				0DFB52D21EB0789C002418F2 /* CollectionViewModel */,
+				0DFB52AE1EB07518002418F2 /* TreeMenuModel */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -715,6 +730,44 @@
 				0DFB529C1EB06A8A002418F2 /* CycleBannerView.m */,
 			);
 			path = CycleBannerView;
+			sourceTree = "<group>";
+		};
+		0DFB52AE1EB07518002418F2 /* TreeMenuModel */ = {
+			isa = PBXGroup;
+			children = (
+				0DFB52AF1EB07518002418F2 /* ClassfyBody.h */,
+				0DFB52B01EB07518002418F2 /* ClassfyBody.m */,
+				0DFB52B11EB07518002418F2 /* ClassfyCategoryTreeMenuList.h */,
+				0DFB52B21EB07518002418F2 /* ClassfyCategoryTreeMenuList.m */,
+				0DFB52B31EB07518002418F2 /* ClassfyDataModels.h */,
+				0DFB52B41EB07518002418F2 /* ClassfyModel.h */,
+				0DFB52B51EB07518002418F2 /* ClassfyModel.m */,
+				0DFB52B61EB07518002418F2 /* ClassfyModelHandle.h */,
+				0DFB52B71EB07518002418F2 /* ClassfyModelHandle.m */,
+			);
+			path = TreeMenuModel;
+			sourceTree = "<group>";
+		};
+		0DFB52D21EB0789C002418F2 /* CollectionViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				0DFB52E91EB0793A002418F2 /* CategoryBaseClass.h */,
+				0DFB52EA1EB0793A002418F2 /* CategoryBaseClass.m */,
+				0DFB52EB1EB0793A002418F2 /* CategoryBody.h */,
+				0DFB52EC1EB0793A002418F2 /* CategoryBody.m */,
+				0DFB52ED1EB0793A002418F2 /* CategoryBrandList.h */,
+				0DFB52EE1EB0793A002418F2 /* CategoryBrandList.m */,
+				0DFB52EF1EB0793A002418F2 /* CategoryChildCategoryViewList.h */,
+				0DFB52F01EB0793A002418F2 /* CategoryChildCategoryViewList.m */,
+				0DFB52F11EB0793A002418F2 /* CategoryDataModels.h */,
+				0DFB52F21EB0793A002418F2 /* CategoryHotActivityList.h */,
+				0DFB52F31EB0793A002418F2 /* CategoryHotActivityList.m */,
+				0DFB52F41EB0793A002418F2 /* CategoryLevel2CategoryList.h */,
+				0DFB52F51EB0793A002418F2 /* CategoryLevel2CategoryList.m */,
+				0DFB52F61EB0793A002418F2 /* CategoryTopBanner.h */,
+				0DFB52F71EB0793A002418F2 /* CategoryTopBanner.m */,
+			);
+			path = CollectionViewModel;
 			sourceTree = "<group>";
 		};
 		644085841E8D2E9F001456E2 /* Request */ = {
@@ -940,6 +993,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0DBEFEC61E8F8E9B00E28A6C /* ItemList.m in Sources */,
+				0DFB52B81EB07518002418F2 /* ClassfyBody.m in Sources */,
 				6440858C1E8D3EA2001456E2 /* HomeListRequest.m in Sources */,
 				0D0261061E8F395D0026A7D0 /* HomeTJMenuView.m in Sources */,
 				0DBEFEC51E8F8E9B00E28A6C /* Home.m in Sources */,
@@ -947,18 +1001,19 @@
 				0DFB52A31EB06A8A002418F2 /* SGQRCodeScanningVC.m in Sources */,
 				0DFB529E1EB06A8A002418F2 /* NSString+Extension.m in Sources */,
 				0D0FB2661E89EE7D00D00581 /* YXGHomeTabbarController.m in Sources */,
+				0DFB52F81EB0793A002418F2 /* CategoryBaseClass.m in Sources */,
 				0DFB52A91EB06A8A002418F2 /* ScanSuccessJumpVC.m in Sources */,
-				0DADDB8B1EADBF9300CC6075 /* ClassfyBody.m in Sources */,
+				0DFB52FB1EB0793A002418F2 /* CategoryChildCategoryViewList.m in Sources */,
 				0D0FB1E31E89EDEC00D00581 /* YXGAppDelegate.m in Sources */,
 				0D0FB28B1E8A285A00D00581 /* BaseTableViewController.m in Sources */,
 				0D0FB2631E89EE7D00D00581 /* YXGClassifyViewController.m in Sources */,
 				0D35E8181EAF3FDC00C04367 /* RightCollectionViewCell.m in Sources */,
 				0DF71C931E8C869100B4DB14 /* BaseTableHeaderFooterView.m in Sources */,
+				0DFB52FD1EB0793A002418F2 /* CategoryLevel2CategoryList.m in Sources */,
 				0D0FB2681E89EE7D00D00581 /* HomeNavTabBar.m in Sources */,
 				0D2AFAFC1E8E129A0012232A /* BannerViewController.m in Sources */,
 				0DADDB8A1EADBF9300CC6075 /* ClassfyRequest.m in Sources */,
 				0DFB52A81EB06A8A002418F2 /* QRCodeScanningVC.m in Sources */,
-				0DADDB8D1EADBF9300CC6075 /* ClassfyModel.m in Sources */,
 				0DFB52A71EB06A8A002418F2 /* QRCodeGenerateVC.m in Sources */,
 				0D0FB28D1E8A285A00D00581 /* BaseTableViewCell.m in Sources */,
 				0D0FB28C1E8A285A00D00581 /* BaseViewController.m in Sources */,
@@ -969,11 +1024,17 @@
 				0DFB52A21EB06A8A002418F2 /* ThemeManager.m in Sources */,
 				0DADDB891EADBF9300CC6075 /* ClassfyTableViewCell.m in Sources */,
 				0DBEFEC31E8F8E9B00E28A6C /* BaseClass.m in Sources */,
+				0DFB52FE1EB0793A002418F2 /* CategoryTopBanner.m in Sources */,
 				0DFB52A61EB06A8A002418F2 /* SGQRCodeTool.m in Sources */,
 				0D0FB2651E89EE7D00D00581 /* YXGHomeOtherController.m in Sources */,
+				0DFB52FA1EB0793A002418F2 /* CategoryBrandList.m in Sources */,
+				0DFB52BA1EB07518002418F2 /* ClassfyModel.m in Sources */,
 				0D0FB2641E89EE7D00D00581 /* YXGFindViewController.m in Sources */,
+				0DFB52B91EB07518002418F2 /* ClassfyCategoryTreeMenuList.m in Sources */,
 				0D2AFB051E8E2F860012232A /* HomeTableViewCellFrame.m in Sources */,
 				0D00F3601E9F68D10021D07D /* MainRequest.m in Sources */,
+				0DFB52FC1EB0793A002418F2 /* CategoryHotActivityList.m in Sources */,
+				0DFB52F91EB0793A002418F2 /* CategoryBody.m in Sources */,
 				0DFB529F1EB06A8A002418F2 /* UIView+Addition.m in Sources */,
 				0D0FB2671E89EE7D00D00581 /* YXGHomeViewController.m in Sources */,
 				0DBEFEC41E8F8E9B00E28A6C /* Body.m in Sources */,
@@ -986,9 +1047,8 @@
 				0DBEFEAA1E8F7DE700E28A6C /* HomeSectionCell1.m in Sources */,
 				644085871E8D2ED3001456E2 /* BaseRequest.m in Sources */,
 				0DBEFEC21E8F8E9B00E28A6C /* BannerList.m in Sources */,
-				0DADDB8C1EADBF9300CC6075 /* ClassfyCategoryTreeMenuList.m in Sources */,
 				0DFB52AC1EB06A8A002418F2 /* CycleBannerView.m in Sources */,
-				0D35E8141EAEED0B00C04367 /* ClassfyModelHandle.m in Sources */,
+				0DFB52BB1EB07518002418F2 /* ClassfyModelHandle.m in Sources */,
 				0DFB52AA1EB06A8A002418F2 /* SGQRCodeScanningView.m in Sources */,
 				0DBEFEC11E8F8E9B00E28A6C /* HomeModelHandle.m in Sources */,
 				0DBEFEC71E8F8E9B00E28A6C /* LocationInfo.m in Sources */,
