@@ -32,27 +32,37 @@
     CGRect frame = CGRectMake(0, 64, 100, self.view.height - 108);
     self.iTableview.tableView.frame = frame;
     
+    ClassfyRequest *request = [ClassfyRequest yxg_request];
+    self.request = request;
     [self CreatRightCollectionView];
     
     WEAK_BLOCK_SELF(YXGClassifyViewController);
     self.iTableview.clickCellBlock = ^(ClassfyCategoryTreeMenuList *treeMenu){
         DDLog(@"title:%@ -- type:%.0f -- categoryId:%.0f",treeMenu.title,treeMenu.type,treeMenu.categoryId);
-        [block_self loadDataWithUrl:category_url];
+//        [block_self loadDataWithUrl:category_url];
         _categoryId = treeMenu.categoryId;
+        [block_self loadDataWithCategoryType:treeMenu.type];
     };
-//    WeakSelf(weak_self);
-//     self.iTableview.Block = ^(NSInteger selectedIndex) {
-//         _selectedIndex = selectedIndex;
-//         [weak_self.rightCollectionView reloadData];
-//     };
+/*
+    WeakSelf(weak_self);
+     self.iTableview.Block = ^(NSInteger selectedIndex) {
+         _selectedIndex = selectedIndex;
+         [weak_self.rightCollectionView reloadData];
+     };
     
-//    self.type_category = CategoryDataTypeRecForYou;
-//    ClassfyRequest *request = [ClassfyRequest yxg_request];
-//    self.request = request;
-
+    self.type_category = CategoryDataTypeRecForYou;
+    ClassfyRequest *request = [ClassfyRequest yxg_request];
+    self.request = request;
+*/
 }
 
-- (void)loadDataWithCategoryType:(CategoryDataType)type{
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    [self loadDataWithCategoryType:1];
+}
+
+- (void)loadDataWithCategoryType:(NSInteger)type{
+
     switch (type) {
         case 1:
             [self loadDataRecForYouWithUrl:recForYou_url];
