@@ -130,8 +130,6 @@
     return 0.01;
 }
 
-
-
 - (NSInteger)yxg_numberOfSections { return 0; }
 
 - (NSInteger)yxg_numberOfRowsInSection:(NSInteger)section { return 0; }

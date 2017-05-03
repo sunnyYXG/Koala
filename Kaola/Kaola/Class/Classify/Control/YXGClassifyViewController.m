@@ -12,9 +12,14 @@
 #import "ClassfyCategoryTreeMenuList.h"
 #import "ClassfyRequest.h"
 
+#import "HeaderCRView.h"
+
+#import "ForYouDataModels.h"
+
 @interface YXGClassifyViewController ()<UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout>
 
 @property (nonatomic)YXGClassfyTableView *iTableview;
+@property (nonatomic)HeaderCRView *muneView;
 @end
 
 @implementation YXGClassifyViewController
@@ -34,12 +39,12 @@
     
     ClassfyRequest *request = [ClassfyRequest yxg_request];
     self.request = request;
+    
     [self CreatRightCollectionView];
     
     WEAK_BLOCK_SELF(YXGClassifyViewController);
     self.iTableview.clickCellBlock = ^(ClassfyCategoryTreeMenuList *treeMenu){
         DDLog(@"title:%@ -- type:%.0f -- categoryId:%.0f",treeMenu.title,treeMenu.type,treeMenu.categoryId);
-//        [block_self loadDataWithUrl:category_url];
         _categoryId = treeMenu.categoryId;
         [block_self loadDataWithCategoryType:treeMenu.type];
     };
@@ -97,10 +102,12 @@
 }
 
 -(void)loadData{
+    [self startProgress];
     WEAK_BLOCK_SELF(YXGClassifyViewController);
     [self.request yxg_sendRequestWithCompletion:^(id response, BOOL success, NSString *message) {
         if (success) {
-            //
+            [self stopProgress];
+            block_self.baseModel = (ForYouCategory *)[ForYouCategory yy_modelWithJSON:response];
         }
         [block_self.rightCollectionView reloadData];
     }];
@@ -129,6 +136,9 @@
     [self.view addSubview:_rightCollectionView];
     
     
+    //这里的HeaderCRView 是自定义的header类型
+    [_rightCollectionView registerClass:[HeaderCRView class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"HeaderCRView"];
+
 }
 
 #pragma mark------CollectionView的代理方法
@@ -138,9 +148,12 @@
     return _myData.count;
     
 }
+- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView{
+    return 3;
+}
+
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    
     RightCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"RightCollectionViewCell" forIndexPath:indexPath];
     //根据左边点击的indepath更新右边内容;
     switch (_categoryId % 2)
@@ -173,6 +186,28 @@
     return CGSizeMake(100, 120);
     
     
+}
+
+
+//返回 headView的大小 size
+-(CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section{
+    if (section == 0) {
+        return CGSizeMake(300, 150);
+
+    }
+    return CGSizeMake(300, 50);
+
+}
+
+// 获取headView的 方法。
+- (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath
+{
+
+    NSString *CellIdentifier = @"HeaderCRView";
+    //从缓存中获取 Headercell
+    HeaderCRView *cell = (HeaderCRView *)[collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:CellIdentifier forIndexPath:indexPath];
+    [cell configureData:self.baseModel.body.topBanner section:indexPath.section];
+    return cell;
 }
 
 - (void)didReceiveMemoryWarning {

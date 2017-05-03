@@ -96,6 +96,8 @@
         if (success) {
             block_self.baseModel = (ClassfyModel *)[ClassfyModel yy_modelWithJSON:response];
             block_self.data = [ClassfyModelHandle ClassfyModelHandle:block_self.baseModel.body.categoryTreeMenuList];
+            
+//            DDLog(@"kkkk:%@", block_self.baseModel);
         }
         [block_self yxg_reloadData];
     }];

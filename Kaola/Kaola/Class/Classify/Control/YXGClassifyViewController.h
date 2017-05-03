@@ -7,6 +7,7 @@
 //
 
 #import "BaseViewController.h"
+@class ForYouCategory;
 
 /**
  *  数据类型
@@ -33,5 +34,7 @@ typedef NS_ENUM(NSUInteger, CategoryDataType) {
 @property (nonatomic, strong) UICollectionView *rightCollectionView;
 @property (nonatomic,strong) NSArray *myData;
 @property (nonatomic,assign) NSInteger categoryId;
+
+@property (nonatomic)ForYouCategory *baseModel;
 
 @end

@@ -20,8 +20,8 @@
     [super viewDidLoad];
     [self createTab];
     
-    MainRequest *request = [MainRequest yxg_request];
-    self.request = request;
+//    MainRequest *request = [MainRequest yxg_request];
+//    self.request = request;
 //    [self login:login_url];
 //    [self loadDataWithMainUrl:main_url];
 //    [self loadDataWithUrl:openad_url];
@@ -37,6 +37,7 @@
 
 }
 
+/*
 - (void)loadDataWithUrl:(NSString *)url{
     self.request.yxg_url = url;
     self.request.paramsDic = [MainRequest params];
@@ -64,7 +65,7 @@
     }];
     
 }
-
+*/
 
 - (void)createTab{
     [self addChildViewControllerWithClassname:[YXGHomeTabbarController description] imagename:@"Home" title:@"首页"];
