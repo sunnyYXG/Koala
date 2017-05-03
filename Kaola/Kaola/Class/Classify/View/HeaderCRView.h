@@ -11,6 +11,6 @@
 
 @interface HeaderCRView : UICollectionReusableView
 
-- (void)configureData:(ForYouTopBanner *)banner section:(NSInteger)section;
+- (void)configureData:(ForYouTopBanner *)banner section:(NSInteger)section sectionTitle:(NSString *)title;
 
 @end

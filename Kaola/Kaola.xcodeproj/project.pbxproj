@@ -84,6 +84,7 @@
 		0DFB52FE1EB0793A002418F2 /* CategoryTopBanner.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DFB52F71EB0793A002418F2 /* CategoryTopBanner.m */; };
 		644085871E8D2ED3001456E2 /* BaseRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 644085861E8D2ED3001456E2 /* BaseRequest.m */; };
 		6440858C1E8D3EA2001456E2 /* HomeListRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6440858B1E8D3EA2001456E2 /* HomeListRequest.m */; };
+		64E392191EBA0F5400816798 /* ClassfyHandleData.m in Sources */ = {isa = PBXBuildFile; fileRef = 64E392181EBA0F5400816798 /* ClassfyHandleData.m */; };
 		AB48723F9A3857289BA8BF04 /* libPods-Kaola.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B7BEA3B558DAC911CE5B734 /* libPods-Kaola.a */; };
 /* End PBXBuildFile section */
 
@@ -265,6 +266,8 @@
 		644085861E8D2ED3001456E2 /* BaseRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseRequest.m; sourceTree = "<group>"; };
 		6440858A1E8D3EA2001456E2 /* HomeListRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeListRequest.h; sourceTree = "<group>"; };
 		6440858B1E8D3EA2001456E2 /* HomeListRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeListRequest.m; sourceTree = "<group>"; };
+		64E392171EBA0F5400816798 /* ClassfyHandleData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClassfyHandleData.h; sourceTree = "<group>"; };
+		64E392181EBA0F5400816798 /* ClassfyHandleData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClassfyHandleData.m; sourceTree = "<group>"; };
 		A4C85C33DC2A204196D51F0C /* Pods-Kaola.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Kaola.release.xcconfig"; path = "Pods/Target Support Files/Pods-Kaola/Pods-Kaola.release.xcconfig"; sourceTree = "<group>"; };
 		E3FFDB37E903BB4A2EB663E1 /* Pods-Kaola.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Kaola.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Kaola/Pods-Kaola.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -589,6 +592,7 @@
 		0DADDB811EADBF9300CC6075 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				64E392161EBA0F1300816798 /* HandleData */,
 				0DF9D3081EB9A85000592A4E /* CategoryRetForYou */,
 				0DFB52D21EB0789C002418F2 /* CollectionViewModel */,
 				0DFB52AE1EB07518002418F2 /* TreeMenuModel */,
@@ -838,6 +842,15 @@
 			path = Request;
 			sourceTree = "<group>";
 		};
+		64E392161EBA0F1300816798 /* HandleData */ = {
+			isa = PBXGroup;
+			children = (
+				64E392171EBA0F5400816798 /* ClassfyHandleData.h */,
+				64E392181EBA0F5400816798 /* ClassfyHandleData.m */,
+			);
+			path = HandleData;
+			sourceTree = "<group>";
+		};
 		B7510A79287165FD2DDF38EE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -1049,6 +1062,7 @@
 				0DBEFEC51E8F8E9B00E28A6C /* Home.m in Sources */,
 				0DADDB481EAD922E00CC6075 /* YXGClassfyTableView.m in Sources */,
 				0DFB52A31EB06A8A002418F2 /* SGQRCodeScanningVC.m in Sources */,
+				64E392191EBA0F5400816798 /* ClassfyHandleData.m in Sources */,
 				0DF9D31B1EB9A85000592A4E /* ForYouCategory.m in Sources */,
 				0DFB529E1EB06A8A002418F2 /* NSString+Extension.m in Sources */,
 				0DF9D31E1EB9A85000592A4E /* ForYouTopBanner.m in Sources */,

@@ -15,11 +15,10 @@
 #import "HeaderCRView.h"
 
 #import "ForYouDataModels.h"
+#import "ClassfyHandleData.h"
 
 @interface YXGClassifyViewController ()<UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout>
 
-@property (nonatomic)YXGClassfyTableView *iTableview;
-@property (nonatomic)HeaderCRView *muneView;
 @end
 
 @implementation YXGClassifyViewController
@@ -70,6 +69,8 @@
 
     switch (type) {
         case 1:
+            self.SectionTitles = @[@"常用分类",@"热门分类",@"推荐品牌",@"精选专辑"];
+            self.type_category = CategoryDataTypeRecForYou;
             [self loadDataRecForYouWithUrl:recForYou_url];
             break;
         case 2:
@@ -108,6 +109,8 @@
         if (success) {
             [self stopProgress];
             block_self.baseModel = (ForYouCategory *)[ForYouCategory yy_modelWithJSON:response];
+            NSDictionary *dic = [ClassfyHandleData ClassfyModelHandle:block_self.baseModel];
+            _Datas = @[[dic objectForKey:@"commonList"],[dic objectForKey:@"hotList"],[dic objectForKey:@"brandList"],[dic objectForKey:@"albumList"]];
         }
         [block_self.rightCollectionView reloadData];
     }];
@@ -116,7 +119,7 @@
 
 -(void)CreatRightCollectionView
 {
-    _myData = [[NSArray alloc]initWithObjects:@"图片",@"休闲裤",@"牛仔裤",@"手机",@"净化器",@"火锅",@"OPPO",@"面膜",@"漱口水",@"测试",@"测试1", nil];
+//    _Datas = [[NSArray alloc]initWithObjects:@"图片",@"休闲裤",@"牛仔裤",@"手机",@"净化器",@"火锅",@"OPPO",@"面膜",@"漱口水",@"测试",@"测试1", nil];
 
     UICollectionViewFlowLayout *flowayout = [[UICollectionViewFlowLayout alloc]init];
     
@@ -144,16 +147,15 @@
 #pragma mark------CollectionView的代理方法
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    
-    return _myData.count;
+    return [_Datas[section] count];
+//    return _Datas.count;
     
 }
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView{
-    return 3;
+    return _SectionTitles.count;
 }
 
--(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
-{
+-(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     RightCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"RightCollectionViewCell" forIndexPath:indexPath];
     //根据左边点击的indepath更新右边内容;
     switch (_categoryId % 2)
@@ -167,46 +169,54 @@
         default:
             break;
     }
-    
-    cell.collectionView_Label.text = _myData[indexPath.row];
+    if (indexPath.section == 0) {
+        ForYouCommonCategoryList *common = (ForYouCommonCategoryList *)_Datas[indexPath.section][indexPath.row];
+        cell.collectionView_Label.text = common.categoryName;
+
+    }else if(indexPath.section == 1){
+        ForYouHotCategoryList *common = (ForYouHotCategoryList *)_Datas[indexPath.section][indexPath.row];
+        cell.collectionView_Label.text = common.categoryName;
+
+    }else if(indexPath.section == 2){
+        ForYouBrandList *common = (ForYouBrandList *)_Datas[indexPath.section][indexPath.row];
+        cell.collectionView_Label.text = common.brandName;
+        
+    }else if(indexPath.section == 3){
+        ForYouAlbumList *common = (ForYouAlbumList *)_Datas[indexPath.section][indexPath.row];
+        cell.collectionView_Label.text = common.title;
+        
+    }
+
+
     
     return cell;
     
     
 }
 
--(UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section
-{
+-(UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section{
     
     return UIEdgeInsetsMake(0, 5, 0, 10);
     
 }
--(CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
-{
+-(CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
     return CGSizeMake(100, 120);
-    
-    
 }
 
 
 //返回 headView的大小 size
 -(CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section{
-    if (section == 0) {
-        return CGSizeMake(300, 150);
-
-    }
+    if (section == 0) return CGSizeMake(300, 150);
     return CGSizeMake(300, 50);
 
 }
-
-// 获取headView的 方法。
-- (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath
-{
+//获取 headView的方法。
+- (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath{
 
     NSString *CellIdentifier = @"HeaderCRView";
     //从缓存中获取 Headercell
     HeaderCRView *cell = (HeaderCRView *)[collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:CellIdentifier forIndexPath:indexPath];
-    [cell configureData:self.baseModel.body.topBanner section:indexPath.section];
+    [cell configureData:self.baseModel.body.topBanner section:indexPath.section sectionTitle:_SectionTitles[indexPath.section]];
     return cell;
 }
 

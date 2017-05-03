@@ -11,29 +11,29 @@
 
 @implementation HeaderCRView
 
--(void)configureData:(ForYouTopBanner *)banner section:(NSInteger)section{
+-(void)configureData:(ForYouTopBanner *)banner section:(NSInteger)section sectionTitle:(NSString *)title{
     for (UIView *view in self.subviews) {
         if (view) {
             [view removeFromSuperview];
         }
     }
 
+    UILabel *titleLab = [[UILabel alloc]init];
+    titleLab.text = title;
+    [self addSubview:titleLab];
 
     if (section == 0) {
         UIImageView *IV = [[UIImageView alloc]init];
         [IV sd_setImageWithURL:[NSURL URLWithString:banner.activityPic]];
         [self addSubview:IV];
         
-        UILabel *title = [[UILabel alloc]init];
-        title.text = [NSString stringWithFormat:@"组头%ld",section];
-        [self addSubview:title];
 
         [IV mas_makeConstraints:^(MASConstraintMaker *make) {
             make.center.equalTo(self);
             make.edges.mas_offset(UIEdgeInsetsMake(10, 10, 60, 10));
         }];
         
-        [title mas_makeConstraints:^(MASConstraintMaker *make) {
+        [titleLab mas_makeConstraints:^(MASConstraintMaker *make) {
             make.size.mas_equalTo(CGSizeMake(IV.width, 30));
             make.left.equalTo(IV.mas_left);
             make.right.equalTo(IV.mas_right);
@@ -42,10 +42,7 @@
         }];
 
     }else{
-        UILabel *title = [[UILabel alloc]init];
-        title.text = [NSString stringWithFormat:@"组头%ld",section];
-        [self addSubview:title];
-        [title mas_makeConstraints:^(MASConstraintMaker *make) {
+        [titleLab mas_makeConstraints:^(MASConstraintMaker *make) {
             make.center.equalTo(self);
             make.edges.mas_offset(UIEdgeInsetsMake(10, 10, 10, 10));
         }];

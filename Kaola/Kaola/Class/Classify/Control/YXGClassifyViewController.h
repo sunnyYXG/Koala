@@ -7,7 +7,7 @@
 //
 
 #import "BaseViewController.h"
-@class ForYouCategory;
+@class ForYouCategory,YXGClassfyTableView,HeaderCRView;
 
 /**
  *  数据类型
@@ -32,9 +32,20 @@ typedef NS_ENUM(NSUInteger, CategoryDataType) {
 @property (nonatomic)CategoryDataType type_category;
 
 @property (nonatomic, strong) UICollectionView *rightCollectionView;
-@property (nonatomic,strong) NSArray *myData;
+
+/**
+ 数据源
+ */
+@property (nonatomic,strong) NSArray *Datas;
+
+/**
+ 分组title
+ */
+@property (nonatomic) NSArray *SectionTitles;
 @property (nonatomic,assign) NSInteger categoryId;
 
 @property (nonatomic)ForYouCategory *baseModel;
+@property (nonatomic)YXGClassfyTableView *iTableview;
+@property (nonatomic)HeaderCRView *muneView;
 
 @end
