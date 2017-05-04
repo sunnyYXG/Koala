@@ -109,8 +109,6 @@
         if (success) {
             [self stopProgress];
             block_self.baseModel = (ForYouCategory *)[ForYouCategory yy_modelWithJSON:response];
-//            NSDictionary *dic = [ClassfyHandleData ClassfyModelHandle:block_self.baseModel withCategoryDataType:self.type_category];
-//            _Datas = @[[dic objectForKey:@"commonList"],[dic objectForKey:@"hotList"],[dic objectForKey:@"brandList"],[dic objectForKey:@"albumList"]];
             NSArray *arr = [ClassfyHandleData ClassfyModelHandle:block_self.baseModel withCategoryDataType:self.type_category];
             _Datas = [arr subarrayWithRange:NSMakeRange(0, arr.count - 1)];
             _SectionTitles = [arr lastObject];
