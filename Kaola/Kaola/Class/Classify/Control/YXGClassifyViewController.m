@@ -43,7 +43,7 @@
     
     WEAK_BLOCK_SELF(YXGClassifyViewController);
     self.iTableview.clickCellBlock = ^(ClassfyCategoryTreeMenuList *treeMenu){
-        DDLog(@"title:%@ -- type:%.0f -- categoryId:%.0f",treeMenu.title,treeMenu.type,treeMenu.categoryId);
+//        DDLog(@"title:%@ -- type:%.0f -- categoryId:%.0f",treeMenu.title,treeMenu.type,treeMenu.categoryId);
         _categoryId = treeMenu.categoryId;
         [block_self loadDataWithCategoryType:treeMenu.type];
     };
@@ -69,18 +69,18 @@
 
     switch (type) {
         case 1:
-            self.SectionTitles = @[@"常用分类",@"热门分类",@"推荐品牌",@"精选专辑"];
             self.type_category = CategoryDataTypeRecForYou;
             [self loadDataRecForYouWithUrl:recForYou_url];
             break;
         case 2:
+            self.type_category = CategoryDataTypeMain;
             [self loadDataWithUrl:category_url];
             break;
         case 3:
-            
+            self.type_category = CategoryDataTypeBrandWall;
             break;
         case 4:
-            
+            self.type_category = CategoryDataTypePavilion;
             break;
 
         default:
@@ -89,13 +89,13 @@
 
 }
 
-//为你推荐数据
+#pragma mark - CategoryDataTypeRecForYou
 - (void)loadDataRecForYouWithUrl:(NSString *)url{
     self.request.yxg_url = url;
     self.request.paramsDic = [ClassfyRequest params];
     [self loadData];
 }
-//其他分类数据
+#pragma mark - CategoryDataTypeMain
 - (void)loadDataWithUrl:(NSString *)url{
     self.request.yxg_url = url;
     self.request.paramsDic = [ClassfyRequest categoryParamsWithCategoryID:[HelperTools stringWith_int:_categoryId]];
@@ -109,17 +109,18 @@
         if (success) {
             [self stopProgress];
             block_self.baseModel = (ForYouCategory *)[ForYouCategory yy_modelWithJSON:response];
-            NSDictionary *dic = [ClassfyHandleData ClassfyModelHandle:block_self.baseModel];
-            _Datas = @[[dic objectForKey:@"commonList"],[dic objectForKey:@"hotList"],[dic objectForKey:@"brandList"],[dic objectForKey:@"albumList"]];
+//            NSDictionary *dic = [ClassfyHandleData ClassfyModelHandle:block_self.baseModel withCategoryDataType:self.type_category];
+//            _Datas = @[[dic objectForKey:@"commonList"],[dic objectForKey:@"hotList"],[dic objectForKey:@"brandList"],[dic objectForKey:@"albumList"]];
+            NSArray *arr = [ClassfyHandleData ClassfyModelHandle:block_self.baseModel withCategoryDataType:self.type_category];
+            _Datas = [arr subarrayWithRange:NSMakeRange(0, arr.count - 1)];
+            _SectionTitles = [arr lastObject];
         }
         [block_self.rightCollectionView reloadData];
     }];
 }
 
 
--(void)CreatRightCollectionView
-{
-//    _Datas = [[NSArray alloc]initWithObjects:@"图片",@"休闲裤",@"牛仔裤",@"手机",@"净化器",@"火锅",@"OPPO",@"面膜",@"漱口水",@"测试",@"测试1", nil];
+-(void)CreatRightCollectionView{
 
     UICollectionViewFlowLayout *flowayout = [[UICollectionViewFlowLayout alloc]init];
     
@@ -157,49 +158,20 @@
 
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     RightCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"RightCollectionViewCell" forIndexPath:indexPath];
-    //根据左边点击的indepath更新右边内容;
-    switch (_categoryId % 2)
-    {
-        case 0:
-            cell.collectionView_imageview.image = [UIImage imageNamed:@"3.jpg"];
-            break;
-        case 1:
-            cell.collectionView_imageview.image = [UIImage imageNamed:@"4.jpg"];
-            break;
-        default:
-            break;
-    }
-    if (indexPath.section == 0) {
-        ForYouCommonCategoryList *common = (ForYouCommonCategoryList *)_Datas[indexPath.section][indexPath.row];
-        cell.collectionView_Label.text = common.categoryName;
-
-    }else if(indexPath.section == 1){
-        ForYouHotCategoryList *common = (ForYouHotCategoryList *)_Datas[indexPath.section][indexPath.row];
-        cell.collectionView_Label.text = common.categoryName;
-
-    }else if(indexPath.section == 2){
-        ForYouBrandList *common = (ForYouBrandList *)_Datas[indexPath.section][indexPath.row];
-        cell.collectionView_Label.text = common.brandName;
-        
-    }else if(indexPath.section == 3){
-        ForYouAlbumList *common = (ForYouAlbumList *)_Datas[indexPath.section][indexPath.row];
-        cell.collectionView_Label.text = common.title;
-        
-    }
-
-
-    
+    [cell configureCellWithSection:indexPath.section row:indexPath.row data:_Datas];
     return cell;
-    
-    
 }
 
 -(UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section{
     
-    return UIEdgeInsetsMake(0, 5, 0, 10);
+    return UIEdgeInsetsMake(0, 10, 0, 10);
     
 }
 -(CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
+//    return CGSizeMake((SCREEN_WIDTH - 140)/3, (SCREEN_WIDTH - 140)/3 + 40);
+    if (indexPath.section == 3) {
+        return CGSizeMake(SCREEN_WIDTH - 100, 120);
+    }
     return CGSizeMake(100, 120);
 }
 

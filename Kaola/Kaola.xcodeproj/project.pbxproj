@@ -34,6 +34,7 @@
 		0D35E8191EAF3FDC00C04367 /* RightCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0D35E8171EAF3FDC00C04367 /* RightCollectionViewCell.xib */; };
 		0D35E81D1EAF40A000C04367 /* 3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0D35E81B1EAF40A000C04367 /* 3.jpg */; };
 		0D35E81E1EAF40A000C04367 /* 4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0D35E81C1EAF40A000C04367 /* 4.jpg */; };
+		0D4881161EBACEAC001EC606 /* singleton.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D4881151EBACEAB001EC606 /* singleton.m */; };
 		0DADDB481EAD922E00CC6075 /* YXGClassfyTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DADDB471EAD922E00CC6075 /* YXGClassfyTableView.m */; };
 		0DADDB891EADBF9300CC6075 /* ClassfyTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DADDB7D1EADBF9300CC6075 /* ClassfyTableViewCell.m */; };
 		0DADDB8A1EADBF9300CC6075 /* ClassfyRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DADDB801EADBF9300CC6075 /* ClassfyRequest.m */; };
@@ -159,6 +160,8 @@
 		0D35E8171EAF3FDC00C04367 /* RightCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RightCollectionViewCell.xib; sourceTree = "<group>"; };
 		0D35E81B1EAF40A000C04367 /* 3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 3.jpg; sourceTree = "<group>"; };
 		0D35E81C1EAF40A000C04367 /* 4.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 4.jpg; sourceTree = "<group>"; };
+		0D4881141EBACEAB001EC606 /* singleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = singleton.h; sourceTree = "<group>"; };
+		0D4881151EBACEAB001EC606 /* singleton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = singleton.m; sourceTree = "<group>"; };
 		0DADDB461EAD922E00CC6075 /* YXGClassfyTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YXGClassfyTableView.h; sourceTree = "<group>"; };
 		0DADDB471EAD922E00CC6075 /* YXGClassfyTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YXGClassfyTableView.m; sourceTree = "<group>"; };
 		0DADDB7C1EADBF9300CC6075 /* ClassfyTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClassfyTableViewCell.h; sourceTree = "<group>"; };
@@ -716,6 +719,8 @@
 				0DFB527E1EB06A8A002418F2 /* Factory.m */,
 				0DFB527F1EB06A8A002418F2 /* HelperTools.h */,
 				0DFB52801EB06A8A002418F2 /* HelperTools.m */,
+				0D4881141EBACEAB001EC606 /* singleton.h */,
+				0D4881151EBACEAB001EC606 /* singleton.m */,
 			);
 			path = Hepler;
 			sourceTree = "<group>";
@@ -1123,6 +1128,7 @@
 				0DFB52BB1EB07518002418F2 /* ClassfyModelHandle.m in Sources */,
 				0DFB52AA1EB06A8A002418F2 /* SGQRCodeScanningView.m in Sources */,
 				0DBEFEC11E8F8E9B00E28A6C /* HomeModelHandle.m in Sources */,
+				0D4881161EBACEAC001EC606 /* singleton.m in Sources */,
 				0DBEFEC71E8F8E9B00E28A6C /* LocationInfo.m in Sources */,
 				0DF71C961E8C95B400B4DB14 /* homeTableViewCell.m in Sources */,
 			);

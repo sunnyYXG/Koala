@@ -49,9 +49,15 @@
 //    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json", @"text/plain",@"text/json", @"text/javascript", nil];
     [manager.requestSerializer setValue:@"application/json"forHTTPHeaderField:@"Accept"];
     [manager.requestSerializer setValue:@"application/json;charset=utf-8"forHTTPHeaderField:@"Content-Type"];
-    [manager.requestSerializer setValue:@"current_env=online; JSESSIONID-WKL-8IO=f%5CVaXefXjXMrm85J8zNPyYZDl47q3pARbvQxWERxQQtyD4Zp%5Ctg8OczcJC7bY1CPW4%2BdPa%2B0keagAVkgQKy%2FZpz8I%5CEfyJePKI76dNOWnA7ay7OOTHKoaDfk6upKOI%2FBJMMCBXwCkvjyxLjeKf4ivApr8mRCecWTuVtUv4QKSWUzRh5J%3A1493083618249; _klhtxd_=31; _pzfxuvpc=1490692740694%7C1305373723616433202%7C30%7C1491873165215%7C9%7C7252243094873242310%7C1395660636497478613; _ga=GA1.2.1507906303.1490692741; _ntes_nnid=fe04ccbb065d725608fccf1fe2c74c38,1490692740047; __kaola_usertrack=20170328171859918114; _da_ntes_uid=20170328171859918114" forHTTPHeaderField:@"Cookies"];
+    [manager.requestSerializer setValue:@"current_env=online; JSESSIONID-WKL-8IO=f%5CVaXefXjXMrm85J8zNPyYZDl47q3pARbvQxWERxQQtyD4Zp%5Ctg8OczcJC7bY1CPW4%2BdPa%2B0keagAVkgQKy%2FZpz8I%5CEfyJePKI76dNOWnA7ay7OOTHKoaDfk6upKOI%2FBJMMCBXwCkvjyxLjeKf4ivApr8mRCecWTuVtUv4QKSWUzRh5J%3A1493083618249; _klhtxd_=31; _pzfxuvpc=1490692740694%7C1305373723616433202%7C30%7C1491873165215%7C9%7C7252243094873242310%7C1395660636497478613; _ga=GA1.2.1507906303.1490692741; _ntes_nnid=fe04ccbb065d725608fccf1fe2c74c38,1490692740047; __kaola_usertrack=20170328171859918114; _da_ntes_uid=20170328171859918114" forHTTPHeaderField:@"Cookie"];
     [manager.requestSerializer setValue:@"keep-alive" forHTTPHeaderField:@"Connection"];
     [manager.requestSerializer setValue:@"C76FC330-F1D0-4DBC-AF6F-74BA8D27F5B2" forHTTPHeaderField:@"deviceUdID"];
+    [manager.requestSerializer setValue:@"30600" forHTTPHeaderField:@"version"];
+    [manager.requestSerializer setValue:@"3.6.0" forHTTPHeaderField:@"appVersion"];
+    [manager.requestSerializer setValue:@"10.3.1" forHTTPHeaderField:@"appSystemVersion"];
+    [manager.requestSerializer setValue:@"zh-Hans-CN;q=1" forHTTPHeaderField:@"Accept-Language"];
+    [manager.requestSerializer setValue:@"206" forHTTPHeaderField:@"apiVersion"];
+    [manager.requestSerializer setValue:@"2" forHTTPHeaderField:@"platform"];
 
             [manager GET:self.yxg_url parameters:self.paramsDic progress:^(NSProgress * _Nonnull downloadProgress) {
             

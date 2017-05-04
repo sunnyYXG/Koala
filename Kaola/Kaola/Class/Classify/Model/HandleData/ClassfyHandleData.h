@@ -11,6 +11,6 @@
 
 @interface ClassfyHandleData : NSObject
 
-+(NSDictionary *)ClassfyModelHandle:(ForYouCategory *)baseModel;
++(NSArray *)ClassfyModelHandle:(ForYouCategory *)baseModel withCategoryDataType:(CategoryDataType)type;
 
 @end
