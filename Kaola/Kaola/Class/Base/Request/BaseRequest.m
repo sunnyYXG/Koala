@@ -58,6 +58,10 @@
     [manager.requestSerializer setValue:@"zh-Hans-CN;q=1" forHTTPHeaderField:@"Accept-Language"];
     [manager.requestSerializer setValue:@"206" forHTTPHeaderField:@"apiVersion"];
     [manager.requestSerializer setValue:@"2" forHTTPHeaderField:@"platform"];
+    [manager.requestSerializer setValue:@"gzip, deflate" forHTTPHeaderField:@"Accept-Encoding"];
+    [manager.requestSerializer setValue:@"HTSpring/3.6.0 (iPhone; iOS 10.3.1; Scale/2.00)" forHTTPHeaderField:@"User-Agent"];
+    [manager.requestSerializer setValue:@"iPhone 5S (Global)" forHTTPHeaderField:@"deviceModel"];
+    [manager.requestSerializer setValue:@"1" forHTTPHeaderField:@"appChannel"];
 
             [manager GET:self.yxg_url parameters:self.paramsDic progress:^(NSProgress * _Nonnull downloadProgress) {
             

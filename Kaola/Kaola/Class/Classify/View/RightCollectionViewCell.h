@@ -8,20 +8,31 @@
 
 #import <UIKit/UIKit.h>
 #import "ForYouDataModels.h"
+#import "MainDataModels.h"
 #import "YXGClassifyViewController.h"
 
 @interface RightCollectionViewCell : UICollectionViewCell
-@property (strong, nonatomic) IBOutlet UIImageView *collectionView_imageview;
-@property (strong, nonatomic) IBOutlet UILabel *collectionView_Label;
+@property (strong, nonatomic)  UIImageView *collectionView_imageview;
+@property (strong, nonatomic)  UILabel *collectionView_Label;
+@property (strong, nonatomic)  UIView *line;
 
 @property (nonatomic) NSInteger section;
 @property (nonatomic) YXGClassifyViewController *classfyCtr;
 
-- (void)configureCellWithSection:(NSInteger)section row:(NSInteger)row data:(NSArray *)arr;
+- (void)configureCellWithSection:(NSInteger)section row:(NSInteger)row data:(NSArray *)arr withCategoryDataType:(NSInteger)type;
 
+/**
+ 为你推荐
+ */
 @property (nonatomic) ForYouCommonCategoryList *commonList;
 @property (nonatomic) ForYouHotCategoryList *hotList;
 @property (nonatomic) ForYouBrandList *brandList;
 @property (nonatomic) ForYouAlbumList *albumList;
+
+/**
+ 主体数据
+ */
+@property (nonatomic) MainChildCategoryViewList *CategoryList;
+@property (nonatomic) MainBrandList *MainBrand;
 
 @end

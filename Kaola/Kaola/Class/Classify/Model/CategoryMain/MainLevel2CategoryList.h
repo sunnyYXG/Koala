@@ -1,7 +1,7 @@
 //
-//  CategoryLevel2CategoryList.h
+//  MainLevel2CategoryList.h
 //
-//  Created by   on 17/4/26
+//  Created by   on 17/5/5
 //  Copyright (c) 2017 __MyCompanyName__. All rights reserved.
 //
 
@@ -9,7 +9,7 @@
 
 
 
-@interface CategoryLevel2CategoryList : NSObject <NSCoding, NSCopying>
+@interface MainLevel2CategoryList : NSObject <NSCoding, NSCopying>
 
 @property (nonatomic, strong) NSString *hotSaleLinkUrl;
 @property (nonatomic, assign) double categoryId;

@@ -1,30 +1,30 @@
 //
-//  CategoryBaseClass.m
+//  MainCategory.m
 //
-//  Created by   on 17/4/26
+//  Created by   on 17/5/5
 //  Copyright (c) 2017 __MyCompanyName__. All rights reserved.
 //
 
-#import "CategoryBaseClass.h"
-#import "CategoryBody.h"
+#import "MainCategory.h"
+#import "MainBody.h"
 
 
-NSString *const kCategoryBaseClassMsg = @"msg";
-NSString *const kCategoryBaseClassCode = @"code";
-NSString *const kCategoryBaseClassBody = @"body";
+NSString *const kMainCategoryMsg = @"msg";
+NSString *const kMainCategoryBody = @"body";
+NSString *const kMainCategoryCode = @"code";
 
 
-@interface CategoryBaseClass ()
+@interface MainCategory ()
 
 - (id)objectOrNilForKey:(id)aKey fromDictionary:(NSDictionary *)dict;
 
 @end
 
-@implementation CategoryBaseClass
+@implementation MainCategory
 
 @synthesize msg = _msg;
-@synthesize code = _code;
 @synthesize body = _body;
+@synthesize code = _code;
 
 
 + (instancetype)modelObjectWithDictionary:(NSDictionary *)dict
@@ -39,9 +39,9 @@ NSString *const kCategoryBaseClassBody = @"body";
     // This check serves to make sure that a non-NSDictionary object
     // passed into the model class doesn't break the parsing.
     if(self && [dict isKindOfClass:[NSDictionary class]]) {
-            self.msg = [self objectOrNilForKey:kCategoryBaseClassMsg fromDictionary:dict];
-            self.code = [[self objectOrNilForKey:kCategoryBaseClassCode fromDictionary:dict] doubleValue];
-            self.body = [CategoryBody modelObjectWithDictionary:[dict objectForKey:kCategoryBaseClassBody]];
+            self.msg = [self objectOrNilForKey:kMainCategoryMsg fromDictionary:dict];
+            self.body = [MainBody modelObjectWithDictionary:[dict objectForKey:kMainCategoryBody]];
+            self.code = [[self objectOrNilForKey:kMainCategoryCode fromDictionary:dict] doubleValue];
 
     }
     
@@ -52,9 +52,9 @@ NSString *const kCategoryBaseClassBody = @"body";
 - (NSDictionary *)dictionaryRepresentation
 {
     NSMutableDictionary *mutableDict = [NSMutableDictionary dictionary];
-    [mutableDict setValue:self.msg forKey:kCategoryBaseClassMsg];
-    [mutableDict setValue:[NSNumber numberWithDouble:self.code] forKey:kCategoryBaseClassCode];
-    [mutableDict setValue:[self.body dictionaryRepresentation] forKey:kCategoryBaseClassBody];
+    [mutableDict setValue:self.msg forKey:kMainCategoryMsg];
+    [mutableDict setValue:[self.body dictionaryRepresentation] forKey:kMainCategoryBody];
+    [mutableDict setValue:[NSNumber numberWithDouble:self.code] forKey:kMainCategoryCode];
 
     return [NSDictionary dictionaryWithDictionary:mutableDict];
 }
@@ -78,29 +78,29 @@ NSString *const kCategoryBaseClassBody = @"body";
 {
     self = [super init];
 
-    self.msg = [aDecoder decodeObjectForKey:kCategoryBaseClassMsg];
-    self.code = [aDecoder decodeDoubleForKey:kCategoryBaseClassCode];
-    self.body = [aDecoder decodeObjectForKey:kCategoryBaseClassBody];
+    self.msg = [aDecoder decodeObjectForKey:kMainCategoryMsg];
+    self.body = [aDecoder decodeObjectForKey:kMainCategoryBody];
+    self.code = [aDecoder decodeDoubleForKey:kMainCategoryCode];
     return self;
 }
 
 - (void)encodeWithCoder:(NSCoder *)aCoder
 {
 
-    [aCoder encodeObject:_msg forKey:kCategoryBaseClassMsg];
-    [aCoder encodeDouble:_code forKey:kCategoryBaseClassCode];
-    [aCoder encodeObject:_body forKey:kCategoryBaseClassBody];
+    [aCoder encodeObject:_msg forKey:kMainCategoryMsg];
+    [aCoder encodeObject:_body forKey:kMainCategoryBody];
+    [aCoder encodeDouble:_code forKey:kMainCategoryCode];
 }
 
 - (id)copyWithZone:(NSZone *)zone
 {
-    CategoryBaseClass *copy = [[CategoryBaseClass alloc] init];
+    MainCategory *copy = [[MainCategory alloc] init];
     
     if (copy) {
 
         copy.msg = [self.msg copyWithZone:zone];
-        copy.code = self.code;
         copy.body = [self.body copyWithZone:zone];
+        copy.code = self.code;
     }
     
     return copy;

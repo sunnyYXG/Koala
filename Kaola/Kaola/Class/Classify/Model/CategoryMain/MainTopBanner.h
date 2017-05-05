@@ -1,7 +1,7 @@
 //
-//  CategoryTopBanner.h
+//  MainTopBanner.h
 //
-//  Created by   on 17/4/26
+//  Created by   on 17/5/5
 //  Copyright (c) 2017 __MyCompanyName__. All rights reserved.
 //
 
@@ -9,7 +9,7 @@
 
 
 
-@interface CategoryTopBanner : NSObject <NSCoding, NSCopying>
+@interface MainTopBanner : NSObject <NSCoding, NSCopying>
 
 @property (nonatomic, strong) NSString *activityName;
 @property (nonatomic, strong) NSString *activityPic;

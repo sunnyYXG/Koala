@@ -1,7 +1,7 @@
 //
-//  CategoryBrandList.h
+//  MainBrandList.h
 //
-//  Created by   on 17/4/26
+//  Created by   on 17/5/5
 //  Copyright (c) 2017 __MyCompanyName__. All rights reserved.
 //
 
@@ -9,7 +9,7 @@
 
 
 
-@interface CategoryBrandList : NSObject <NSCoding, NSCopying>
+@interface MainBrandList : NSObject <NSCoding, NSCopying>
 
 @property (nonatomic, assign) double isFocus;
 @property (nonatomic, strong) NSString *keyWords;

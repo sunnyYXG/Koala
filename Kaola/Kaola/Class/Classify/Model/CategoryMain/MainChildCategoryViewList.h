@@ -1,7 +1,7 @@
 //
-//  CategoryChildCategoryViewList.h
+//  MainChildCategoryViewList.h
 //
-//  Created by   on 17/4/26
+//  Created by   on 17/5/5
 //  Copyright (c) 2017 __MyCompanyName__. All rights reserved.
 //
 
@@ -9,7 +9,7 @@
 
 
 
-@interface CategoryChildCategoryViewList : NSObject <NSCoding, NSCopying>
+@interface MainChildCategoryViewList : NSObject <NSCoding, NSCopying>
 
 @property (nonatomic, assign) double categoryId;
 @property (nonatomic, strong) NSString *iconUrl;

@@ -1,25 +1,25 @@
 //
-//  CategoryTopBanner.m
+//  MainTopBanner.m
 //
-//  Created by   on 17/4/26
+//  Created by   on 17/5/5
 //  Copyright (c) 2017 __MyCompanyName__. All rights reserved.
 //
 
-#import "CategoryTopBanner.h"
+#import "MainTopBanner.h"
 
 
-NSString *const kCategoryTopBannerActivityName = @"activityName";
-NSString *const kCategoryTopBannerActivityPic = @"activityPic";
-NSString *const kCategoryTopBannerActivityUrl = @"activityUrl";
+NSString *const kMainTopBannerActivityName = @"activityName";
+NSString *const kMainTopBannerActivityPic = @"activityPic";
+NSString *const kMainTopBannerActivityUrl = @"activityUrl";
 
 
-@interface CategoryTopBanner ()
+@interface MainTopBanner ()
 
 - (id)objectOrNilForKey:(id)aKey fromDictionary:(NSDictionary *)dict;
 
 @end
 
-@implementation CategoryTopBanner
+@implementation MainTopBanner
 
 @synthesize activityName = _activityName;
 @synthesize activityPic = _activityPic;
@@ -38,9 +38,9 @@ NSString *const kCategoryTopBannerActivityUrl = @"activityUrl";
     // This check serves to make sure that a non-NSDictionary object
     // passed into the model class doesn't break the parsing.
     if(self && [dict isKindOfClass:[NSDictionary class]]) {
-            self.activityName = [self objectOrNilForKey:kCategoryTopBannerActivityName fromDictionary:dict];
-            self.activityPic = [self objectOrNilForKey:kCategoryTopBannerActivityPic fromDictionary:dict];
-            self.activityUrl = [self objectOrNilForKey:kCategoryTopBannerActivityUrl fromDictionary:dict];
+            self.activityName = [self objectOrNilForKey:kMainTopBannerActivityName fromDictionary:dict];
+            self.activityPic = [self objectOrNilForKey:kMainTopBannerActivityPic fromDictionary:dict];
+            self.activityUrl = [self objectOrNilForKey:kMainTopBannerActivityUrl fromDictionary:dict];
 
     }
     
@@ -51,9 +51,9 @@ NSString *const kCategoryTopBannerActivityUrl = @"activityUrl";
 - (NSDictionary *)dictionaryRepresentation
 {
     NSMutableDictionary *mutableDict = [NSMutableDictionary dictionary];
-    [mutableDict setValue:self.activityName forKey:kCategoryTopBannerActivityName];
-    [mutableDict setValue:self.activityPic forKey:kCategoryTopBannerActivityPic];
-    [mutableDict setValue:self.activityUrl forKey:kCategoryTopBannerActivityUrl];
+    [mutableDict setValue:self.activityName forKey:kMainTopBannerActivityName];
+    [mutableDict setValue:self.activityPic forKey:kMainTopBannerActivityPic];
+    [mutableDict setValue:self.activityUrl forKey:kMainTopBannerActivityUrl];
 
     return [NSDictionary dictionaryWithDictionary:mutableDict];
 }
@@ -77,23 +77,23 @@ NSString *const kCategoryTopBannerActivityUrl = @"activityUrl";
 {
     self = [super init];
 
-    self.activityName = [aDecoder decodeObjectForKey:kCategoryTopBannerActivityName];
-    self.activityPic = [aDecoder decodeObjectForKey:kCategoryTopBannerActivityPic];
-    self.activityUrl = [aDecoder decodeObjectForKey:kCategoryTopBannerActivityUrl];
+    self.activityName = [aDecoder decodeObjectForKey:kMainTopBannerActivityName];
+    self.activityPic = [aDecoder decodeObjectForKey:kMainTopBannerActivityPic];
+    self.activityUrl = [aDecoder decodeObjectForKey:kMainTopBannerActivityUrl];
     return self;
 }
 
 - (void)encodeWithCoder:(NSCoder *)aCoder
 {
 
-    [aCoder encodeObject:_activityName forKey:kCategoryTopBannerActivityName];
-    [aCoder encodeObject:_activityPic forKey:kCategoryTopBannerActivityPic];
-    [aCoder encodeObject:_activityUrl forKey:kCategoryTopBannerActivityUrl];
+    [aCoder encodeObject:_activityName forKey:kMainTopBannerActivityName];
+    [aCoder encodeObject:_activityPic forKey:kMainTopBannerActivityPic];
+    [aCoder encodeObject:_activityUrl forKey:kMainTopBannerActivityUrl];
 }
 
 - (id)copyWithZone:(NSZone *)zone
 {
-    CategoryTopBanner *copy = [[CategoryTopBanner alloc] init];
+    MainTopBanner *copy = [[MainTopBanner alloc] init];
     
     if (copy) {
 

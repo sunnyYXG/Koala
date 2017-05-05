@@ -15,6 +15,7 @@
 #import "HeaderCRView.h"
 
 #import "ForYouDataModels.h"
+#import "MainDataModels.h"
 #import "ClassfyHandleData.h"
 
 @interface YXGClassifyViewController ()<UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout>
@@ -43,7 +44,6 @@
     
     WEAK_BLOCK_SELF(YXGClassifyViewController);
     self.iTableview.clickCellBlock = ^(ClassfyCategoryTreeMenuList *treeMenu){
-//        DDLog(@"title:%@ -- type:%.0f -- categoryId:%.0f",treeMenu.title,treeMenu.type,treeMenu.categoryId);
         _categoryId = treeMenu.categoryId;
         [block_self loadDataWithCategoryType:treeMenu.type];
     };
@@ -108,12 +108,17 @@
     [self.request yxg_sendRequestWithCompletion:^(id response, BOOL success, NSString *message) {
         if (success) {
             [self stopProgress];
-            block_self.baseModel = (ForYouCategory *)[ForYouCategory yy_modelWithJSON:response];
-            NSArray *arr = [ClassfyHandleData ClassfyModelHandle:block_self.baseModel withCategoryDataType:self.type_category];
-            _Datas = [arr subarrayWithRange:NSMakeRange(0, arr.count - 1)];
-            _SectionTitles = [arr lastObject];
+
+            ClassfyHandleData *handle = [ClassfyHandleData new];
+            handle.HandleBlock = ^(ForYouTopBanner *TopBanner,NSArray *Datas,NSArray *SectionTitles){
+                self.TopBanner = TopBanner;
+                _Datas = Datas;
+                _SectionTitles = SectionTitles;
+            };
+            [handle handleWithResponse:response withCategoryDataType:self.type_category];
         }
         [block_self.rightCollectionView reloadData];
+        
     }];
 }
 
@@ -147,7 +152,6 @@
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
     return [_Datas[section] count];
-//    return _Datas.count;
     
 }
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView{
@@ -156,27 +160,26 @@
 
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     RightCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"RightCollectionViewCell" forIndexPath:indexPath];
-    [cell configureCellWithSection:indexPath.section row:indexPath.row data:_Datas];
+    [cell configureCellWithSection:indexPath.section row:indexPath.row data:_Datas withCategoryDataType:self.type_category];
     return cell;
 }
 
--(UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section{
-    
-    return UIEdgeInsetsMake(0, 10, 0, 10);
-    
-}
 -(CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
-//    return CGSizeMake((SCREEN_WIDTH - 140)/3, (SCREEN_WIDTH - 140)/3 + 40);
-    if (indexPath.section == 3) {
-        return CGSizeMake(SCREEN_WIDTH - 100, 120);
+    if (self.type_category == 1) {
+        if (indexPath.section == 3) {
+            return CGSizeMake(SCREEN_WIDTH - 100, 140);
+        }else{
+            return CGSizeMake(self.rightCollectionView.width/3, self.rightCollectionView.width/3 + 30);
+        }
+    }else{
+        return CGSizeMake((self.rightCollectionView.width - 5)/3, (self.rightCollectionView.width)/3 + 30);
     }
-    return CGSizeMake(100, 120);
 }
 
-
+#pragma mark - 自定义collectionView头视图
 //返回 headView的大小 size
 -(CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section{
-    if (section == 0) return CGSizeMake(300, 150);
+    if (section == 0 && self.TopBanner) return CGSizeMake(300, 150);
     return CGSizeMake(300, 50);
 
 }
@@ -186,7 +189,7 @@
     NSString *CellIdentifier = @"HeaderCRView";
     //从缓存中获取 Headercell
     HeaderCRView *cell = (HeaderCRView *)[collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:CellIdentifier forIndexPath:indexPath];
-    [cell configureData:self.baseModel.body.topBanner section:indexPath.section sectionTitle:_SectionTitles[indexPath.section]];
+    [cell configureData:self.TopBanner section:indexPath.section sectionTitle:_SectionTitles[indexPath.section]];
     return cell;
 }
 

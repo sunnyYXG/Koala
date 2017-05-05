@@ -7,10 +7,19 @@
 //
 
 #import <Foundation/Foundation.h>
-@class ForYouCategory;
+@class ForYouCategory,ForYouTopBanner,MainCategory;
 
 @interface ClassfyHandleData : NSObject
 
-+(NSArray *)ClassfyModelHandle:(ForYouCategory *)baseModel withCategoryDataType:(CategoryDataType)type;
+
+/**
+ 对请求成功的数据进行解析
+ */
+-(void)handleWithResponse:(id)response withCategoryDataType:(NSInteger)type;
+
+@property (nonatomic)ForYouCategory *baseModel;
+@property (nonatomic)MainCategory *MainBaseModel;
+
+@property (nonatomic, copy) void (^HandleBlock)(ForYouTopBanner *banner,NSArray *Datas,NSArray *SectionTitles);
 
 @end

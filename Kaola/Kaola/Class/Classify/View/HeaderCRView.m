@@ -20,9 +20,25 @@
 
     UILabel *titleLab = [[UILabel alloc]init];
     titleLab.text = title;
+    titleLab.textColor = UIColorFromRGB(46, 46, 46);
+    [titleLab setFont:[UIFont systemFontOfSize:16.0f]];
     [self addSubview:titleLab];
 
+//    self.backgroundColor = [UIColor orangeColor];
+//    titleLab.backgroundColor = [UIColor redColor];
+    
+     UIView *line = [UIView new];
+     line.backgroundColor = UIColorFromRGB(219, 219, 219);
+    [self addSubview:line];
+    [line mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.size.mas_equalTo(CGSizeMake(self.width - 10, 0.5));
+        make.left.equalTo(self).offset(5);
+        make.top.equalTo(self).with.offset(0);
+        
+    }];
+
     if (section == 0) {
+        line.hidden = YES;
         UIImageView *IV = [[UIImageView alloc]init];
         [IV sd_setImageWithURL:[NSURL URLWithString:banner.activityPic]];
         [self addSubview:IV];
