@@ -8,6 +8,8 @@
 
 #import "BaseViewController.h"
 
+@class BaseRequest;
+
 @interface YXGHomeTabbarController : BaseViewController
 
 @property (nonatomic, assign)   BOOL        scrollAnimation;            // Default value: NO
@@ -17,5 +19,10 @@
 
 @property (nonatomic, strong)UIColor  *navTabBarColor;
 @property (nonatomic, strong)UIColor  *navTabBarLineColor;
+
+@property (nonatomic) NSArray *navBars;
+
+@property (nonatomic, strong) BaseRequest *request;
+
 
 @end

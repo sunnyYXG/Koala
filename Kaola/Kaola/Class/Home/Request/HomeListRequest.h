@@ -12,4 +12,7 @@
 
 /** 参数 */
 + (NSDictionary *)params;
+
++ (NSDictionary *)paramsWithPageNo:(NSInteger)pageNo;
+
 @end

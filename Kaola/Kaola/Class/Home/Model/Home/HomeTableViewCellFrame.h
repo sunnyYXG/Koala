@@ -20,7 +20,8 @@ typedef NS_ENUM(NSUInteger, HomeServiceDataMediaType) {
     HomeServiceDataMediaTypeLittleImages = 2,
     /** 其他*/
     HomeServiceDataMediaTypeOther = 3,
-    
+    /** 每日签到 限时购 会员专享 拼好货 卖钱领取或者立减 */
+    HomeServiceDataMediaTypeTJMenus = 4,
 };
 
 /**
@@ -65,5 +66,7 @@ typedef NS_ENUM(NSUInteger, HomeServiceDataMediaTypeOtherType) {
 
 /** cell的高度*/
 @property (nonatomic)CGFloat cellHeight;
+
+@property (nonatomic) NSArray *menus;
 
 @end

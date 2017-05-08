@@ -7,12 +7,14 @@
 //
 
 #import <Foundation/Foundation.h>
-@class BaseClass;
+@class BaseClass,HomeAuslese;
 
 
 @interface HomeModelHandle : NSObject
 
 
 +(NSDictionary *)HomeModelHandle:(BaseClass *)baseModel;
+
++(NSDictionary *)HomeAuslessModelHandle:(HomeAuslese *)baseModel;
 
 @end

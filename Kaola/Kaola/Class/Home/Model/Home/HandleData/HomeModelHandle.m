@@ -8,6 +8,9 @@
 
 #import "HomeModelHandle.h"
 #import "HomeTableViewCellFrame.h"
+
+#import "HomeAusleseCellFrame.h"
+
 @implementation HomeModelHandle
 
 +(NSDictionary *)HomeModelHandle:(BaseClass *)baseModel{
@@ -30,9 +33,6 @@
         [BannerImages addObject:banner.imgUrl];
     }
     
-    Home *TJMenu = (Home *)HomeList[1];
-    NSArray *menus = TJMenu.itemList;
-
     [HomeList removeObjectAtIndex:0];
     for (NSInteger i = 0; i < HomeList.count; i ++) {
         HomeTableViewCellFrame *cellFrame = [[HomeTableViewCellFrame alloc] init];
@@ -41,10 +41,28 @@
     }
     
     
-    NSDictionary *dic = @{@"HomeList":HomeList,@"BannerImages":BannerImages,@"cellFrameArray":cellFrameArray,@"BannerList":home.bannerList,@"menus":menus};
+    NSDictionary *dic = @{@"HomeList":HomeList,@"BannerImages":BannerImages,@"cellFrameArray":cellFrameArray,@"BannerList":home.bannerList};
     return dic;
 }
 
+
++(NSDictionary *)HomeAuslessModelHandle:(HomeAuslese *)baseModel{
+    NSMutableArray *ausleseList = [NSMutableArray new];
+    NSString *title;
+    for (NSDictionary *dic in baseModel.body.home) {
+        HomeHome *auslese = [HomeHome modelObjectWithDictionary:dic];
+        for (HomeItemList *item in auslese.itemList) {
+            [ausleseList addObject:item];
+        }
+        
+        for (HomeGuidanceViewList *obj in auslese.guidanceViewList) {
+            title = obj.title;
+        }
+    }
+    
+    return @{@"title":title,@"ausleseList":ausleseList};
+    
+}
 
 
 @end

@@ -69,45 +69,68 @@
 - (void)HomeServiceDataMediaTypeOther:(Home *)home{
     self.media_type = HomeServiceDataMediaTypeOther;
     self.info_type = HomeServiceDataMediaTypeOther_TypeDefault;
-    
-    self.image_Frame = CGRectMake(0, 10, SCREEN_WIDTH , SCREEN_WIDTH * 0.55);
-    self.cellHeight = self.image_Frame.size.height * 2 - 20;
-    self.sc_Frame = CGRectMake(0, self.image_Frame.size.height + self.image_Frame.origin.y, SCREEN_WIDTH, self.cellHeight - SCREEN_WIDTH * 0.55 - 10);
-    
-    CGFloat w = self.image_Frame.size.width/3 - 10;
-
-    //小图片的数据类型 是否有简介 以及简介的取值内容
-    self.info_type = [self HomeCellModelType:(ItemList *)[home.itemList firstObject] h:self.sc_Frame.size.height - w - 10];
-
-    for (NSInteger i = 0; i < home.itemList.count; i ++) {
-        //cell中小图片的frame
-        CGRect frame = CGRectMake(i * w + (i + 1) * 10, 10, w, w);
-        NSValue *value = [NSValue valueWithCGRect:frame];
-        [self.images_Frame addObject:value];
+    if (home.styleType == 3) {
+        [self HomeServiceDataMediaTypeTJMenus:home];
+    }else{
+        self.image_Frame = CGRectMake(0, 10, SCREEN_WIDTH , SCREEN_WIDTH * 0.55);
+        self.cellHeight = self.image_Frame.size.height * 2 - 20;
+        self.sc_Frame = CGRectMake(0, self.image_Frame.size.height + self.image_Frame.origin.y, SCREEN_WIDTH, self.cellHeight - SCREEN_WIDTH * 0.55 - 10);
         
-        //cell中小图片的简介(view)的frame
-        UIView *IV = [[UIView alloc]initWithFrame:frame];
-        CGRect InfoFrame = CGRectMake(IV.left, IV.bottom + 10, IV.width, self.sc_Frame.size.height - IV.height - 10);
-        NSValue *InfoValue = [NSValue valueWithCGRect:InfoFrame];
-        [self.InfoS_Frame addObject:InfoValue];
+        CGFloat w = self.image_Frame.size.width/3 - 10;
         
-        //cell中小图片的url
-        ItemList *item = (ItemList *)home.itemList[i];
-//        if (item.imgUrl == nil) {
-//            [self.images_URL addObject:item.logoUrl];
-//        }else{
-            [self.images_URL addObject:item.imgUrl];
-//        }
+        //小图片的数据类型 是否有简介 以及简介的取值内容
+        self.info_type = [self HomeCellModelType:(ItemList *)[home.itemList firstObject] h:self.sc_Frame.size.height - w - 10];
         
-        
-        if (i == home.itemList.count - 1 ) {
-            i++;
+        for (NSInteger i = 0; i < home.itemList.count; i ++) {
+            //cell中小图片的frame
             CGRect frame = CGRectMake(i * w + (i + 1) * 10, 10, w, w);
             NSValue *value = [NSValue valueWithCGRect:frame];
             [self.images_Frame addObject:value];
+            
+            //cell中小图片的简介(view)的frame
+            UIView *IV = [[UIView alloc]initWithFrame:frame];
+            CGRect InfoFrame = CGRectMake(IV.left, IV.bottom + 10, IV.width, self.sc_Frame.size.height - IV.height - 10);
+            NSValue *InfoValue = [NSValue valueWithCGRect:InfoFrame];
+            [self.InfoS_Frame addObject:InfoValue];
+            
+            //cell中小图片的url
+            ItemList *item = (ItemList *)home.itemList[i];
+            //        if (item.imgUrl == nil) {
+            //            [self.images_URL addObject:item.logoUrl];
+            //        }else{
+            [self.images_URL addObject:item.imgUrl];
+            //        }
+            
+            
+            if (i == home.itemList.count - 1 ) {
+                i++;
+                CGRect frame = CGRectMake(i * w + (i + 1) * 10, 10, w, w);
+                NSValue *value = [NSValue valueWithCGRect:frame];
+                [self.images_Frame addObject:value];
+            }
+            
         }
-        
+
     }
+}
+
+//每日签到 限时购 会员专享 拼好货 卖钱领取或者立减
+- (void)HomeServiceDataMediaTypeTJMenus:(Home *)home{
+    self.media_type = HomeServiceDataMediaTypeTJMenus;
+    self.info_type = HomeServiceDataMediaTypeOther_TypeDefault;
+    self.menus = home.itemList;
+    
+    self.cellHeight = SCREEN_WIDTH * 0.55 / 3;
+    self.sc_Frame = CGRectMake(0, 0, SCREEN_WIDTH, self.cellHeight);
+    
+    CGFloat w = (SCREEN_WIDTH-60)/5;
+
+    for (NSInteger i = 0; i < home.itemList.count; i ++) {
+        CGRect frame = CGRectMake(i * (w + 10) + 10, 10, w, self.cellHeight - 20);
+        NSValue *value = [NSValue valueWithCGRect:frame];
+        [self.images_Frame addObject:value];
+    }
+
 
 }
 
@@ -116,7 +139,7 @@
     
     if (item.description1) {
         if ( item.description1.length == 0) {
-            self.cellHeight = self.cellHeight - h;
+            self.cellHeight = self.cellHeight - h + 10;
             self.sc_Frame = CGRectMake(0, self.image_Frame.size.height + self.image_Frame.origin.y, SCREEN_WIDTH, self.cellHeight - SCREEN_WIDTH * 0.55 - 10);
 
             return HomeServiceDataMediaTypeOther_TypeNOAny;

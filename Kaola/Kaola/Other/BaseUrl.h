@@ -25,6 +25,9 @@
 #define openad_url @"http://sp.kaola.com/api/openad?"
 #define path_url @"http://sp.kaola.com/api/patch?"
 
+//navBar
+#define navBar_url @"http://sp.kaola.com/api/navbar/show?"
+
 /**
  *  首页接口
  */

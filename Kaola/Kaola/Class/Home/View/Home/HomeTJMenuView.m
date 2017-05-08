@@ -41,7 +41,8 @@
         IV.tag = 100 + i;
         IV.userInteractionEnabled = YES;
         [IV addGestureRecognizer:tap];
-        IV.image = [UIImage imageNamed:menus[i]];
+//        IV.image = [UIImage imageNamed:menus[i]];
+        [IV sd_setImageWithURL:menus[i]];
         
         [view addSubview:IV];
     }

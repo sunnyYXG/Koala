@@ -6,11 +6,11 @@
 //  Copyright © 2017年 YXGang. All rights reserved.
 //
 
-#import "HomeSectionCell1.h"
+#import "HomeAusleseCell.h"
 
-@implementation HomeSectionCell1
+@implementation HomeAusleseCell
 
--(void)createView:(NSInteger)row{
+-(void)createView:(NSString *)title{
     
     for (UIView *view in self.subviews) {
         if (view) {
@@ -20,8 +20,8 @@
 
     UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(10, 10, SCREEN_WIDTH-20, self.height - 20)];
     [self addSubview:label];
-    label.backgroundColor = [UIColor orangeColor];
-    label.text = [NSString stringWithFormat:@"zheshi==%ld",row];
+//    label.backgroundColor = [UIColor orangeColor];
+    label.text = title;
     
 }
 

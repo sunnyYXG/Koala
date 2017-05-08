@@ -8,9 +8,9 @@
 
 #import "BaseTableViewCell.h"
 
-@interface HomeSectionCell1 : BaseTableViewCell
+@interface HomeAusleseCell : BaseTableViewCell
 
 
-- (void)createView:(NSInteger)row;
+- (void)createView:(NSString *)title;
 
 @end

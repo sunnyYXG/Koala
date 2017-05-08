@@ -8,6 +8,8 @@
 
 #import "YXGHomeTabbarController.h"
 #import "HomeNavTabBar.h"
+#import "navBarRequest.h"
+#import "KLNavBarDataModels.h"
 //#import "ThemeManager.h"
 #import <AVFoundation/AVFoundation.h>
 #import "QRCodeGenerateVC.h"
@@ -22,6 +24,8 @@
 }
 @property (strong, nonatomic) UISearchBar *searchBar;
 @property (strong, nonatomic) UIButton *ERCodeBtn;
+@property (nonatomic) KLNavBar *baseModle;
+
 
 
 @end
@@ -33,19 +37,34 @@
     self.edgesForExtendedLayout = UIRectEdgeNone;
     [self.view addSubview:self.searchBar];
     [self.view addSubview:self.ERCodeBtn];
-    [self initControl];
-    [self initConfig];
-    [self viewConfig];
+    navBarRequest *request = [navBarRequest yxg_request];
+    self.request = request;
+    self.request.yxg_url = navBar_url;
+    self.request.paramsDic = [navBarRequest params];
+    [self reloadData];
+    
 
 }
 
+- (void)reloadData{
+    if (!self.request) return;
+    WEAK_BLOCK_SELF(YXGHomeTabbarController);
+    [self.request yxg_sendRequestWithCompletion:^(id response, BOOL success, NSString *message) {
+        if (success) {
+            block_self.baseModle = (KLNavBar *)[KLNavBar yy_modelWithJSON:response];
+            block_self.navBars = [navBarHandleModel navBarHandleModel:block_self.baseModle];
+            
+            [block_self initControl];
+            [block_self initConfig];
+            [block_self viewConfig];
+
+        }
+    }];
+    
+}
 -(void)initControl
 {
     
-    NSArray *namearray = [NSArray array];
-    namearray = @[@"活动",@"全球旗舰",@"网易严选",@"母婴",@"美妆",@"箱包配饰",@"美食保健",@"家具个护",@"直邮数码",@"运动户外",@"服饰鞋靴",@"生鲜",@"国家馆"];
-    NSArray *contentarray = [NSArray array];
-    contentarray = @[@"HuoDong",@"QuanQiu",@"YanXuan",@"MuYing",@"MeiZhuang",@"XiangBao",@"MeiShi",@"JiaJu",@"ShuMa",@"YunDong",@"FuShi",@"ShengXian",@"GuoJia"];
     
     NSMutableArray *viewArray = [NSMutableArray array];
     
@@ -53,11 +72,11 @@
     oneViewController.title = @"推荐";
     [viewArray addObject:oneViewController];
     
-    for(int i = 0; i < namearray.count; i++)
+    for(int i = 0; i < self.navBars.count; i++)
     {
         YXGHomeOtherController *otherViewController = [[YXGHomeOtherController alloc] init];
-        otherViewController.title = namearray[i];
-        otherViewController.content = contentarray[i];
+        otherViewController.title = self.navBars[i];
+//        otherViewController.content = contentarray[i];
 //        otherViewController.view.backgroundColor = [UIColor redColor];
         [viewArray addObject:otherViewController];
     }
@@ -101,7 +120,7 @@
     [_navTabBar updateData];
     [self.view addSubview:_navTabBar];
     
-    _mainView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 108, SCREEN_WIDTH, SCREEN_HEIGHT-108)];
+    _mainView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 108, SCREEN_WIDTH, SCREEN_HEIGHT)];
     _mainView.delegate = self;
     _mainView.pagingEnabled = YES;
     _mainView.bounces = _mainViewBounces;

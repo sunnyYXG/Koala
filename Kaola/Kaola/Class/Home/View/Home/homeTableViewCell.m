@@ -57,8 +57,34 @@
     }else if (cellFrame.media_type == 3){
         [self HomeServiceDataMediaTypeOther:cellFrame url:self.home.imageUrl];
 
+    }else if (cellFrame.media_type == 4){
+        [self HomeServiceDataMediaTypeTJMenus:cellFrame TJMenus:cellFrame.menus];
     }
     
+}
+
+-(void)HomeServiceDataMediaTypeTJMenus:(HomeTableViewCellFrame *)cellFrame TJMenus:(NSArray *)menus{
+    
+    
+    CGFloat w = SCREEN_WIDTH/3 - 10;
+    self.sc.frame = cellFrame.sc_Frame;
+    [self addSubview:self.sc];
+    
+    for (NSInteger i = 0; i < cellFrame.menus.count; i++) {
+        ItemList *item = (ItemList *)menus[i];
+        NSValue *value = cellFrame.images_Frame[i];
+        CGRect rect = [value CGRectValue];
+        
+        UITapGestureRecognizer *tap = [self createTapWtirhAction:@selector(LittleImagesTap:)];
+        UIImageView *IV = [self createIVWIthFrame:rect imageUrl:item.imgUrl tag:i tap:tap];
+        [self.sc addSubview:IV];
+    
+        [self.links_URL addObject:item.linkUrl];
+        
+    }
+    
+    [self.sc setContentSize:CGSizeMake(cellFrame.images_Frame.count * (w + 10) + 10, cellFrame.cellHeight - SCREEN_WIDTH * 0.55 - 10)];
+
 }
 
 -(void)HomeServiceDataMediaTypeBigImages:(CGRect)frame url:(NSString *)url{
@@ -114,7 +140,8 @@
                 [self configIntroduce:(ItemList *)self.home.itemList[i] ItemView:ItemView infoType:cellFrame.info_type];
             }
         }
-        [self.links_URL addObject:self.home.linkUrl];
+        DDLog(@"linkUrl:%@",self.home.linkUrl);
+//        [self.links_URL addObject:self.home.linkUrl];
         
     }
     

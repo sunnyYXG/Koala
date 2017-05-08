@@ -7,18 +7,23 @@
 //
 
 #import "YXGHomeViewController.h"
-#import "homeTableViewCell.h"
 #import "HomeListRequest.h"
 #import "BannerViewController.h"
 #import "HomeTableViewCellFrame.h"
+
 #import "HomeTJMenuView.h"
 #import "HomeModelHandle.h"
-#import "HomeSectionCell1.h"
+
+#import "homeTableViewCell.h"
+#import "HomeAusleseCell.h"
+
 #import "DataModels.h"
+#import "HomeAusleseDataModels.h"
 
 @interface YXGHomeViewController ()<homeTableViewCellDelegate,HomeTJMenuViewDelegate>
 
 @property (nonatomic)BaseClass *baseModel;
+@property (nonatomic)HomeAuslese *AusleseBaseModel;
 
 @end
 
@@ -51,24 +56,30 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.AusleseData = @[@"",@"",@""];
+    self.data_type = HomeServiceDataTypeMain;
     HomeListRequest *request = [HomeListRequest yxg_request];
     self.request = request;
     self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
         [self loadDataType:HomeServiceDataTypeMain withUrl:home_url];
     }];
-//    [self.tableView.mj_header beginRefreshing];
+    
+    [self.tableView.mj_header beginRefreshing];
+    CGRect frame = CGRectMake(0, 0, SCREEN_WIDTH, self.view.height - 152);
+    self.tableView.frame = frame;
 
-//    [self initBannerView];
+    [self initBannerView];
     
 }
 
 - (void)loadDataType:(HomeServiceDataType)type withUrl:(NSString *)url{
+    NSInteger pageNo = self.data_type;
     self.request.yxg_url = url;
-    self.request.paramsDic = [HomeListRequest params];
+    self.request.paramsDic = [HomeListRequest paramsWithPageNo:pageNo];
     self.data_type = type;
     [self loadData];
-
 }
+
 - (void)initBannerView
 {
     CycleBannerView *bannerView = [[CycleBannerView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_WIDTH * 0.55)];
@@ -82,38 +93,51 @@
         [block_self pushVc:[BannerViewController new] userInfo:@{@"bannerUrl":banner.linkUrl}];
     };
     
-    UIView *headView = [[UIView alloc]initWithFrame:CGRectMake(0, 100, SCREEN_WIDTH, bannerView.height + bannerView.height/3)];
-    [headView addSubview:bannerView];
-
+    /*
     _TJMenuView = [[HomeTJMenuView alloc]initWithFrame:CGRectMake(headView.left, bannerView.bottom, SCREEN_WIDTH, bannerView.height/3)];
     _TJMenuView.delegate = self;
     self.TJMenuView.menus = @[@"point",@"onsale",@"index",@"list",@"introduce"];
     self.TJMenuView.h5_urls = @[point_url,onsale_url,index_url,list_url,introduce_url];
     [headView addSubview:self.TJMenuView];
-    self.tableView.tableHeaderView = headView;
+    */
+    
+    self.tableView.tableHeaderView = bannerView;
     self.bannerView = bannerView;
 }
 
 #pragma mark - UITableViewDelegate
 - (NSInteger)yxg_numberOfSections {
-    return 1;
+    return 2;
 }
 
 - (NSInteger)yxg_numberOfRowsInSection:(NSInteger)section {
-    return self.HomeList.count;
+    if (section == 0) return self.HomeList.count;
+    
+    return self.AusleseData.count;
 }
 
 - (BaseTableViewCell *)yxg_cellAtIndexPath:(NSIndexPath *)indexPath {
     
+//    if (indexPath.section == 1 && self.data_type == 1) {
+////        self.data_type = HomeServiceDataTypeAuslese;
+////        [self loadDataType:self.data_type withUrl:home_auslese_url];
+//    }
+    if (indexPath.section == 0) {
+        self.data_type = HomeServiceDataTypeMain;
         homeTableViewCell *cell = [homeTableViewCell cellWithTableView:self.tableView identifier:[NSString stringWithFormat:@"cell%ld%ld",indexPath.section,indexPath.row]];
-        
-        HomeTableViewCellFrame *cellFrame = self.cellFrameArray[indexPath.row];
-        cell.cellFrame = cellFrame;
-        cell.delegate =self;
-        cell.selectionStyle = UITableViewCellSelectionStyleNone;
-        cell.backgroundColor = UIColorFromRGB(234, 235, 237);
-        cell.userInteractionEnabled = YES;
+        [self cellAtIndexPathWitCell:cell HomeServiceDataTypeMain:indexPath.row];
         return cell;
+        
+    }else if (indexPath.section == 1){
+//        self.data_type = HomeServiceDataTypeAuslese;
+        HomeAusleseCell *cell = [HomeAusleseCell cellWithTableView:self.tableView identifier:[NSString stringWithFormat:@"cell%ld%ld",indexPath.section,indexPath.row]];
+        [self cellAtIndexPathWitCell:cell HomeServiceDataTypeAuslese:indexPath.row];
+        return cell;
+        
+    }else{
+        
+    }
+    return nil;
 }
 
 - (void)yxg_didSelectCellAtIndexPath:(NSIndexPath *)indexPath cell:(BaseTableViewCell *)cell {
@@ -121,9 +145,35 @@
 }
 
 - (CGFloat)yxg_cellheightAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.section == 0) {
+        HomeTableViewCellFrame *cellFrame = self.cellFrameArray[indexPath.row];
+        return cellFrame.cellHeight;
+    }
     
-    HomeTableViewCellFrame *cellFrame = self.cellFrameArray[indexPath.row];
-    return cellFrame.cellHeight;
+    return 40;
+}
+
+#pragma mark - 主数据
+- (void)cellAtIndexPathWitCell:(homeTableViewCell *)cell HomeServiceDataTypeMain:(NSInteger)row{
+    if (self.cellFrameArray.count == 0) return;
+    
+    HomeTableViewCellFrame *cellFrame = self.cellFrameArray[row];
+    cell.cellFrame = cellFrame;
+    cell.delegate =self;
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    cell.backgroundColor = UIColorFromRGB(234, 235, 237);
+    cell.userInteractionEnabled = YES;
+}
+#pragma mark - 今日精选
+- (void)cellAtIndexPathWitCell:(HomeAusleseCell *)cell HomeServiceDataTypeAuslese:(NSInteger)row{
+    if (self.AusleseData.count == 0) return;
+    
+    [cell createView:self.AusleseData[row]];
+    
+}
+#pragma mark - 个性推荐
+- (void)cellAtIndexPathWitCell:(homeTableViewCell *)cell HomeServiceDataTypeRecommend:(NSInteger)row{
+    
 }
 
 - (void)loadData{
@@ -132,16 +182,55 @@
     [self.request yxg_sendRequestWithCompletion:^(id response, BOOL success, NSString *message) {
         if (success) {
             [self.tableView.mj_header endRefreshing];
-
-                block_self.baseModel = (BaseClass *)[BaseClass yy_modelWithJSON:response];
-                NSDictionary *dic = [HomeModelHandle HomeModelHandle:block_self.baseModel];
-                block_self.HomeList = [dic objectForKey:@"HomeList"];
-                block_self.cellFrameArray = [dic objectForKey:@"cellFrameArray"];
-                block_self.bannerView.aryImg = [dic objectForKey:@"BannerImages"];
-                block_self.BannerList = [dic objectForKey:@"BannerList"];
+            //主数据
+            if (block_self.data_type == 1) {
+                [block_self handleModelHomeServiceDataTypeMain:response];
+            }
+            //今日精选
+            else if (block_self.data_type == 2){
+                [block_self handleModelHomeServiceDataTypeAuslese:response];
+            }
+            //个性推荐
         }
-        [block_self yxg_reloadData];
     }];
+    /*
+     //一个section刷新
+     
+     NSIndexSet *indexSet=[[NSIndexSet alloc]initWithIndex:2];
+     
+     [tableview reloadSections:indexSet withRowAnimation:UITableViewRowAnimationAutomatic];
+     
+     
+     
+     //一个cell刷新
+     
+     NSIndexPath *indexPath=[NSIndexPath indexPathForRow:3 inSection:0];
+     
+     [tableView reloadRowsAtIndexPaths:[NSArray arrayWithObjects:indexPath,nil] withRowAnimation:UITableViewRowAnimationNone];
+     
+
+     */
+}
+
+#pragma mark - 今日精选
+- (void)handleModelHomeServiceDataTypeAuslese:(id)response{
+    
+    self.AusleseBaseModel = (HomeAuslese *)[HomeAuslese yy_modelWithJSON:response];
+    NSDictionary *dic = [HomeModelHandle HomeAuslessModelHandle:self.AusleseBaseModel];
+
+    
+    NSIndexSet *indexSet=[[NSIndexSet alloc]initWithIndex:1];
+    [self.tableView reloadSections:indexSet withRowAnimation:UITableViewRowAnimationAutomatic];
+}
+#pragma mark - 主数据处理
+- (void)handleModelHomeServiceDataTypeMain:(id)response{
+    self.baseModel = (BaseClass *)[BaseClass yy_modelWithJSON:response];
+    NSDictionary *dic = [HomeModelHandle HomeModelHandle:self.baseModel];
+    self.HomeList = [dic objectForKey:@"HomeList"];
+    self.cellFrameArray = [dic objectForKey:@"cellFrameArray"];
+    self.bannerView.aryImg = [dic objectForKey:@"BannerImages"];
+    self.BannerList = [dic objectForKey:@"BannerList"];
+    [self yxg_reloadData];
 }
 
 #pragma mark - homeTableViewCellDelegate

@@ -10,13 +10,13 @@
 
 @implementation HomeListRequest
 
-+ (NSDictionary *)params{
++ (NSDictionary *)paramsWithPageNo:(NSInteger)pageNo{
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
     params[@"_httimestamp"] = [HelperTools HTtimeStamp];
     params[@"lastActivityPos"] = @"0";
     params[@"lastBrandPos"] = @"0";
     params[@"lastGoodsPos"] = @"0";
-    params[@"pageNo"] = @"1";
+    params[@"pageNo"] = [NSString stringWithFormat:@"%ld",pageNo];
     return params;
 }
 

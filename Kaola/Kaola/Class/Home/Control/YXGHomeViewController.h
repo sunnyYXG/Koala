@@ -48,5 +48,8 @@ typedef NS_ENUM(NSUInteger, HomeServiceDataType) {
  */
 @property (nonatomic , strong) CycleBannerView *bannerView;
 
-@property (nonatomic)HomeTJMenuView *TJMenuView;
+@property (nonatomic , strong) HomeTJMenuView *TJMenuView;
+
+
+@property (nonatomic) NSArray *AusleseData;
 @end
