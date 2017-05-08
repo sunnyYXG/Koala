@@ -99,6 +99,12 @@
     return cell;
 }
 
+-(void)scrollViewDidScroll:(UIScrollView *)scrollView{
+    if ([self respondsToSelector:@selector(yxg_scrollViewDidScroll:)]) {
+        [self yxg_scrollViewDidScroll:scrollView];
+    }
+}
+
 // 点击某一行 触发的事件
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
@@ -151,5 +157,7 @@
 - (UIEdgeInsets)yxg_sepEdgeInsetsAtIndexPath:(NSIndexPath *)indexPath { return UIEdgeInsetsMake(0, 15, 0, 0); }
 
 - (void)dealloc { [[NSNotificationCenter defaultCenter] removeObserver:self]; }
+
+-(void)yxg_scrollViewDidScroll:(UIScrollView *)scrollView { }
 
 @end

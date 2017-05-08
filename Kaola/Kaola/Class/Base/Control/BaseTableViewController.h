@@ -49,4 +49,7 @@
 /** 分割线偏移*/
 - (UIEdgeInsets)yxg_sepEdgeInsetsAtIndexPath:(NSIndexPath *)indexPath;
 
+/** tableview滚动位置 顶部、底部 */
+-(void)yxg_scrollViewDidScroll:(UIScrollView *)scrollView;
+
 @end

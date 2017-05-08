@@ -20,7 +20,7 @@
 
     UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(10, 10, SCREEN_WIDTH-20, self.height - 20)];
     [self addSubview:label];
-//    label.backgroundColor = [UIColor orangeColor];
+    label.backgroundColor = [UIColor orangeColor];
     label.text = title;
     
 }

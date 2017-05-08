@@ -21,9 +21,9 @@
 //#define login_url @"http://webcache-sp.kaola.com/api/version_check/webapp"
 
 #define login_url @"http://log-collector.kaola.com/api/alarmCommon?"
-#define main_url @"http://sp.kaola.com/api/application?"
-#define openad_url @"http://sp.kaola.com/api/openad?"
-#define path_url @"http://sp.kaola.com/api/patch?"
+//#define main_url @"http://sp.kaola.com/api/application?"
+//#define openad_url @"http://sp.kaola.com/api/openad?"
+//#define path_url @"http://sp.kaola.com/api/patch?"
 
 //navBar
 #define navBar_url @"http://sp.kaola.com/api/navbar/show?"
@@ -31,13 +31,8 @@
 /**
  *  首页接口
  */
-//首页主数据
+//首页 数据
 #define home_url    @"http://sp.kaola.com/api/home?"
-//首页 今日精选
-#define home_auslese_url    @"http://sp.kaola.com/api/home?"
-
-//首页 个性推荐
-#define home_recommend_url  @"http://sp.kaola.com/api/home?"
 
 
 //每日签到

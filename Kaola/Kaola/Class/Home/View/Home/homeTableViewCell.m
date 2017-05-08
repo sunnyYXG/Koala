@@ -141,7 +141,7 @@
             }
         }
         DDLog(@"linkUrl:%@",self.home.linkUrl);
-//        [self.links_URL addObject:self.home.linkUrl];
+        [self.links_URL addObject:self.home.linkUrl];
         
     }
     

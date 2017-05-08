@@ -20,7 +20,9 @@
 #import "DataModels.h"
 #import "HomeAusleseDataModels.h"
 
-@interface YXGHomeViewController ()<homeTableViewCellDelegate,HomeTJMenuViewDelegate>
+@interface YXGHomeViewController ()<homeTableViewCellDelegate,HomeTJMenuViewDelegate>{
+    BOOL _isAuslessUpdata;//用来标记“今日精选”的数据是否请求过
+}
 
 @property (nonatomic)BaseClass *baseModel;
 @property (nonatomic)HomeAuslese *AusleseBaseModel;
@@ -56,7 +58,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.AusleseData = @[@"",@"",@""];
+//    self.AusleseData = @[@"",@"",@""];
+    _isAuslessUpdata = NO;
     self.data_type = HomeServiceDataTypeMain;
     HomeListRequest *request = [HomeListRequest yxg_request];
     self.request = request;
@@ -73,10 +76,10 @@
 }
 
 - (void)loadDataType:(HomeServiceDataType)type withUrl:(NSString *)url{
+    self.data_type = type;
     NSInteger pageNo = self.data_type;
     self.request.yxg_url = url;
     self.request.paramsDic = [HomeListRequest paramsWithPageNo:pageNo];
-    self.data_type = type;
     [self loadData];
 }
 
@@ -118,23 +121,19 @@
 
 - (BaseTableViewCell *)yxg_cellAtIndexPath:(NSIndexPath *)indexPath {
     
-//    if (indexPath.section == 1 && self.data_type == 1) {
-////        self.data_type = HomeServiceDataTypeAuslese;
-////        [self loadDataType:self.data_type withUrl:home_auslese_url];
-//    }
     if (indexPath.section == 0) {
-        self.data_type = HomeServiceDataTypeMain;
         homeTableViewCell *cell = [homeTableViewCell cellWithTableView:self.tableView identifier:[NSString stringWithFormat:@"cell%ld%ld",indexPath.section,indexPath.row]];
         [self cellAtIndexPathWitCell:cell HomeServiceDataTypeMain:indexPath.row];
         return cell;
         
-    }else if (indexPath.section == 1){
-//        self.data_type = HomeServiceDataTypeAuslese;
+    }
+    else if (indexPath.section == 1){
         HomeAusleseCell *cell = [HomeAusleseCell cellWithTableView:self.tableView identifier:[NSString stringWithFormat:@"cell%ld%ld",indexPath.section,indexPath.row]];
         [self cellAtIndexPathWitCell:cell HomeServiceDataTypeAuslese:indexPath.row];
         return cell;
         
-    }else{
+    }
+    else if (indexPath.section == 2){
         
     }
     return nil;
@@ -142,6 +141,26 @@
 
 - (void)yxg_didSelectCellAtIndexPath:(NSIndexPath *)indexPath cell:(BaseTableViewCell *)cell {
     DDLog(@"只是打印");
+}
+
+-(void)yxg_scrollViewDidScroll:(UIScrollView *)scrollView{
+    if (self.tableView.contentOffset.y <= 0)
+    {
+        DDLog(@"顶部");
+        //顶部
+    }
+    else if (self.tableView.contentSize.height - self.tableView.contentOffset.y-self.tableView.frame.size.height <=  0)
+    {
+        if (!_isAuslessUpdata) {
+            _isAuslessUpdata = YES;
+            [self loadDataType:HomeServiceDataTypeAuslese withUrl:home_url];
+            
+        }
+        
+        DDLog(@"底部");
+        //底部
+    }
+
 }
 
 - (CGFloat)yxg_cellheightAtIndexPath:(NSIndexPath *)indexPath {
@@ -168,7 +187,7 @@
 - (void)cellAtIndexPathWitCell:(HomeAusleseCell *)cell HomeServiceDataTypeAuslese:(NSInteger)row{
     if (self.AusleseData.count == 0) return;
     
-    [cell createView:self.AusleseData[row]];
+    [cell createView:@"nihao"];
     
 }
 #pragma mark - 个性推荐
@@ -218,6 +237,7 @@
     self.AusleseBaseModel = (HomeAuslese *)[HomeAuslese yy_modelWithJSON:response];
     NSDictionary *dic = [HomeModelHandle HomeAuslessModelHandle:self.AusleseBaseModel];
 
+    self.AusleseData = [dic objectForKey:@"ausleseList"];
     
     NSIndexSet *indexSet=[[NSIndexSet alloc]initWithIndex:1];
     [self.tableView reloadSections:indexSet withRowAnimation:UITableViewRowAnimationAutomatic];

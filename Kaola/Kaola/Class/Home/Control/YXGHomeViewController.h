@@ -52,4 +52,5 @@ typedef NS_ENUM(NSUInteger, HomeServiceDataType) {
 
 
 @property (nonatomic) NSArray *AusleseData;
+
 @end
