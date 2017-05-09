@@ -48,11 +48,16 @@
 
 +(NSDictionary *)HomeAuslessModelHandle:(HomeAuslese *)baseModel{
     NSMutableArray *ausleseList = [NSMutableArray new];
+    NSMutableArray *AusleseCellFrame = [NSMutableArray new];
+
     NSString *title;
     for (NSDictionary *dic in baseModel.body.home) {
         HomeHome *auslese = [HomeHome modelObjectWithDictionary:dic];
         for (HomeItemList *item in auslese.itemList) {
+            HomeAusleseCellFrame *cellFrame = [[HomeAusleseCellFrame alloc]init];
+            cellFrame.item = item;
             [ausleseList addObject:item];
+            [AusleseCellFrame addObject:cellFrame];
         }
         
         for (HomeGuidanceViewList *obj in auslese.guidanceViewList) {
@@ -60,7 +65,7 @@
         }
     }
     
-    return @{@"title":title,@"ausleseList":ausleseList};
+    return @{@"title":title,@"ausleseList":ausleseList,@"AusleseCellFrame":AusleseCellFrame};
     
 }
 

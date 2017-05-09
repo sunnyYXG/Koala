@@ -10,6 +10,7 @@
 #import "HomeListRequest.h"
 #import "BannerViewController.h"
 #import "HomeTableViewCellFrame.h"
+#import "HomeAusleseCellFrame.h"
 
 #import "HomeTJMenuView.h"
 #import "HomeModelHandle.h"
@@ -19,6 +20,7 @@
 
 #import "DataModels.h"
 #import "HomeAusleseDataModels.h"
+#import "HomeRecommendDataModels.h"
 
 @interface YXGHomeViewController ()<homeTableViewCellDelegate,HomeTJMenuViewDelegate>{
     BOOL _isAuslessUpdata;//用来标记“今日精选”的数据是否请求过
@@ -26,14 +28,15 @@
 
 @property (nonatomic)BaseClass *baseModel;
 @property (nonatomic)HomeAuslese *AusleseBaseModel;
+@property (nonatomic)RecommendBase *RecommendBaseModle;
 
 @end
 
 @implementation YXGHomeViewController
 
--(NSMutableArray *)HomeList{
+-(NSArray *)HomeList{
     if (!_HomeList) {
-        _HomeList = [[NSMutableArray alloc]init];
+        _HomeList = [[NSArray alloc]init];
     }
     return _HomeList;
 }
@@ -49,16 +52,22 @@
     }
     return _baseModel;
 }
-- (NSMutableArray *)cellFrameArray {
+- (NSArray *)cellFrameArray {
     if (!_cellFrameArray) {
-        _cellFrameArray = [NSMutableArray new];
+        _cellFrameArray = [NSArray new];
     }
     return _cellFrameArray;
 }
 
+-(NSMutableArray *)AusleseCellFrames{
+    if (!_AusleseCellFrames) {
+        _AusleseCellFrames = [NSMutableArray new];
+    }
+    return _AusleseCellFrames;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-//    self.AusleseData = @[@"",@"",@""];
     _isAuslessUpdata = NO;
     self.data_type = HomeServiceDataTypeMain;
     HomeListRequest *request = [HomeListRequest yxg_request];
@@ -74,7 +83,7 @@
     [self initBannerView];
     
 }
-
+#pragma mark - 数据请求
 - (void)loadDataType:(HomeServiceDataType)type withUrl:(NSString *)url{
     self.data_type = type;
     NSInteger pageNo = self.data_type;
@@ -83,6 +92,7 @@
     [self loadData];
 }
 
+#pragma mark 首页轮播图
 - (void)initBannerView
 {
     CycleBannerView *bannerView = [[CycleBannerView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_WIDTH * 0.55)];
@@ -112,13 +122,11 @@
 - (NSInteger)yxg_numberOfSections {
     return 2;
 }
-
 - (NSInteger)yxg_numberOfRowsInSection:(NSInteger)section {
     if (section == 0) return self.HomeList.count;
     
     return self.AusleseData.count;
 }
-
 - (BaseTableViewCell *)yxg_cellAtIndexPath:(NSIndexPath *)indexPath {
     
     if (indexPath.section == 0) {
@@ -138,15 +146,12 @@
     }
     return nil;
 }
-
 - (void)yxg_didSelectCellAtIndexPath:(NSIndexPath *)indexPath cell:(BaseTableViewCell *)cell {
     DDLog(@"只是打印");
 }
-
 -(void)yxg_scrollViewDidScroll:(UIScrollView *)scrollView{
     if (self.tableView.contentOffset.y <= 0)
     {
-        DDLog(@"顶部");
         //顶部
     }
     else if (self.tableView.contentSize.height - self.tableView.contentOffset.y-self.tableView.frame.size.height <=  0)
@@ -154,25 +159,39 @@
         if (!_isAuslessUpdata) {
             _isAuslessUpdata = YES;
             [self loadDataType:HomeServiceDataTypeAuslese withUrl:home_url];
-            
+
         }
-        
-        DDLog(@"底部");
         //底部
     }
 
 }
-
 - (CGFloat)yxg_cellheightAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 0) {
         HomeTableViewCellFrame *cellFrame = self.cellFrameArray[indexPath.row];
         return cellFrame.cellHeight;
+    }else if (indexPath.section == 1){
+        HomeAusleseCellFrame *cellFrame = self.AusleseCellFrames[indexPath.row];
+        return cellFrame.cellHeight;
+
     }
     
-    return 40;
+    return 0;
 }
-
-#pragma mark - 主数据
+-(CGFloat)yxg_sectionHeaderHeightAtSection:(NSInteger)section{
+    if (section == 1) return 55;
+    return 0;
+}
+-(UIView *)yxg_headerAtSection:(NSInteger)section{
+    UIView *view = [[UIView alloc]initWithFrame:CGRectMake(0, 0, self.view.width, 55)];
+    view.backgroundColor = UIColorFromRGB(234, 235, 237);
+    UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(0, 10, self.view.width, 45)];
+    label.text = self.ausleseSectionTitle;
+    label.backgroundColor = [UIColor whiteColor];
+    label.textAlignment = NSTextAlignmentCenter;
+    [view addSubview:label];
+    return view;
+}
+#pragma mark - 主数据 创建cell
 - (void)cellAtIndexPathWitCell:(homeTableViewCell *)cell HomeServiceDataTypeMain:(NSInteger)row{
     if (self.cellFrameArray.count == 0) return;
     
@@ -183,14 +202,14 @@
     cell.backgroundColor = UIColorFromRGB(234, 235, 237);
     cell.userInteractionEnabled = YES;
 }
-#pragma mark - 今日精选
+#pragma mark - 今日精选 创建cell
 - (void)cellAtIndexPathWitCell:(HomeAusleseCell *)cell HomeServiceDataTypeAuslese:(NSInteger)row{
     if (self.AusleseData.count == 0) return;
-    
-    [cell createView:@"nihao"];
+    HomeAusleseCellFrame *cellFrame = self.AusleseCellFrames[row];
+    cell.cellFrame = cellFrame;
     
 }
-#pragma mark - 个性推荐
+#pragma mark - 个性推荐 创建cell
 - (void)cellAtIndexPathWitCell:(homeTableViewCell *)cell HomeServiceDataTypeRecommend:(NSInteger)row{
     
 }
@@ -210,39 +229,36 @@
                 [block_self handleModelHomeServiceDataTypeAuslese:response];
             }
             //个性推荐
+            else{
+                [block_self handleModelHomeServiceDataTypeRecommend:response];
+            }
         }
     }];
-    /*
-     //一个section刷新
-     
-     NSIndexSet *indexSet=[[NSIndexSet alloc]initWithIndex:2];
-     
-     [tableview reloadSections:indexSet withRowAnimation:UITableViewRowAnimationAutomatic];
-     
-     
-     
-     //一个cell刷新
-     
-     NSIndexPath *indexPath=[NSIndexPath indexPathForRow:3 inSection:0];
-     
-     [tableView reloadRowsAtIndexPaths:[NSArray arrayWithObjects:indexPath,nil] withRowAnimation:UITableViewRowAnimationNone];
-     
-
-     */
 }
-
-#pragma mark - 今日精选
+#pragma mark - 个性推荐 数据处理
+- (void)handleModelHomeServiceDataTypeRecommend:(id)response{
+    self.RecommendBaseModle = (RecommendBase *)[RecommendBase yy_modelWithJSON:response];
+}
+#pragma mark - 今日精选 数据处理
 - (void)handleModelHomeServiceDataTypeAuslese:(id)response{
     
     self.AusleseBaseModel = (HomeAuslese *)[HomeAuslese yy_modelWithJSON:response];
     NSDictionary *dic = [HomeModelHandle HomeAuslessModelHandle:self.AusleseBaseModel];
 
     self.AusleseData = [dic objectForKey:@"ausleseList"];
+    self.AusleseCellFrames = [dic objectForKey:@"AusleseCellFrame"];
+    self.ausleseSectionTitle = [dic objectForKey:@"title"];
     
     NSIndexSet *indexSet=[[NSIndexSet alloc]initWithIndex:1];
     [self.tableView reloadSections:indexSet withRowAnimation:UITableViewRowAnimationAutomatic];
+    
+    [self loadDataType:HomeServiceDataTypeRecommend withUrl:home_url];
+
+    //cell刷新
+//    NSIndexPath *indexPath=[NSIndexPath indexPathForRow:3 inSection:0];
+//    [self.tableView reloadRowsAtIndexPaths:[NSArray arrayWithObjects:indexPath,nil] withRowAnimation:UITableViewRowAnimationNone];
 }
-#pragma mark - 主数据处理
+#pragma mark - 主数据 处理
 - (void)handleModelHomeServiceDataTypeMain:(id)response{
     self.baseModel = (BaseClass *)[BaseClass yy_modelWithJSON:response];
     NSDictionary *dic = [HomeModelHandle HomeModelHandle:self.baseModel];

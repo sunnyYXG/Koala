@@ -7,10 +7,21 @@
 //
 
 #import "BaseTableViewCell.h"
+@class HomeAusleseCellFrame,HomeItemList;
 
 @interface HomeAusleseCell : BaseTableViewCell
 
 
 - (void)createView:(NSString *)title;
+
+@property (nonatomic) HomeAusleseCellFrame *cellFrame;
+@property (nonatomic) HomeItemList *item;
+
+
+@property (nonatomic) UIImageView *IV;
+@property (nonatomic) UILabel *titleLab;
+@property (nonatomic) UILabel *descLab;
+@property (nonatomic) UIView *topLine;
+@property (nonatomic) UIButton *rightBtn;
 
 @end

@@ -52,4 +52,7 @@
 /** tableview滚动位置 顶部、底部 */
 -(void)yxg_scrollViewDidScroll:(UIScrollView *)scrollView;
 
+
+-(NSString *)yxg_titleForHeaderInSection:(NSInteger)section;
+
 @end

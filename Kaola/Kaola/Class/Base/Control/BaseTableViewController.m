@@ -135,6 +135,12 @@
     }
     return 0.01;
 }
+-(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
+    if ([self respondsToSelector:@selector(yxg_titleForHeaderInSection:)]) {
+        return [self yxg_titleForHeaderInSection:section];
+    }
+    return @"";
+}
 
 - (NSInteger)yxg_numberOfSections { return 0; }
 
@@ -155,6 +161,7 @@
 - (CGFloat)yxg_sectionFooterHeightAtSection:(NSInteger)section { return 0.01; }
 
 - (UIEdgeInsets)yxg_sepEdgeInsetsAtIndexPath:(NSIndexPath *)indexPath { return UIEdgeInsetsMake(0, 15, 0, 0); }
+- (NSString *)yxg_titleForHeaderInSection:(NSInteger)section {return @"";}
 
 - (void)dealloc { [[NSNotificationCenter defaultCenter] removeObserver:self]; }
 

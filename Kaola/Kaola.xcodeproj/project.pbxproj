@@ -31,6 +31,18 @@
 		0D35E81D1EAF40A000C04367 /* 3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0D35E81B1EAF40A000C04367 /* 3.jpg */; };
 		0D35E81E1EAF40A000C04367 /* 4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0D35E81C1EAF40A000C04367 /* 4.jpg */; };
 		0D4881161EBACEAC001EC606 /* singleton.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D4881151EBACEAB001EC606 /* singleton.m */; };
+		0D61EB1C1EC1A44A00444353 /* RecommendAlbumGoodsList.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D61EB051EC1A44A00444353 /* RecommendAlbumGoodsList.m */; };
+		0D61EB1D1EC1A44A00444353 /* RecommendBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D61EB071EC1A44A00444353 /* RecommendBase.m */; };
+		0D61EB1E1EC1A44A00444353 /* RecommendBody.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D61EB091EC1A44A00444353 /* RecommendBody.m */; };
+		0D61EB1F1EC1A44A00444353 /* RecommendCommentPreview.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D61EB0B1EC1A44A00444353 /* RecommendCommentPreview.m */; };
+		0D61EB201EC1A44A00444353 /* RecommendGoodsPropertyList.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D61EB0D1EC1A44A00444353 /* RecommendGoodsPropertyList.m */; };
+		0D61EB211EC1A44A00444353 /* RecommendHome.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D61EB0F1EC1A44A00444353 /* RecommendHome.m */; };
+		0D61EB221EC1A44A00444353 /* RecommendLocationInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D61EB111EC1A44A00444353 /* RecommendLocationInfo.m */; };
+		0D61EB231EC1A44A00444353 /* RecommendPropertyValues.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D61EB131EC1A44A00444353 /* RecommendPropertyValues.m */; };
+		0D61EB241EC1A44A00444353 /* RecommendSkuGoodsPropertyList.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D61EB151EC1A44A00444353 /* RecommendSkuGoodsPropertyList.m */; };
+		0D61EB251EC1A44A00444353 /* RecommendSkuList.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D61EB171EC1A44A00444353 /* RecommendSkuList.m */; };
+		0D61EB261EC1A44A00444353 /* RecommendSkuPropertyList.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D61EB191EC1A44A00444353 /* RecommendSkuPropertyList.m */; };
+		0D61EB271EC1A44A00444353 /* RecommendZhengdanActivity.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D61EB1B1EC1A44A00444353 /* RecommendZhengdanActivity.m */; };
 		0DA54E1C1EBC1EF900A814CB /* MainBody.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DA54E111EBC1EF900A814CB /* MainBody.m */; };
 		0DA54E1D1EBC1EF900A814CB /* MainBrandList.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DA54E131EBC1EF900A814CB /* MainBrandList.m */; };
 		0DA54E1E1EBC1EF900A814CB /* MainCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DA54E151EBC1EF900A814CB /* MainCategory.m */; };
@@ -168,6 +180,31 @@
 		0D35E81C1EAF40A000C04367 /* 4.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 4.jpg; sourceTree = "<group>"; };
 		0D4881141EBACEAB001EC606 /* singleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = singleton.h; sourceTree = "<group>"; };
 		0D4881151EBACEAB001EC606 /* singleton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = singleton.m; sourceTree = "<group>"; };
+		0D61EB031EC1A44A00444353 /* HomeRecommendDataModels.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeRecommendDataModels.h; sourceTree = "<group>"; };
+		0D61EB041EC1A44A00444353 /* RecommendAlbumGoodsList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecommendAlbumGoodsList.h; sourceTree = "<group>"; };
+		0D61EB051EC1A44A00444353 /* RecommendAlbumGoodsList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecommendAlbumGoodsList.m; sourceTree = "<group>"; };
+		0D61EB061EC1A44A00444353 /* RecommendBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecommendBase.h; sourceTree = "<group>"; };
+		0D61EB071EC1A44A00444353 /* RecommendBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecommendBase.m; sourceTree = "<group>"; };
+		0D61EB081EC1A44A00444353 /* RecommendBody.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecommendBody.h; sourceTree = "<group>"; };
+		0D61EB091EC1A44A00444353 /* RecommendBody.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecommendBody.m; sourceTree = "<group>"; };
+		0D61EB0A1EC1A44A00444353 /* RecommendCommentPreview.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecommendCommentPreview.h; sourceTree = "<group>"; };
+		0D61EB0B1EC1A44A00444353 /* RecommendCommentPreview.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecommendCommentPreview.m; sourceTree = "<group>"; };
+		0D61EB0C1EC1A44A00444353 /* RecommendGoodsPropertyList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecommendGoodsPropertyList.h; sourceTree = "<group>"; };
+		0D61EB0D1EC1A44A00444353 /* RecommendGoodsPropertyList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecommendGoodsPropertyList.m; sourceTree = "<group>"; };
+		0D61EB0E1EC1A44A00444353 /* RecommendHome.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecommendHome.h; sourceTree = "<group>"; };
+		0D61EB0F1EC1A44A00444353 /* RecommendHome.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecommendHome.m; sourceTree = "<group>"; };
+		0D61EB101EC1A44A00444353 /* RecommendLocationInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecommendLocationInfo.h; sourceTree = "<group>"; };
+		0D61EB111EC1A44A00444353 /* RecommendLocationInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecommendLocationInfo.m; sourceTree = "<group>"; };
+		0D61EB121EC1A44A00444353 /* RecommendPropertyValues.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecommendPropertyValues.h; sourceTree = "<group>"; };
+		0D61EB131EC1A44A00444353 /* RecommendPropertyValues.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecommendPropertyValues.m; sourceTree = "<group>"; };
+		0D61EB141EC1A44A00444353 /* RecommendSkuGoodsPropertyList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecommendSkuGoodsPropertyList.h; sourceTree = "<group>"; };
+		0D61EB151EC1A44A00444353 /* RecommendSkuGoodsPropertyList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecommendSkuGoodsPropertyList.m; sourceTree = "<group>"; };
+		0D61EB161EC1A44A00444353 /* RecommendSkuList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecommendSkuList.h; sourceTree = "<group>"; };
+		0D61EB171EC1A44A00444353 /* RecommendSkuList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecommendSkuList.m; sourceTree = "<group>"; };
+		0D61EB181EC1A44A00444353 /* RecommendSkuPropertyList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecommendSkuPropertyList.h; sourceTree = "<group>"; };
+		0D61EB191EC1A44A00444353 /* RecommendSkuPropertyList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecommendSkuPropertyList.m; sourceTree = "<group>"; };
+		0D61EB1A1EC1A44A00444353 /* RecommendZhengdanActivity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecommendZhengdanActivity.h; sourceTree = "<group>"; };
+		0D61EB1B1EC1A44A00444353 /* RecommendZhengdanActivity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecommendZhengdanActivity.m; sourceTree = "<group>"; };
 		0DA54E0F1EBC1EF900A814CB /* MainDataModels.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainDataModels.h; sourceTree = "<group>"; };
 		0DA54E101EBC1EF900A814CB /* MainBody.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainBody.h; sourceTree = "<group>"; };
 		0DA54E111EBC1EF900A814CB /* MainBody.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainBody.m; sourceTree = "<group>"; };
@@ -735,6 +772,31 @@
 		0DE177C61EC0247E00CFB56D /* RecommendData */ = {
 			isa = PBXGroup;
 			children = (
+				0D61EB031EC1A44A00444353 /* HomeRecommendDataModels.h */,
+				0D61EB041EC1A44A00444353 /* RecommendAlbumGoodsList.h */,
+				0D61EB051EC1A44A00444353 /* RecommendAlbumGoodsList.m */,
+				0D61EB061EC1A44A00444353 /* RecommendBase.h */,
+				0D61EB071EC1A44A00444353 /* RecommendBase.m */,
+				0D61EB081EC1A44A00444353 /* RecommendBody.h */,
+				0D61EB091EC1A44A00444353 /* RecommendBody.m */,
+				0D61EB0A1EC1A44A00444353 /* RecommendCommentPreview.h */,
+				0D61EB0B1EC1A44A00444353 /* RecommendCommentPreview.m */,
+				0D61EB0C1EC1A44A00444353 /* RecommendGoodsPropertyList.h */,
+				0D61EB0D1EC1A44A00444353 /* RecommendGoodsPropertyList.m */,
+				0D61EB0E1EC1A44A00444353 /* RecommendHome.h */,
+				0D61EB0F1EC1A44A00444353 /* RecommendHome.m */,
+				0D61EB101EC1A44A00444353 /* RecommendLocationInfo.h */,
+				0D61EB111EC1A44A00444353 /* RecommendLocationInfo.m */,
+				0D61EB121EC1A44A00444353 /* RecommendPropertyValues.h */,
+				0D61EB131EC1A44A00444353 /* RecommendPropertyValues.m */,
+				0D61EB141EC1A44A00444353 /* RecommendSkuGoodsPropertyList.h */,
+				0D61EB151EC1A44A00444353 /* RecommendSkuGoodsPropertyList.m */,
+				0D61EB161EC1A44A00444353 /* RecommendSkuList.h */,
+				0D61EB171EC1A44A00444353 /* RecommendSkuList.m */,
+				0D61EB181EC1A44A00444353 /* RecommendSkuPropertyList.h */,
+				0D61EB191EC1A44A00444353 /* RecommendSkuPropertyList.m */,
+				0D61EB1A1EC1A44A00444353 /* RecommendZhengdanActivity.h */,
+				0D61EB1B1EC1A44A00444353 /* RecommendZhengdanActivity.m */,
 			);
 			path = RecommendData;
 			sourceTree = "<group>";
@@ -1156,6 +1218,7 @@
 			files = (
 				0DA54E1C1EBC1EF900A814CB /* MainBody.m in Sources */,
 				0DFB52B81EB07518002418F2 /* ClassfyBody.m in Sources */,
+				0D61EB1F1EC1A44A00444353 /* RecommendCommentPreview.m in Sources */,
 				6440858C1E8D3EA2001456E2 /* HomeListRequest.m in Sources */,
 				0DE177AF1EC0246D00CFB56D /* homeTableViewCell.m in Sources */,
 				0DA54E1D1EBC1EF900A814CB /* MainBrandList.m in Sources */,
@@ -1171,32 +1234,40 @@
 				0D0FB2661E89EE7D00D00581 /* YXGHomeTabbarController.m in Sources */,
 				0DFB52A91EB06A8A002418F2 /* ScanSuccessJumpVC.m in Sources */,
 				0DE177E21EC036C300CFB56D /* KLDiscoveryTabView.m in Sources */,
+				0D61EB1D1EC1A44A00444353 /* RecommendBase.m in Sources */,
+				0D61EB1C1EC1A44A00444353 /* RecommendAlbumGoodsList.m in Sources */,
 				0DE177CC1EC0247E00CFB56D /* Home.m in Sources */,
 				0DE177E31EC036C300CFB56D /* KLNavBar.m in Sources */,
 				0DE177D11EC0341500CFB56D /* navBarRequest.m in Sources */,
 				0D0FB1E31E89EDEC00D00581 /* YXGAppDelegate.m in Sources */,
 				0DF9D31D1EB9A85000592A4E /* ForYouHotCategoryList.m in Sources */,
+				0D61EB221EC1A44A00444353 /* RecommendLocationInfo.m in Sources */,
 				0D0FB28B1E8A285A00D00581 /* BaseTableViewController.m in Sources */,
 				0D0FB2631E89EE7D00D00581 /* YXGClassifyViewController.m in Sources */,
 				0D35E8181EAF3FDC00C04367 /* RightCollectionViewCell.m in Sources */,
 				0DF71C931E8C869100B4DB14 /* BaseTableHeaderFooterView.m in Sources */,
 				0DF9D31A1EB9A85000592A4E /* ForYouBrandList.m in Sources */,
+				0D61EB231EC1A44A00444353 /* RecommendPropertyValues.m in Sources */,
 				0DE177E11EC036C300CFB56D /* KLBottomNavBar.m in Sources */,
 				0D2AFAFC1E8E129A0012232A /* BannerViewController.m in Sources */,
 				0DE177C71EC0247E00CFB56D /* HomeModelHandle.m in Sources */,
 				0DADDB8A1EADBF9300CC6075 /* ClassfyRequest.m in Sources */,
 				0DF9D3181EB9A85000592A4E /* ForYouAlbumList.m in Sources */,
+				0D61EB1E1EC1A44A00444353 /* RecommendBody.m in Sources */,
 				0DA54E201EBC1EF900A814CB /* MainLevel2CategoryList.m in Sources */,
 				0DFB52A81EB06A8A002418F2 /* QRCodeScanningVC.m in Sources */,
 				0DFB52A71EB06A8A002418F2 /* QRCodeGenerateVC.m in Sources */,
 				0D0FB28D1E8A285A00D00581 /* BaseTableViewCell.m in Sources */,
 				0D0FB28C1E8A285A00D00581 /* BaseViewController.m in Sources */,
+				0D61EB211EC1A44A00444353 /* RecommendHome.m in Sources */,
 				0DE177E01EC036C300CFB56D /* KLBody.m in Sources */,
 				0D0FB2781E89EE7D00D00581 /* YXGShoppingCartViewController.m in Sources */,
 				0D0FB1E01E89EDEC00D00581 /* main.m in Sources */,
 				0DE177FA1EC055D100CFB56D /* HomeItemList.m in Sources */,
 				0DFB52A01EB06A8A002418F2 /* Factory.m in Sources */,
 				0DA54E1E1EBC1EF900A814CB /* MainCategory.m in Sources */,
+				0D61EB251EC1A44A00444353 /* RecommendSkuList.m in Sources */,
+				0D61EB271EC1A44A00444353 /* RecommendZhengdanActivity.m in Sources */,
 				0DE177B01EC0246D00CFB56D /* HomeTJMenuView.m in Sources */,
 				0DE177F91EC055D100CFB56D /* HomeHome.m in Sources */,
 				0D0FB2691E89EE7D00D00581 /* MainTabBarController.m in Sources */,
@@ -1210,8 +1281,10 @@
 				0DE177C81EC0247E00CFB56D /* HomeTableViewCellFrame.m in Sources */,
 				0DE177E51EC036C300CFB56D /* KLTopNavBar.m in Sources */,
 				0DE177FE1EC057E200CFB56D /* HomeAusleseCellFrame.m in Sources */,
+				0D61EB201EC1A44A00444353 /* RecommendGoodsPropertyList.m in Sources */,
 				0DE177FB1EC055D100CFB56D /* HomeLocationInfo.m in Sources */,
 				0D0FB2641E89EE7D00D00581 /* YXGFindViewController.m in Sources */,
+				0D61EB261EC1A44A00444353 /* RecommendSkuPropertyList.m in Sources */,
 				0DE177CD1EC0247E00CFB56D /* ItemList.m in Sources */,
 				0DFB52B91EB07518002418F2 /* ClassfyCategoryTreeMenuList.m in Sources */,
 				0DA54E1F1EBC1EF900A814CB /* MainChildCategoryViewList.m in Sources */,
@@ -1224,6 +1297,7 @@
 				0D0FB2671E89EE7D00D00581 /* YXGHomeViewController.m in Sources */,
 				0DFB52AB1EB06A8A002418F2 /* CycleBannerCell.m in Sources */,
 				0DF9D31C1EB9A85000592A4E /* ForYouCommonCategoryList.m in Sources */,
+				0D61EB241EC1A44A00444353 /* RecommendSkuGoodsPropertyList.m in Sources */,
 				0DE177C91EC0247E00CFB56D /* BannerList.m in Sources */,
 				0D0FB2901E8A288E00D00581 /* BaseTableView.m in Sources */,
 				0D0FB26A1E89EE7D00D00581 /* YXGMineViewController.m in Sources */,

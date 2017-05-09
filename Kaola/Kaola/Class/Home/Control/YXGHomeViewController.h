@@ -33,11 +33,11 @@ typedef NS_ENUM(NSUInteger, HomeServiceDataType) {
 
 @property (nonatomic, strong) BaseRequest *request;
 @property (nonatomic)NSString *URLString;
-@property (nonatomic)NSMutableArray *cellFrameArray;
+@property (nonatomic)NSArray *cellFrameArray;
 /**
  *  首页数据源
  */
-@property (nonatomic)NSMutableArray *HomeList;
+@property (nonatomic)NSArray *HomeList;
 /**
  *  顶部广告图片轮播
  */
@@ -52,5 +52,7 @@ typedef NS_ENUM(NSUInteger, HomeServiceDataType) {
 
 
 @property (nonatomic) NSArray *AusleseData;
+@property (nonatomic) NSMutableArray *AusleseCellFrames;
+@property (nonatomic) NSString *ausleseSectionTitle;
 
 @end

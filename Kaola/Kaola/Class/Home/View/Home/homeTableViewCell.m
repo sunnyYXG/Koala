@@ -140,7 +140,6 @@
                 [self configIntroduce:(ItemList *)self.home.itemList[i] ItemView:ItemView infoType:cellFrame.info_type];
             }
         }
-        DDLog(@"linkUrl:%@",self.home.linkUrl);
         [self.links_URL addObject:self.home.linkUrl];
         
     }
