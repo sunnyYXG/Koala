@@ -32,6 +32,8 @@
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self addERCodeSearchNavBar:NavBarViewType ERcodeSearchType:ERcodeAndSearchType];
+
     [self.view addSubview:self.iTableview.tableView];
     _iTableview.tableView.backgroundColor = [UIColor whiteColor];
     CGRect frame = CGRectMake(0, 64, 100, self.view.height - 108);

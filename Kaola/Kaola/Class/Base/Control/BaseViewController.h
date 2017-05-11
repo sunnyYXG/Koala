@@ -7,8 +7,20 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ERcodeSearchView.h"
+
+typedef NS_ENUM(NSUInteger, NavBarType) {
+    NavBarSelfViewType = 1,
+    NavBarViewType = 2,
+};
 
 @interface BaseViewController : UIViewController
+
+@property (nonatomic) NavBarType navBarType;
+
+@property (nonatomic) ERcodeSearchView *ERcodeSearchView;
+
+- (void)addERCodeSearchNavBar:(NavBarType)NavBarType ERcodeSearchType:(ERcodeSearchType)ERcodeSearchType;
 
 - (void)pop;
 

@@ -52,6 +52,9 @@
 		0DADDB481EAD922E00CC6075 /* YXGClassfyTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DADDB471EAD922E00CC6075 /* YXGClassfyTableView.m */; };
 		0DADDB891EADBF9300CC6075 /* ClassfyTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DADDB7D1EADBF9300CC6075 /* ClassfyTableViewCell.m */; };
 		0DADDB8A1EADBF9300CC6075 /* ClassfyRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DADDB801EADBF9300CC6075 /* ClassfyRequest.m */; };
+		0DC165AA1EC3F5BC0083FF18 /* ERcodeSearchView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DC165A91EC3F5BC0083FF18 /* ERcodeSearchView.m */; };
+		0DC165AD1EC42ADC0083FF18 /* YXGFindBuyChildVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DC165AC1EC42ADC0083FF18 /* YXGFindBuyChildVC.m */; };
+		0DC165B01EC42AF50083FF18 /* YXGFindVideoChildVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DC165AF1EC42AF50083FF18 /* YXGFindVideoChildVC.m */; };
 		0DE177AD1EC0246D00CFB56D /* HomeNavTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DE177A61EC0246D00CFB56D /* HomeNavTabBar.m */; };
 		0DE177AE1EC0246D00CFB56D /* HomeAusleseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DE177A81EC0246D00CFB56D /* HomeAusleseCell.m */; };
 		0DE177AF1EC0246D00CFB56D /* homeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DE177AA1EC0246D00CFB56D /* homeTableViewCell.m */; };
@@ -224,6 +227,12 @@
 		0DADDB7D1EADBF9300CC6075 /* ClassfyTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClassfyTableViewCell.m; sourceTree = "<group>"; };
 		0DADDB7F1EADBF9300CC6075 /* ClassfyRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClassfyRequest.h; sourceTree = "<group>"; };
 		0DADDB801EADBF9300CC6075 /* ClassfyRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClassfyRequest.m; sourceTree = "<group>"; };
+		0DC165A81EC3F5BC0083FF18 /* ERcodeSearchView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ERcodeSearchView.h; sourceTree = "<group>"; };
+		0DC165A91EC3F5BC0083FF18 /* ERcodeSearchView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ERcodeSearchView.m; sourceTree = "<group>"; };
+		0DC165AB1EC42ADC0083FF18 /* YXGFindBuyChildVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YXGFindBuyChildVC.h; sourceTree = "<group>"; };
+		0DC165AC1EC42ADC0083FF18 /* YXGFindBuyChildVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YXGFindBuyChildVC.m; sourceTree = "<group>"; };
+		0DC165AE1EC42AF50083FF18 /* YXGFindVideoChildVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YXGFindVideoChildVC.h; sourceTree = "<group>"; };
+		0DC165AF1EC42AF50083FF18 /* YXGFindVideoChildVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YXGFindVideoChildVC.m; sourceTree = "<group>"; };
 		0DE177A51EC0246D00CFB56D /* HomeNavTabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeNavTabBar.h; sourceTree = "<group>"; };
 		0DE177A61EC0246D00CFB56D /* HomeNavTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeNavTabBar.m; sourceTree = "<group>"; };
 		0DE177A71EC0246D00CFB56D /* HomeAusleseCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeAusleseCell.h; sourceTree = "<group>"; };
@@ -443,6 +452,7 @@
 		0D0FB2111E89EE7D00D00581 /* Class */ = {
 			isa = PBXGroup;
 			children = (
+				0DC165A71EC3F58D0083FF18 /* Public */,
 				0D0FB1E11E89EDEC00D00581 /* YXGAppDelegate.h */,
 				0D0FB1E21E89EDEC00D00581 /* YXGAppDelegate.m */,
 				0D0FB2301E89EE7D00D00581 /* Main */,
@@ -492,6 +502,7 @@
 		0D0FB2211E89EE7D00D00581 /* Find */ = {
 			isa = PBXGroup;
 			children = (
+				0DC165B11EC42F020083FF18 /* View */,
 				0D0FB2221E89EE7D00D00581 /* Control */,
 			);
 			path = Find;
@@ -502,6 +513,10 @@
 			children = (
 				0D0FB2231E89EE7D00D00581 /* YXGFindViewController.h */,
 				0D0FB2241E89EE7D00D00581 /* YXGFindViewController.m */,
+				0DC165AB1EC42ADC0083FF18 /* YXGFindBuyChildVC.h */,
+				0DC165AC1EC42ADC0083FF18 /* YXGFindBuyChildVC.m */,
+				0DC165AE1EC42AF50083FF18 /* YXGFindVideoChildVC.h */,
+				0DC165AF1EC42AF50083FF18 /* YXGFindVideoChildVC.m */,
 			);
 			path = Control;
 			sourceTree = "<group>";
@@ -688,6 +703,22 @@
 				0DFB52AE1EB07518002418F2 /* TreeMenuModel */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		0DC165A71EC3F58D0083FF18 /* Public */ = {
+			isa = PBXGroup;
+			children = (
+				0DC165A81EC3F5BC0083FF18 /* ERcodeSearchView.h */,
+				0DC165A91EC3F5BC0083FF18 /* ERcodeSearchView.m */,
+			);
+			path = Public;
+			sourceTree = "<group>";
+		};
+		0DC165B11EC42F020083FF18 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		0DE177A41EC0246D00CFB56D /* Home */ = {
@@ -1269,6 +1300,7 @@
 				0D61EB251EC1A44A00444353 /* RecommendSkuList.m in Sources */,
 				0D61EB271EC1A44A00444353 /* RecommendZhengdanActivity.m in Sources */,
 				0DE177B01EC0246D00CFB56D /* HomeTJMenuView.m in Sources */,
+				0DC165B01EC42AF50083FF18 /* YXGFindVideoChildVC.m in Sources */,
 				0DE177F91EC055D100CFB56D /* HomeHome.m in Sources */,
 				0D0FB2691E89EE7D00D00581 /* MainTabBarController.m in Sources */,
 				0DFB52A21EB06A8A002418F2 /* ThemeManager.m in Sources */,
@@ -1288,6 +1320,7 @@
 				0DE177CD1EC0247E00CFB56D /* ItemList.m in Sources */,
 				0DFB52B91EB07518002418F2 /* ClassfyCategoryTreeMenuList.m in Sources */,
 				0DA54E1F1EBC1EF900A814CB /* MainChildCategoryViewList.m in Sources */,
+				0DC165AD1EC42ADC0083FF18 /* YXGFindBuyChildVC.m in Sources */,
 				0D00F3601E9F68D10021D07D /* MainRequest.m in Sources */,
 				0DE177AD1EC0246D00CFB56D /* HomeNavTabBar.m in Sources */,
 				0DF9D3211EB9B23A00592A4E /* HeaderCRView.m in Sources */,
@@ -1296,6 +1329,7 @@
 				0DFB529F1EB06A8A002418F2 /* UIView+Addition.m in Sources */,
 				0D0FB2671E89EE7D00D00581 /* YXGHomeViewController.m in Sources */,
 				0DFB52AB1EB06A8A002418F2 /* CycleBannerCell.m in Sources */,
+				0DC165AA1EC3F5BC0083FF18 /* ERcodeSearchView.m in Sources */,
 				0DF9D31C1EB9A85000592A4E /* ForYouCommonCategoryList.m in Sources */,
 				0D61EB241EC1A44A00444353 /* RecommendSkuGoodsPropertyList.m in Sources */,
 				0DE177C91EC0247E00CFB56D /* BannerList.m in Sources */,

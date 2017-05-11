@@ -220,17 +220,22 @@
     [self.request yxg_sendRequestWithCompletion:^(id response, BOOL success, NSString *message) {
         if (success) {
             [self.tableView.mj_header endRefreshing];
-            //主数据
-            if (block_self.data_type == 1) {
-                [block_self handleModelHomeServiceDataTypeMain:response];
-            }
-            //今日精选
-            else if (block_self.data_type == 2){
-                [block_self handleModelHomeServiceDataTypeAuslese:response];
-            }
-            //个性推荐
-            else{
-                [block_self handleModelHomeServiceDataTypeRecommend:response];
+            
+            switch (block_self.data_type) {
+                case HomeServiceDataTypeMain:
+                    //主数据
+                    [block_self handleModelHomeServiceDataTypeMain:response];
+                    break;
+                case HomeServiceDataTypeAuslese:
+                    //今日精选
+                    [block_self handleModelHomeServiceDataTypeAuslese:response];
+                    break;
+                case HomeServiceDataTypeRecommend:
+                    //个性推荐
+                    [block_self handleModelHomeServiceDataTypeRecommend:response];
+                    break;
+                default:
+                    break;
             }
         }
     }];
@@ -249,6 +254,7 @@
     self.AusleseCellFrames = [dic objectForKey:@"AusleseCellFrame"];
     self.ausleseSectionTitle = [dic objectForKey:@"title"];
     
+    //section刷新
     NSIndexSet *indexSet=[[NSIndexSet alloc]initWithIndex:1];
     [self.tableView reloadSections:indexSet withRowAnimation:UITableViewRowAnimationAutomatic];
     

@@ -9,9 +9,38 @@
 #import "BaseViewController.h"
 
 @interface BaseViewController ()
+
+
 @end
 
 @implementation BaseViewController
+
+-(ERcodeSearchView *)ERcodeSearchView{
+    if (!_ERcodeSearchView) {
+        _ERcodeSearchView = [[ERcodeSearchView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 44)];
+        WeakSelf(weakSelf);
+        self.ERcodeSearchView.SearchPushBlock = ^(UIViewController *Ctr) {
+            [weakSelf pushVc:Ctr userInfo:nil];
+        };
+        self.ERcodeSearchView.ERcodePresentBlock = ^(UIViewController *Ctr){
+            [weakSelf presentVc:Ctr];
+        };
+    }
+    return _ERcodeSearchView;
+}
+- (void)addERCodeSearchNavBar:(NavBarType)NavBarType ERcodeSearchType:(ERcodeSearchType)ERcodeSearchType{
+    switch (NavBarType) {
+        case NavBarSelfViewType:
+            [self.view addSubview:self.ERcodeSearchView];
+            break;
+        case NavBarViewType:
+            [self.navigationController.view addSubview:self.ERcodeSearchView];
+            break;
+        default:
+            break;
+    }
+    [self.ERcodeSearchView configureViewWithType:ERcodeSearchType];
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -134,6 +163,12 @@
     }
 }
 
+-(void)showLoadingAnimation{
+
+}
+-(void)hideLoadingAnimation{
+
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
