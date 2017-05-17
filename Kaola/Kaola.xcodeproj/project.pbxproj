@@ -1132,6 +1132,7 @@
 					0D0FB1DA1E89EDEC00D00581 = {
 						CreatedOnToolsVersion = 7.3;
 						DevelopmentTeam = ZD8NCKVX95;
+						ProvisioningStyle = Automatic;
 					};
 					0D0FB1F31E89EDEC00D00581 = {
 						CreatedOnToolsVersion = 7.3;
