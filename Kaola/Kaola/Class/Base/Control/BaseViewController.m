@@ -19,10 +19,10 @@
     if (!_ERcodeSearchView) {
         _ERcodeSearchView = [[ERcodeSearchView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 44)];
         WeakSelf(weakSelf);
-        self.ERcodeSearchView.SearchPushBlock = ^(UIViewController *Ctr) {
+        _ERcodeSearchView.SearchPushBlock = ^(UIViewController *Ctr) {
             [weakSelf pushVc:Ctr userInfo:nil];
         };
-        self.ERcodeSearchView.ERcodePresentBlock = ^(UIViewController *Ctr){
+        _ERcodeSearchView.ERcodePresentBlock = ^(UIViewController *Ctr){
             [weakSelf presentVc:Ctr];
         };
     }
