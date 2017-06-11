@@ -13,8 +13,12 @@
 + (NSArray *)navBarHandleModel:(KLNavBar *)baseModel{
     NSMutableArray *navBars = [NSMutableArray new];
     for (NSDictionary *dic in baseModel.body.topNavBar.navBarList) {
-        KLNavBarList *list = [KLNavBarList modelObjectWithDictionary:dic];
-        [navBars addObject:list.title];
+        KLNavBarList *list = (KLNavBarList *)[KLNavBarList modelObjectWithDictionary:dic];
+        if (list.title) {
+            [navBars addObject:list.title];
+
+        }
+
     }
     [navBars removeObjectAtIndex:0];
     return navBars;
