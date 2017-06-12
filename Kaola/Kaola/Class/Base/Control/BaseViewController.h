@@ -38,6 +38,8 @@ typedef NS_ENUM(NSUInteger, NavBarType) {
 
 - (void)pushVc:(UIViewController *)vc userInfo:(NSDictionary *)userInfo;
 
+- (void)pushToVC:(UIViewController *)vc;
+
 - (void)removeChildVc:(UIViewController *)childVc;
 
 - (void)addChildVc:(UIViewController *)childVc;

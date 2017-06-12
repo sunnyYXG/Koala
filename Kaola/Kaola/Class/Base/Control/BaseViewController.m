@@ -20,7 +20,7 @@
         _ERcodeSearchView = [[ERcodeSearchView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 44)];
         WeakSelf(weakSelf);
         _ERcodeSearchView.SearchPushBlock = ^(UIViewController *Ctr) {
-            [weakSelf pushVc:Ctr userInfo:nil];
+            [weakSelf pushToVC:Ctr];
         };
         _ERcodeSearchView.ERcodePresentBlock = ^(UIViewController *Ctr){
             [weakSelf presentVc:Ctr];
@@ -89,6 +89,7 @@
     [self presentViewController:vc animated:YES completion:completion];
 }
 
+
 - (void)pushVc:(UIViewController *)vc userInfo:(NSDictionary *)userInfo{
     if ([vc isKindOfClass:[UIViewController class]] == NO) return ;
     if (self.navigationController == nil) return ;
@@ -97,6 +98,10 @@
     }
     BaseViewController *ctr = (BaseViewController *)vc;
     ctr.userInfo = userInfo;
+    [self.navigationController pushViewController:vc animated:YES];
+}
+
+- (void)pushToVC:(UIViewController *)vc{
     [self.navigationController pushViewController:vc animated:YES];
 }
 
